@@ -1,5 +1,5 @@
 .vscode/*
-/crisPy2/__pycache__/
+/crisPy/__pycache__/
 /examples/
 /old_notebooks/
 /*.egg-info
