@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Data Structures &#8212; crisPy2 1.0.0 documentation</title>
+    <title>Data Structures &#8212; crispy2 1.0.0 documentation</title>
     <link rel="stylesheet" href="_static/greenblue.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/jupyter-sphinx.css" />
@@ -44,7 +44,7 @@
         <li class="right" >
           <a href="API.html" title="API"
              accesskey="P">previous</a> &nbsp; &nbsp;</li>
-      <li><a href="index.html">crisPy2 1.0.0 documentation</a> &#187;</li>
+      <li><a href="index.html">crispy2 1.0.0 documentation</a> &#187;</li>
 
           <li class="nav-item nav-item-1"><a href="API.html" accesskey="U">API</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Data Structures</a></li> 
@@ -65,13 +65,13 @@
 <h2>Narrowband Data<a class="headerlink" href="#narrowband-data" title="Permalink to this headline">¶</a></h2>
 <p>The first type is the generic data object that can be used for a CRISP observation in a single spectral line. A filename or ObjDict can be passed to this class to initialise it.</p>
 <dl class="py class">
-<dt id="crisPy.crisp.CRISP">
-<em class="property">class </em><code class="sig-prename descclassname">crisPy.crisp.</code><code class="sig-name descname">CRISP</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">filename</span></em>, <em class="sig-param"><span class="n">wcs</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">uncertainty</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">mask</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">nonu</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crisPy2/blob/master/crisPy/crisp.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crisPy.crisp.CRISP" title="Permalink to this definition">¶</a></dt>
+<dt id="crispy.crisp.CRISP">
+<em class="property">class </em><code class="sig-prename descclassname">crispy.crisp.</code><code class="sig-name descname">CRISP</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">filename</span></em>, <em class="sig-param"><span class="n">wcs</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">uncertainty</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">mask</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">nonu</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crispy2/blob/master/crispy/crisp.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crispy.crisp.CRISP" title="Permalink to this definition">¶</a></dt>
 <dd><p>Class for a single narrowband CRISP observation. This object is intended to be for narrowband observations of a single spectral line. This can be sliced directly by virtue of inheriting from <cite>astropy</cite>’s <a class="reference external" href="https://docs.astropy.org/en/stable/nddata/">N-dimensional data slicing</a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>filename</strong> (<em>str</em><em> or </em><em>ObjDict</em>) – The file to be represented by the class. This can be in the form of a fits file or hdf5 file or an ObjDict object (see <code class="docutils literal notranslate"><span class="pre">crisPy2.utils</span></code> for more information on ObjDicts). For fits files, the imaging spectroscopy/spectropolarimetry is assumed to be in the PrimaryHDU of the fits file. For hdf5 it is assumed to have a hdf5 dataset called “data”.</p></li>
+<li><p><strong>filename</strong> (<em>str</em><em> or </em><em>ObjDict</em>) – The file to be represented by the class. This can be in the form of a fits file or hdf5 file or an ObjDict object (see <code class="docutils literal notranslate"><span class="pre">crispy2.utils</span></code> for more information on ObjDicts). For fits files, the imaging spectroscopy/spectropolarimetry is assumed to be in the PrimaryHDU of the fits file. For hdf5 it is assumed to have a hdf5 dataset called “data”.</p></li>
 <li><p><strong>wcs</strong> (<em>astropy.wcs.WCS</em><em> or </em><em>None</em><em>, </em><em>optional</em>) – Defines the World Coordinate System (WCS) of the observation. If None, the WCS is constructed from the header information in the file. If a WCS is provided then it will be used by the class instead.</p></li>
 <li><p><strong>uncertainty</strong> (<em>numpy.ndarray</em><em> or </em><em>None</em><em>, </em><em>optional</em>) – The uncertainty in the observable. Default is None.</p></li>
 <li><p><strong>mask</strong> (<em>numpy.ndarray</em><em> or </em><em>None</em><em>, </em><em>optional</em>) – The mask to be applied to the data. Default is None.</p></li>
@@ -94,8 +94,8 @@
 </dd>
 </dl>
 <dl class="py method">
-<dt id="crisPy.crisp.CRISP.rotate_crop">
-<code class="sig-name descname">rotate_crop</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crisPy2/blob/master/crisPy/crisp.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crisPy.crisp.CRISP.rotate_crop" title="Permalink to this definition">¶</a></dt>
+<dt id="crispy.crisp.CRISP.rotate_crop">
+<code class="sig-name descname">rotate_crop</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crispy2/blob/master/crispy/crisp.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crispy.crisp.CRISP.rotate_crop" title="Permalink to this definition">¶</a></dt>
 <dd><p>For an image containing the data as a rotated subframe this method
 returns the data after rotation and cropping in addition to the
 metadata required to reconstruct the full frame (excluding a small
@@ -115,8 +115,8 @@ crop).</p></li>
 </dd></dl>
 
 <dl class="py method">
-<dt id="crisPy.crisp.CRISP.plot_spectrum">
-<code class="sig-name descname">plot_spectrum</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">unit</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">air</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">d</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crisPy2/blob/master/crisPy/crisp.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crisPy.crisp.CRISP.plot_spectrum" title="Permalink to this definition">¶</a></dt>
+<dt id="crispy.crisp.CRISP.plot_spectrum">
+<code class="sig-name descname">plot_spectrum</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">unit</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">air</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">d</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crispy2/blob/master/crispy/crisp.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crispy.crisp.CRISP.plot_spectrum" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plots the intensity spectrum for a specified coordinate by slicing.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -130,8 +130,8 @@ crop).</p></li>
 </dd></dl>
 
 <dl class="py method">
-<dt id="crisPy.crisp.CRISP.plot_stokes">
-<code class="sig-name descname">plot_stokes</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">stokes</span></em>, <em class="sig-param"><span class="n">unit</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">air</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">d</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crisPy2/blob/master/crisPy/crisp.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crisPy.crisp.CRISP.plot_stokes" title="Permalink to this definition">¶</a></dt>
+<dt id="crispy.crisp.CRISP.plot_stokes">
+<code class="sig-name descname">plot_stokes</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">stokes</span></em>, <em class="sig-param"><span class="n">unit</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">air</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">d</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crispy2/blob/master/crispy/crisp.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crispy.crisp.CRISP.plot_stokes" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plots the Stokes profiles for a given slice of the data.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -146,8 +146,8 @@ crop).</p></li>
 </dd></dl>
 
 <dl class="py method">
-<dt id="crisPy.crisp.CRISP.intensity_map">
-<code class="sig-name descname">intensity_map</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">frame</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">norm</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crisPy2/blob/master/crisPy/crisp.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crisPy.crisp.CRISP.intensity_map" title="Permalink to this definition">¶</a></dt>
+<dt id="crispy.crisp.CRISP.intensity_map">
+<code class="sig-name descname">intensity_map</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">frame</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">norm</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crispy2/blob/master/crispy/crisp.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crispy.crisp.CRISP.intensity_map" title="Permalink to this definition">¶</a></dt>
 <dd><p>This plots the image for a certain wavelength depending on a specific slice.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -160,8 +160,8 @@ crop).</p></li>
 </dd></dl>
 
 <dl class="py method">
-<dt id="crisPy.crisp.CRISP.stokes_map">
-<code class="sig-name descname">stokes_map</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">stokes</span></em>, <em class="sig-param"><span class="n">frame</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crisPy2/blob/master/crisPy/crisp.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crisPy.crisp.CRISP.stokes_map" title="Permalink to this definition">¶</a></dt>
+<dt id="crispy.crisp.CRISP.stokes_map">
+<code class="sig-name descname">stokes_map</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">stokes</span></em>, <em class="sig-param"><span class="n">frame</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crispy2/blob/master/crispy/crisp.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crispy.crisp.CRISP.stokes_map" title="Permalink to this definition">¶</a></dt>
 <dd><p>This plots the Stokes images for certain wavelength.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -174,8 +174,8 @@ crop).</p></li>
 </dd></dl>
 
 <dl class="py method">
-<dt id="crisPy.crisp.CRISP.wave">
-<code class="sig-name descname">wave</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">idx</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crisPy2/blob/master/crisPy/crisp.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crisPy.crisp.CRISP.wave" title="Permalink to this definition">¶</a></dt>
+<dt id="crispy.crisp.CRISP.wave">
+<code class="sig-name descname">wave</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">idx</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crispy2/blob/master/crispy/crisp.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crispy.crisp.CRISP.wave" title="Permalink to this definition">¶</a></dt>
 <dd><p>This function will take an index number or range and return the wavelength in Angstroms.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -185,8 +185,8 @@ crop).</p></li>
 </dd></dl>
 
 <dl class="py method">
-<dt id="crisPy.crisp.CRISP.to_lonlat">
-<code class="sig-name descname">to_lonlat</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">y</span></em>, <em class="sig-param"><span class="n">x</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crisPy2/blob/master/crisPy/crisp.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crisPy.crisp.CRISP.to_lonlat" title="Permalink to this definition">¶</a></dt>
+<dt id="crispy.crisp.CRISP.to_lonlat">
+<code class="sig-name descname">to_lonlat</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">y</span></em>, <em class="sig-param"><span class="n">x</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crispy2/blob/master/crispy/crisp.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crispy.crisp.CRISP.to_lonlat" title="Permalink to this definition">¶</a></dt>
 <dd><p>This function will take a y, x coordinate in pixel space and map it to Helioprojective Longitude, Helioprojective Latitude according to the transform in the WCS. This will return the Helioprojective coordinates in units of arcseconds. Note this function takes arguments in the order of numpy indexing (y,x) but returns a pair longitude/latitude which is Solar-X, Solar-Y.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -199,8 +199,8 @@ crop).</p></li>
 </dd></dl>
 
 <dl class="py method">
-<dt id="crisPy.crisp.CRISP.from_lonlat">
-<code class="sig-name descname">from_lonlat</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">lon</span></em>, <em class="sig-param"><span class="n">lat</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crisPy2/blob/master/crisPy/crisp.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crisPy.crisp.CRISP.from_lonlat" title="Permalink to this definition">¶</a></dt>
+<dt id="crispy.crisp.CRISP.from_lonlat">
+<code class="sig-name descname">from_lonlat</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">lon</span></em>, <em class="sig-param"><span class="n">lat</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crispy2/blob/master/crispy/crisp.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crispy.crisp.CRISP.from_lonlat" title="Permalink to this definition">¶</a></dt>
 <dd><p>This function takes a Helioprojective Longitude, Helioprojective Latitude pair and converts them to the y, x indices to index the object correctly. The function takes its arguments in the order Helioprojective Longitude, Helioprojective Latitude but returns the indices in the (y,x) format so that the output of this function can be used to directly index the object.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -216,20 +216,20 @@ crop).</p></li>
 
 <p>Often, CRISP observations are taken in more than one spectral line. As such, the <code class="docutils literal notranslate"><span class="pre">CRISPSequence</span></code> class can be used to combine multiple spectral line observations. This is just a container which creates a list of <code class="docutils literal notranslate"><span class="pre">CRISP</span></code> objects which can be accessed individually or as a group (under the assumption that they all share the same world coordinate system).</p>
 <dl class="py class">
-<dt id="crisPy.crisp.CRISPSequence">
-<em class="property">class </em><code class="sig-prename descclassname">crisPy.crisp.</code><code class="sig-name descname">CRISPSequence</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">files</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crisPy2/blob/master/crisPy/crisp.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crisPy.crisp.CRISPSequence" title="Permalink to this definition">¶</a></dt>
+<dt id="crispy.crisp.CRISPSequence">
+<em class="property">class </em><code class="sig-prename descclassname">crispy.crisp.</code><code class="sig-name descname">CRISPSequence</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">files</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crispy2/blob/master/crispy/crisp.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crispy.crisp.CRISPSequence" title="Permalink to this definition">¶</a></dt>
 <dd><p>Class for multiple narrowband CRISP observations.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>files</strong> (<em>list</em><em>[</em><em>dict</em><em>]</em>) – A list of dictionaries containing the parameters for individual <code class="docutils literal notranslate"><span class="pre">CRISP</span></code> instances. The function <code class="docutils literal notranslate"><span class="pre">crisPy2.utils.CRISP_sequence_generator</span></code> can be used to generate this list.</p>
+<dd class="field-odd"><p><strong>files</strong> (<em>list</em><em>[</em><em>dict</em><em>]</em>) – A list of dictionaries containing the parameters for individual <code class="docutils literal notranslate"><span class="pre">CRISP</span></code> instances. The function <code class="docutils literal notranslate"><span class="pre">crispy2.utils.CRISP_sequence_generator</span></code> can be used to generate this list.</p>
 </dd>
 <dt class="field-even">Variables</dt>
 <dd class="field-even"><p><strong>list</strong> – A list of <code class="docutils literal notranslate"><span class="pre">CRISP</span></code> instances.</p>
 </dd>
 </dl>
 <dl class="py method">
-<dt id="crisPy.crisp.CRISPSequence.plot_spectrum">
-<code class="sig-name descname">plot_spectrum</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">idx</span></em>, <em class="sig-param"><span class="n">unit</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">air</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">d</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crisPy2/blob/master/crisPy/crisp.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crisPy.crisp.CRISPSequence.plot_spectrum" title="Permalink to this definition">¶</a></dt>
+<dt id="crispy.crisp.CRISPSequence.plot_spectrum">
+<code class="sig-name descname">plot_spectrum</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">idx</span></em>, <em class="sig-param"><span class="n">unit</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">air</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">d</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crispy2/blob/master/crispy/crisp.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crispy.crisp.CRISPSequence.plot_spectrum" title="Permalink to this definition">¶</a></dt>
 <dd><p>Function for plotting the intensity spectrum for a given slice. Can be done either for all of the instances or for a single instance.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -244,8 +244,8 @@ crop).</p></li>
 </dd></dl>
 
 <dl class="py method">
-<dt id="crisPy.crisp.CRISPSequence.plot_stokes">
-<code class="sig-name descname">plot_stokes</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">idx</span></em>, <em class="sig-param"><span class="n">stokes</span></em>, <em class="sig-param"><span class="n">unit</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">air</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">d</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crisPy2/blob/master/crisPy/crisp.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crisPy.crisp.CRISPSequence.plot_stokes" title="Permalink to this definition">¶</a></dt>
+<dt id="crispy.crisp.CRISPSequence.plot_stokes">
+<code class="sig-name descname">plot_stokes</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">idx</span></em>, <em class="sig-param"><span class="n">stokes</span></em>, <em class="sig-param"><span class="n">unit</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">air</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">d</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crispy2/blob/master/crispy/crisp.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crispy.crisp.CRISPSequence.plot_stokes" title="Permalink to this definition">¶</a></dt>
 <dd><p>Function for plotting the Stokes profiles for a given slice. Can be done either for all of the instances or for a single instance.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -261,8 +261,8 @@ crop).</p></li>
 </dd></dl>
 
 <dl class="py method">
-<dt id="crisPy.crisp.CRISPSequence.intensity_map">
-<code class="sig-name descname">intensity_map</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">idx</span></em>, <em class="sig-param"><span class="n">frame</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">norm</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crisPy2/blob/master/crisPy/crisp.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crisPy.crisp.CRISPSequence.intensity_map" title="Permalink to this definition">¶</a></dt>
+<dt id="crispy.crisp.CRISPSequence.intensity_map">
+<code class="sig-name descname">intensity_map</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">idx</span></em>, <em class="sig-param"><span class="n">frame</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">norm</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crispy2/blob/master/crispy/crisp.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crispy.crisp.CRISPSequence.intensity_map" title="Permalink to this definition">¶</a></dt>
 <dd><p>Function for plotting the intensity image for a given wavelength. Can be done either for all of the instances or for a single instance.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -276,8 +276,8 @@ crop).</p></li>
 </dd></dl>
 
 <dl class="py method">
-<dt id="crisPy.crisp.CRISPSequence.stokes_map">
-<code class="sig-name descname">stokes_map</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">idx</span></em>, <em class="sig-param"><span class="n">stokes</span></em>, <em class="sig-param"><span class="n">frame</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crisPy2/blob/master/crisPy/crisp.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crisPy.crisp.CRISPSequence.stokes_map" title="Permalink to this definition">¶</a></dt>
+<dt id="crispy.crisp.CRISPSequence.stokes_map">
+<code class="sig-name descname">stokes_map</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">idx</span></em>, <em class="sig-param"><span class="n">stokes</span></em>, <em class="sig-param"><span class="n">frame</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crispy2/blob/master/crispy/crisp.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crispy.crisp.CRISPSequence.stokes_map" title="Permalink to this definition">¶</a></dt>
 <dd><p>Function to plot the Stokes maps for a given wavelength. Can be done either for all of the instances or for a single instance.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -296,13 +296,13 @@ crop).</p></li>
 <p><code class="docutils literal notranslate"><span class="pre">CRISPNonU</span></code> works identically to the <code class="docutils literal notranslate"><span class="pre">CRISP</span></code> class in terms of class methods and interface with other parts of this package.</p>
 <p>Similarly to <code class="docutils literal notranslate"><span class="pre">CRISPSequence</span></code>, there is a <code class="docutils literal notranslate"><span class="pre">CRISPNonUSequence</span></code> class which again works identically but has the subtle difference of the wavelengths not being taken from the world coordinate system.</p>
 <dl class="py class">
-<dt id="crisPy.crisp.CRISPNonU">
-<em class="property">class </em><code class="sig-prename descclassname">crisPy.crisp.</code><code class="sig-name descname">CRISPNonU</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">filename</span></em>, <em class="sig-param"><span class="n">wcs</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">uncertainty</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">mask</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">nonu</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crisPy2/blob/master/crisPy/crisp.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crisPy.crisp.CRISPNonU" title="Permalink to this definition">¶</a></dt>
+<dt id="crispy.crisp.CRISPNonU">
+<em class="property">class </em><code class="sig-prename descclassname">crispy.crisp.</code><code class="sig-name descname">CRISPNonU</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">filename</span></em>, <em class="sig-param"><span class="n">wcs</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">uncertainty</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">mask</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">nonu</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crispy2/blob/master/crispy/crisp.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crispy.crisp.CRISPNonU" title="Permalink to this definition">¶</a></dt>
 <dd><p>This is a class for narrowband CRISP observations whose wavelength axis is sampled non-uniformly. What this means is that each pair of sampled wavelengths is not necessarily separated by the same <span class="math notranslate nohighlight">\(\Delta \lambda\)</span> and thus the <code class="docutils literal notranslate"><span class="pre">CDELT3</span></code> fits keyword becomes meaningless as this can only comprehend constant changes in the third axis. This also means that the WCS does not work for the wavelength axis but is still constructed as it holds true in the y,x spatial plane. This class assumes that if the sampling is non-uniform then the true wavelengths that are sampled are stored in the first non-PrimaryHDU in the fits file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>filename</strong> (<em>str</em><em> or </em><em>ObjDict</em>) – The file to be represented by the class. This can be in the form of a fits file or hdf5 file or an ObjDict object (see <code class="docutils literal notranslate"><span class="pre">crisPy2.utils</span></code> for more information on ObjDicts). For fits files, the imaging spectroscopy/spectropolarimetry is assumed to be in the PrimaryHDU of the fits file. For hdf5 it is assumed to have a hdf5 dataset called “data”.</p></li>
+<li><p><strong>filename</strong> (<em>str</em><em> or </em><em>ObjDict</em>) – The file to be represented by the class. This can be in the form of a fits file or hdf5 file or an ObjDict object (see <code class="docutils literal notranslate"><span class="pre">crispy2.utils</span></code> for more information on ObjDicts). For fits files, the imaging spectroscopy/spectropolarimetry is assumed to be in the PrimaryHDU of the fits file. For hdf5 it is assumed to have a hdf5 dataset called “data”.</p></li>
 <li><p><strong>wcs</strong> (<em>astropy.wcs.WCS</em><em> or </em><em>None</em><em>, </em><em>optional</em>) – Defines the World Coordinate System (WCS) of the observation. If None, the WCS is constructed from the header information in the file. If a WCS is provided then it will be used by the class instead.</p></li>
 <li><p><strong>uncertainty</strong> (<em>numpy.ndarray</em><em> or </em><em>None</em><em>, </em><em>optional</em>) – The uncertainty in the observable. Default is None.</p></li>
 <li><p><strong>mask</strong> (<em>numpy.ndarray</em><em> or </em><em>None</em><em>, </em><em>optional</em>) – The mask to be applied to the data. Default is None.</p></li>
@@ -326,8 +326,8 @@ crop).</p></li>
 </dd>
 </dl>
 <dl class="py method">
-<dt id="crisPy.crisp.CRISPNonU.plot_spectrum">
-<code class="sig-name descname">plot_spectrum</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">unit</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">air</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">d</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crisPy2/blob/master/crisPy/crisp.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crisPy.crisp.CRISPNonU.plot_spectrum" title="Permalink to this definition">¶</a></dt>
+<dt id="crispy.crisp.CRISPNonU.plot_spectrum">
+<code class="sig-name descname">plot_spectrum</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">unit</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">air</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">d</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crispy2/blob/master/crispy/crisp.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crispy.crisp.CRISPNonU.plot_spectrum" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plots the intensity spectrum for a specified coordinate by slicing.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -341,8 +341,8 @@ crop).</p></li>
 </dd></dl>
 
 <dl class="py method">
-<dt id="crisPy.crisp.CRISPNonU.plot_stokes">
-<code class="sig-name descname">plot_stokes</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">stokes</span></em>, <em class="sig-param"><span class="n">unit</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">air</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">d</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crisPy2/blob/master/crisPy/crisp.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crisPy.crisp.CRISPNonU.plot_stokes" title="Permalink to this definition">¶</a></dt>
+<dt id="crispy.crisp.CRISPNonU.plot_stokes">
+<code class="sig-name descname">plot_stokes</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">stokes</span></em>, <em class="sig-param"><span class="n">unit</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">air</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">d</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crispy2/blob/master/crispy/crisp.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crispy.crisp.CRISPNonU.plot_stokes" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plots the Stokes profiles for a given slice of the data.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -357,8 +357,8 @@ crop).</p></li>
 </dd></dl>
 
 <dl class="py method">
-<dt id="crisPy.crisp.CRISPNonU.intensity_map">
-<code class="sig-name descname">intensity_map</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">frame</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">norm</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crisPy2/blob/master/crisPy/crisp.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crisPy.crisp.CRISPNonU.intensity_map" title="Permalink to this definition">¶</a></dt>
+<dt id="crispy.crisp.CRISPNonU.intensity_map">
+<code class="sig-name descname">intensity_map</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">frame</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">norm</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crispy2/blob/master/crispy/crisp.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crispy.crisp.CRISPNonU.intensity_map" title="Permalink to this definition">¶</a></dt>
 <dd><p>This plots the image for a certain wavelength depending on a specific slice.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -371,8 +371,8 @@ crop).</p></li>
 </dd></dl>
 
 <dl class="py method">
-<dt id="crisPy.crisp.CRISPNonU.stokes_map">
-<code class="sig-name descname">stokes_map</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">stokes</span></em>, <em class="sig-param"><span class="n">frame</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crisPy2/blob/master/crisPy/crisp.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crisPy.crisp.CRISPNonU.stokes_map" title="Permalink to this definition">¶</a></dt>
+<dt id="crispy.crisp.CRISPNonU.stokes_map">
+<code class="sig-name descname">stokes_map</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">stokes</span></em>, <em class="sig-param"><span class="n">frame</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crispy2/blob/master/crispy/crisp.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crispy.crisp.CRISPNonU.stokes_map" title="Permalink to this definition">¶</a></dt>
 <dd><p>This plots the Stokes images for certain wavelength.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -385,8 +385,8 @@ crop).</p></li>
 </dd></dl>
 
 <dl class="py method">
-<dt id="crisPy.crisp.CRISPNonU.wave">
-<code class="sig-name descname">wave</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">idx</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crisPy2/blob/master/crisPy/crisp.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crisPy.crisp.CRISPNonU.wave" title="Permalink to this definition">¶</a></dt>
+<dt id="crispy.crisp.CRISPNonU.wave">
+<code class="sig-name descname">wave</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">idx</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crispy2/blob/master/crispy/crisp.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crispy.crisp.CRISPNonU.wave" title="Permalink to this definition">¶</a></dt>
 <dd><p>Class method for returning the wavelength sampled at a given index.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -398,12 +398,12 @@ crop).</p></li>
 </dd></dl>
 
 <dl class="py class">
-<dt id="crisPy.crisp.CRISPNonUSequence">
-<em class="property">class </em><code class="sig-prename descclassname">crisPy.crisp.</code><code class="sig-name descname">CRISPNonUSequence</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">files</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crisPy2/blob/master/crisPy/crisp.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crisPy.crisp.CRISPNonUSequence" title="Permalink to this definition">¶</a></dt>
+<dt id="crispy.crisp.CRISPNonUSequence">
+<em class="property">class </em><code class="sig-prename descclassname">crispy.crisp.</code><code class="sig-name descname">CRISPNonUSequence</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">files</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crispy2/blob/master/crispy/crisp.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crispy.crisp.CRISPNonUSequence" title="Permalink to this definition">¶</a></dt>
 <dd><p>This is a class for a sequence of <code class="docutils literal notranslate"><span class="pre">CRISPNonU</span></code> objects and operates identically to <code class="docutils literal notranslate"><span class="pre">CRISPSequence</span></code>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>files</strong> (<em>list</em><em>[</em><em>dict</em><em>]</em>) – A list of dictionaries containing the parameters for individual <code class="docutils literal notranslate"><span class="pre">CRISPNonU</span></code> instances. The function <code class="docutils literal notranslate"><span class="pre">crisPy2.utils.CRISP_sequence_generator</span></code> can be used to generate this list.</p>
+<dd class="field-odd"><p><strong>files</strong> (<em>list</em><em>[</em><em>dict</em><em>]</em>) – A list of dictionaries containing the parameters for individual <code class="docutils literal notranslate"><span class="pre">CRISPNonU</span></code> instances. The function <code class="docutils literal notranslate"><span class="pre">crispy2.utils.CRISP_sequence_generator</span></code> can be used to generate this list.</p>
 </dd>
 <dt class="field-even">Variables</dt>
 <dd class="field-even"><p><strong>list</strong> – A list of <code class="docutils literal notranslate"><span class="pre">CRISPNonU</span></code> instances.</p>
@@ -416,13 +416,13 @@ crop).</p></li>
 <h2>Broadband Data<a class="headerlink" href="#broadband-data" title="Permalink to this headline">¶</a></h2>
 <p>As well as narrowband observations, CRISP also images using a broadband filter for continuum images to be used as context images. The <code class="docutils literal notranslate"><span class="pre">CRISPWideband</span></code> class can be used as a container for such images with <code class="docutils literal notranslate"><span class="pre">CRISPWidebandSequence</span></code> being available for a time series of these images.</p>
 <dl class="py class">
-<dt id="crisPy.crisp.CRISPWideband">
-<em class="property">class </em><code class="sig-prename descclassname">crisPy.crisp.</code><code class="sig-name descname">CRISPWideband</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">filename</span></em>, <em class="sig-param"><span class="n">wcs</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">uncertainty</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">mask</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">nonu</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crisPy2/blob/master/crisPy/crisp.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crisPy.crisp.CRISPWideband" title="Permalink to this definition">¶</a></dt>
+<dt id="crispy.crisp.CRISPWideband">
+<em class="property">class </em><code class="sig-prename descclassname">crispy.crisp.</code><code class="sig-name descname">CRISPWideband</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">filename</span></em>, <em class="sig-param"><span class="n">wcs</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">uncertainty</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">mask</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">nonu</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crispy2/blob/master/crispy/crisp.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crispy.crisp.CRISPWideband" title="Permalink to this definition">¶</a></dt>
 <dd><p>Class for wideband or single wavelength CRISP images. This class expects the data to be two-dimensional.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>filename</strong> (<em>str</em><em> or </em><em>ObjDict</em>) – The file to be represented by the class. This can be in the form of a fits file or hdf5 file or an ObjDict object (see <code class="docutils literal notranslate"><span class="pre">crisPy2.utils</span></code> for more information on ObjDicts). For fits files, the imaging spectroscopy/spectropolarimetry is assumed to be in the PrimaryHDU of the fits file. For hdf5 it is assumed to have a hdf5 dataset called “data”.</p></li>
+<li><p><strong>filename</strong> (<em>str</em><em> or </em><em>ObjDict</em>) – The file to be represented by the class. This can be in the form of a fits file or hdf5 file or an ObjDict object (see <code class="docutils literal notranslate"><span class="pre">crispy2.utils</span></code> for more information on ObjDicts). For fits files, the imaging spectroscopy/spectropolarimetry is assumed to be in the PrimaryHDU of the fits file. For hdf5 it is assumed to have a hdf5 dataset called “data”.</p></li>
 <li><p><strong>wcs</strong> (<em>astropy.wcs.WCS</em><em> or </em><em>None</em><em>, </em><em>optional</em>) – Defines the World Coordinate System (WCS) of the observation. If None, the WCS is constructed from the header information in the file. If a WCS is provided then it will be used by the class instead.</p></li>
 <li><p><strong>uncertainty</strong> (<em>numpy.ndarray</em><em> or </em><em>None</em><em>, </em><em>optional</em>) – The uncertainty in the observable. Default is None.</p></li>
 <li><p><strong>mask</strong> (<em>numpy.ndarray</em><em> or </em><em>None</em><em>, </em><em>optional</em>) – The mask to be applied to the data. Default is None.</p></li>
@@ -445,9 +445,9 @@ crop).</p></li>
 </dd>
 </dl>
 <dl class="py method">
-<dt id="crisPy.crisp.CRISPWideband.intensity_map">
-<code class="sig-name descname">intensity_map</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">frame</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">norm</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crisPy2/blob/master/crisPy/crisp.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crisPy.crisp.CRISPWideband.intensity_map" title="Permalink to this definition">¶</a></dt>
-<dd><p>This function plots the image in the same manner as the <code class="docutils literal notranslate"><span class="pre">crisPy2.crisp.CRISP.intensity_map</span></code> method.</p>
+<dt id="crispy.crisp.CRISPWideband.intensity_map">
+<code class="sig-name descname">intensity_map</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">frame</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">norm</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crispy2/blob/master/crispy/crisp.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crispy.crisp.CRISPWideband.intensity_map" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function plots the image in the same manner as the <code class="docutils literal notranslate"><span class="pre">crispy2.crisp.CRISP.intensity_map</span></code> method.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -461,12 +461,12 @@ crop).</p></li>
 </dd></dl>
 
 <dl class="py class">
-<dt id="crisPy.crisp.CRISPWidebandSequence">
-<em class="property">class </em><code class="sig-prename descclassname">crisPy.crisp.</code><code class="sig-name descname">CRISPWidebandSequence</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">files</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crisPy2/blob/master/crisPy/crisp.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crisPy.crisp.CRISPWidebandSequence" title="Permalink to this definition">¶</a></dt>
+<dt id="crispy.crisp.CRISPWidebandSequence">
+<em class="property">class </em><code class="sig-prename descclassname">crispy.crisp.</code><code class="sig-name descname">CRISPWidebandSequence</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">files</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crispy2/blob/master/crispy/crisp.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crispy.crisp.CRISPWidebandSequence" title="Permalink to this definition">¶</a></dt>
 <dd><p>This class is for having a sequence of wideband or single wavelength images (preferrably chronologically but no limit is placed on this so y’know be careful).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>files</strong> (<em>list</em><em>[</em><em>dict</em><em>]</em>) – A list of dictionaries containing the parameters for individual <code class="docutils literal notranslate"><span class="pre">CRISPWideband</span></code> instances. The function <code class="docutils literal notranslate"><span class="pre">crisPy2.utils.CRISP_sequence_generator</span></code> can be used to generate this list.</p>
+<dd class="field-odd"><p><strong>files</strong> (<em>list</em><em>[</em><em>dict</em><em>]</em>) – A list of dictionaries containing the parameters for individual <code class="docutils literal notranslate"><span class="pre">CRISPWideband</span></code> instances. The function <code class="docutils literal notranslate"><span class="pre">crispy2.utils.CRISP_sequence_generator</span></code> can be used to generate this list.</p>
 </dd>
 <dt class="field-even">Variables</dt>
 <dd class="field-even"><p><strong>list</strong> – A list of <code class="docutils literal notranslate"><span class="pre">CRISP</span></code> instances.</p>
@@ -531,7 +531,7 @@ crop).</p></li>
         <li class="right" >
           <a href="API.html" title="API"
              >previous</a> &nbsp; &nbsp;</li>
-      <li><a href="index.html">crisPy2 1.0.0 documentation</a> &#187;</li>
+      <li><a href="index.html">crispy2 1.0.0 documentation</a> &#187;</li>
 
           <li class="nav-item nav-item-1"><a href="API.html" >API</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Data Structures</a></li> 

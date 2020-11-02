@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Examples of the Sequence Classes &#8212; crisPy2 1.0.0 documentation</title>
+    <title>Examples of the Sequence Classes &#8212; crispy2 1.0.0 documentation</title>
     <link rel="stylesheet" href="_static/greenblue.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/jupyter-sphinx.css" />
@@ -26,8 +26,8 @@
     <script src="_static/p_sphinx_theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Example of Inversion Data in crisPy" href="inversionexample.html" />
-    <link rel="prev" title="Examples Using the Main Data Wrappers from crisPy" href="dataclasses.html" /> 
+    <link rel="next" title="Example of Inversion Data in crispy" href="inversionexample.html" />
+    <link rel="prev" title="Examples Using the Main Data Wrappers from crispy" href="dataclasses.html" /> 
             <meta name="viewport" content="width=device-width, initial-scale=1">
   </head><body>
       <div class="relbar-top">
@@ -39,14 +39,14 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="inversionexample.html" title="Example of Inversion Data in crisPy"
+          <a href="inversionexample.html" title="Example of Inversion Data in crispy"
              accesskey="N">next</a> &nbsp; &nbsp;</li>
         <li class="right" >
-          <a href="dataclasses.html" title="Examples Using the Main Data Wrappers from crisPy"
+          <a href="dataclasses.html" title="Examples Using the Main Data Wrappers from crispy"
              accesskey="P">previous</a> &nbsp; &nbsp;</li>
-      <li><a href="index.html">crisPy2 1.0.0 documentation</a> &#187;</li>
+      <li><a href="index.html">crispy2 1.0.0 documentation</a> &#187;</li>
 
-          <li class="nav-item nav-item-1"><a href="Examples.html" accesskey="U">Examples of crisPy in Use</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="Examples.html" accesskey="U">Examples of crispy in Use</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Examples of the Sequence Classes</a></li> 
       </ul>
     </div>
@@ -64,12 +64,12 @@
 <p>There are three sequence classes: <code class="docutils literal notranslate"><span class="pre">CRISPSequence</span></code>, <code class="docutils literal notranslate"><span class="pre">CRISPNonUSequence</span></code>, and <code class="docutils literal notranslate"><span class="pre">CRISPWidebandSequence</span></code> to be used depending on the observations you have. The motivation behind these structures is that you will often find there is more than one spectral line observation for a given time e.g. H <span class="math notranslate nohighlight">\(\alpha\)</span> and Ca II 8542, or we may want to group chronological observations together into one structure. Both can be accomplished using the sequences as shown below.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>To construct the sequence object, we need a list of the keyword arguments for the underlying data structures as the argument. To avoid confusion and messy code, we provide the <code class="docutils literal notranslate"><span class="pre">crisPy2.utils.CRISP_sequence_constructor</span></code> function to create this for the user.</p>
+<p>To construct the sequence object, we need a list of the keyword arguments for the underlying data structures as the argument. To avoid confusion and messy code, we provide the <code class="docutils literal notranslate"><span class="pre">crispy2.utils.CRISP_sequence_constructor</span></code> function to create this for the user.</p>
 </div>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">crisPy.crisp</span> <span class="kn">import</span> <span class="n">CRISPSequence</span><span class="p">,</span> <span class="n">CRISPNonUSequence</span><span class="p">,</span> <span class="n">CRISPWidebandSequence</span>
-<span class="kn">from</span> <span class="nn">crisPy.utils</span> <span class="kn">import</span> <span class="n">CRISP_sequence_constructor</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">crispy.crisp</span> <span class="kn">import</span> <span class="n">CRISPSequence</span><span class="p">,</span> <span class="n">CRISPNonUSequence</span><span class="p">,</span> <span class="n">CRISPWidebandSequence</span>
+<span class="kn">from</span> <span class="nn">crispy.utils</span> <span class="kn">import</span> <span class="n">CRISP_sequence_constructor</span>
 </pre></div>
 </div>
 </div>
@@ -232,14 +232,14 @@
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="inversionexample.html" title="Example of Inversion Data in crisPy"
+          <a href="inversionexample.html" title="Example of Inversion Data in crispy"
              >next</a> &nbsp; &nbsp;</li>
         <li class="right" >
-          <a href="dataclasses.html" title="Examples Using the Main Data Wrappers from crisPy"
+          <a href="dataclasses.html" title="Examples Using the Main Data Wrappers from crispy"
              >previous</a> &nbsp; &nbsp;</li>
-      <li><a href="index.html">crisPy2 1.0.0 documentation</a> &#187;</li>
+      <li><a href="index.html">crispy2 1.0.0 documentation</a> &#187;</li>
 
-          <li class="nav-item nav-item-1"><a href="Examples.html" >Examples of crisPy in Use</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="Examples.html" >Examples of crispy in Use</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Examples of the Sequence Classes</a></li> 
       </ul>
     </div>

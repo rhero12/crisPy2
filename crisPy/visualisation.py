@@ -18,7 +18,7 @@ from matplotlib.dates import date2num, DateFormatter
 
 class SpectralViewer:
     """
-    Imaging spectroscopic viewer. SpectralViewer should be used when one wants to click on points of an image and have the spectrum displayed for that point. This works **exclusively** in Jupyter notebook but can be a nice data exploration tool. This viewer utilises the data structures defined in `crisPy2.crisp` and has many variable options.
+    Imaging spectroscopic viewer. SpectralViewer should be used when one wants to click on points of an image and have the spectrum displayed for that point. This works **exclusively** in Jupyter notebook but can be a nice data exploration tool. This viewer utilises the data structures defined in `crispy2.crisp` and has many variable options.
 
     :param data: The data to explore, this can be either one or two spectral lines (support for more than two can be added if required). This is the only required argument to view the data.
     :type data: str or list or CRISP or CRISPSequence or CRISPNonU or CRISPNonUSequence
@@ -857,7 +857,7 @@ class AtmosViewer:
 
     :param filename: The inversion file to be used.
     :type filename: str or Inversion
-    :param z: The physical height grid of the estimated atmospheric parameters in megametres. Can only be None if filename is already an ``Inversion`` instance. Default is None. (N.B. the RADYNVERSION height grid is available from ``crisPy2.radynversion.utils``).
+    :param z: The physical height grid of the estimated atmospheric parameters in megametres. Can only be None if filename is already an ``Inversion`` instance. Default is None. (N.B. the RADYNVERSION height grid is available from ``crispy2.radynversion.utils``).
     :type z: numpy.ndarray or None, optional
     :param wcs: The world coordinate system that the inversion parameters are defined by. Can be None only if filename is already an ``Inversion`` instance. Default is None.
     :type wcs: astropy.wcs.WCS or None, optional
@@ -1339,7 +1339,7 @@ class ImageViewer:
 
 class SpectralTimeViewer:
     """
-    Imaging spectroscopic viewer. SpectralTimeViewer should be used when one wants to click on points of an image and have the spectrum displayed for that point and the time series for a certain time range of observations. This works **exclusively** in Jupyter notebook but can be a nice data exploration tool. This viewer utilises the data structures defined in `crisPy2.crisp` and has many variable options.
+    Imaging spectroscopic viewer. SpectralTimeViewer should be used when one wants to click on points of an image and have the spectrum displayed for that point and the time series for a certain time range of observations. This works **exclusively** in Jupyter notebook but can be a nice data exploration tool. This viewer utilises the data structures defined in `crispy2.crisp` and has many variable options.
 
     :param data1: The data to explore, this is one spectral line. This is the only required argument to view the data.
     :type data1: list or CRISPSequence or CRISPNonUSequence

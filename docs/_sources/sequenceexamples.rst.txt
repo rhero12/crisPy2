@@ -5,12 +5,12 @@ Along with the data structures for single CRISP observations we also introduce s
 
 There are three sequence classes: ``CRISPSequence``, ``CRISPNonUSequence``, and ``CRISPWidebandSequence`` to be used depending on the observations you have. The motivation behind these structures is that you will often find there is more than one spectral line observation for a given time e.g. H :math:`\alpha` and Ca II 8542, or we may want to group chronological observations together into one structure. Both can be accomplished using the sequences as shown below.
 
-.. note:: To construct the sequence object, we need a list of the keyword arguments for the underlying data structures as the argument. To avoid confusion and messy code, we provide the ``crisPy2.utils.CRISP_sequence_constructor`` function to create this for the user.
+.. note:: To construct the sequence object, we need a list of the keyword arguments for the underlying data structures as the argument. To avoid confusion and messy code, we provide the ``crispy2.utils.CRISP_sequence_constructor`` function to create this for the user.
 
 .. jupyter-execute::
 
-   from crisPy2.crisp import CRISPSequence, CRISPNonUSequence, CRISPWidebandSequence
-   from crisPy2.utils import CRISP_sequence_constructor
+   from crispy.crisp import CRISPSequence, CRISPNonUSequence, CRISPWidebandSequence
+   from crispy.utils import CRISP_sequence_constructor
 
 CRISPSequence
 -------------

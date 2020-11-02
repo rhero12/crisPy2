@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>I/O &#8212; crisPy2 1.0.0 documentation</title>
+    <title>I/O &#8212; crispy2 1.0.0 documentation</title>
     <link rel="stylesheet" href="_static/greenblue.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/jupyter-sphinx.css" />
@@ -44,7 +44,7 @@
         <li class="right" >
           <a href="neuralnetwork.html" title="Neural Network Building Blocks"
              accesskey="P">previous</a> &nbsp; &nbsp;</li>
-      <li><a href="index.html">crisPy2 1.0.0 documentation</a> &#187;</li>
+      <li><a href="index.html">crispy2 1.0.0 documentation</a> &#187;</li>
 
           <li class="nav-item nav-item-1"><a href="API.html" accesskey="U">API</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">I/O</a></li> 
@@ -63,8 +63,8 @@
 <p>The following is the documentation for the input/output (I/O) functions for making use of various different types of CRISP data in Python.</p>
 <p>CRISP observations are normally shipped in the legacy La Palma data cube format which is not always the most helpful for data analysis and does not have a Python interface. As a result, we have developed a function to memory map these cubes and a secondary function to be able to save these cubes as <a class="reference external" href="https://www.hdfgroup.org/">hdf5</a> files similar to fits files format you might find the data in.</p>
 <dl class="py function">
-<dt id="crisPy.io.memmap_crisp_cube">
-<code class="sig-prename descclassname">crisPy.io.</code><code class="sig-name descname">memmap_crisp_cube</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">path</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crisPy2/blob/master/crisPy/io.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crisPy.io.memmap_crisp_cube" title="Permalink to this definition">¶</a></dt>
+<dt id="crispy.io.memmap_crisp_cube">
+<code class="sig-prename descclassname">crispy.io.</code><code class="sig-name descname">memmap_crisp_cube</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">path</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crispy2/blob/master/crispy/io.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crispy.io.memmap_crisp_cube" title="Permalink to this definition">¶</a></dt>
 <dd><p>This function memory maps a legacy La Palma data cube pulling metainformation from appropriate files. The function first looks for an <code class="docutils literal notranslate"><span class="pre">assoc.pro</span></code> file which contains important information about the first dimension. If this does not exist then the user will have to untangle the first dimension themselves. The first dimension is a multiplicative combination of time and wavelength (and Stokes) with the <code class="docutils literal notranslate"><span class="pre">assoc.pro</span></code> providing the necessary information to split these into distinct axes. When unable to access this information, the first dimension will be the multiplicative combination of time and wavelength (and Stokes) with the ordering of one time for all wavelengths sampled. N.B. when Stokes is present, the first axis takes the form of one time for wavelengths sampled of Stokes I, wavelengths sampled of Stokes Q etc.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -74,8 +74,8 @@
 </dd></dl>
 
 <dl class="py function">
-<dt id="crisPy.io.la_palma_cube_to_hdf5">
-<code class="sig-prename descclassname">crisPy.io.</code><code class="sig-name descname">la_palma_cube_to_hdf5</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cube_path</span></em>, <em class="sig-param"><span class="n">tseries_path</span></em>, <em class="sig-param"><span class="n">spectfile</span></em>, <em class="sig-param"><span class="n">date_obs</span></em>, <em class="sig-param"><span class="n">telescope</span></em>, <em class="sig-param"><span class="n">instrument</span></em>, <em class="sig-param"><span class="n">pixel_scale</span></em>, <em class="sig-param"><span class="n">cadence</span></em>, <em class="sig-param"><span class="n">element</span></em>, <em class="sig-param"><span class="n">pointing</span></em>, <em class="sig-param"><span class="n">mu</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">start_idx</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">save_dir</span><span class="o">=</span><span class="default_value">'./'</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crisPy2/blob/master/crisPy/io.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crisPy.io.la_palma_cube_to_hdf5" title="Permalink to this definition">¶</a></dt>
+<dt id="crispy.io.la_palma_cube_to_hdf5">
+<code class="sig-prename descclassname">crispy.io.</code><code class="sig-name descname">la_palma_cube_to_hdf5</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cube_path</span></em>, <em class="sig-param"><span class="n">tseries_path</span></em>, <em class="sig-param"><span class="n">spectfile</span></em>, <em class="sig-param"><span class="n">date_obs</span></em>, <em class="sig-param"><span class="n">telescope</span></em>, <em class="sig-param"><span class="n">instrument</span></em>, <em class="sig-param"><span class="n">pixel_scale</span></em>, <em class="sig-param"><span class="n">cadence</span></em>, <em class="sig-param"><span class="n">element</span></em>, <em class="sig-param"><span class="n">pointing</span></em>, <em class="sig-param"><span class="n">mu</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">start_idx</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">save_dir</span><span class="o">=</span><span class="default_value">'./'</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crispy2/blob/master/crispy/io.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crispy.io.la_palma_cube_to_hdf5" title="Permalink to this definition">¶</a></dt>
 <dd><p>This is a function to save a La Palma legacy cube as hdf5 files.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -98,10 +98,10 @@
 </dl>
 </dd></dl>
 
-<p>The last function in the I/O section is mandatory for using the produced hdf5 files with the <code class="docutils literal notranslate"><span class="pre">crisPy2.crisp</span></code> data classes. This function converts the header information from the hdf5 files into a WCS object usable by these data classes.</p>
+<p>The last function in the I/O section is mandatory for using the produced hdf5 files with the <code class="docutils literal notranslate"><span class="pre">crispy2.crisp</span></code> data classes. This function converts the header information from the hdf5 files into a WCS object usable by these data classes.</p>
 <dl class="py function">
-<dt id="crisPy.io.hdf5_header_to_wcs">
-<code class="sig-prename descclassname">crisPy.io.</code><code class="sig-name descname">hdf5_header_to_wcs</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">hdf5_header</span></em>, <em class="sig-param"><span class="n">nonu</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crisPy2/blob/master/crisPy/io.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crisPy.io.hdf5_header_to_wcs" title="Permalink to this definition">¶</a></dt>
+<dt id="crispy.io.hdf5_header_to_wcs">
+<code class="sig-prename descclassname">crispy.io.</code><code class="sig-name descname">hdf5_header_to_wcs</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">hdf5_header</span></em>, <em class="sig-param"><span class="n">nonu</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crispy2/blob/master/crispy/io.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crispy.io.hdf5_header_to_wcs" title="Permalink to this definition">¶</a></dt>
 <dd><p>This function takes the hdf5 header information and converts it to a wcs object.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -159,7 +159,7 @@
         <li class="right" >
           <a href="neuralnetwork.html" title="Neural Network Building Blocks"
              >previous</a> &nbsp; &nbsp;</li>
-      <li><a href="index.html">crisPy2 1.0.0 documentation</a> &#187;</li>
+      <li><a href="index.html">crispy2 1.0.0 documentation</a> &#187;</li>
 
           <li class="nav-item nav-item-1"><a href="API.html" >API</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">I/O</a></li> 

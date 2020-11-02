@@ -4,8 +4,8 @@
 # In[1]:
 
 
-from crisPy.crisp import CRISPSequence, CRISPNonUSequence, CRISPWidebandSequence
-from crisPy.utils import CRISP_sequence_constructor
+from crispy.crisp import CRISPSequence, CRISPNonUSequence, CRISPWidebandSequence
+from crispy.utils import CRISP_sequence_constructor
 
 
 # In[2]:

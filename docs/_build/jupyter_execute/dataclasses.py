@@ -4,7 +4,7 @@
 # In[1]:
 
 
-from crisPy.crisp import CRISP, CRISPWideband, CRISPNonU
+from crispy.crisp import CRISP, CRISPWideband, CRISPNonU
 
 
 # In[2]:

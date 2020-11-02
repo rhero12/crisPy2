@@ -17,7 +17,7 @@ sys.path.insert(0, os.path.abspath('..'))
 
 # -- Project information -----------------------------------------------------
 
-project = 'crisPy2'
+project = 'crispy2'
 copyright = '2020, John A. Armstrong'
 author = 'John A. Armstrong'
 
@@ -66,4 +66,4 @@ def linkcode_resolve(domain, info):
     if not info['module']:
         return None
     filename = info['module'].replace('.', '/')
-    return "https://github.com/rhero12/crisPy2/blob/master/%s.py" % filename
+    return "https://github.com/rhero12/crispy2/blob/master/%s.py" % filename

@@ -16,7 +16,7 @@ def integrated_intensity(intensity_vector,wavelengths, idx_range="all"):
 
     Parameters
     ----------
-    intensity_vector : numpy.ndarray or crisPy2.crisp.CRISP or crisPy2.crisp.CRISPNonU
+    intensity_vector : numpy.ndarray or crispy2.crisp.CRISP or crispy2.crisp.CRISPNonU
         The vector of spectral line intensities.
     wavelengths : numpy.ndarray
         The wavelengths to integrate over.
@@ -72,7 +72,7 @@ def bar_lambda(intensity_vector, wavelengths):
 
     Parameters
     ----------
-    intensity_vector : numpy.ndarray or crisPy2.crisp.CRISP or crisPy2.crisp.CRISPNonU
+    intensity_vector : numpy.ndarray or crispy2.crisp.CRISP or crispy2.crisp.CRISPNonU
         The vector of spectral line intensities.
     wavelengths : numpy.ndarray
         The wavelengths to integrate over.
@@ -95,12 +95,12 @@ def variance(intensity_vector, wavelengths, bar_l=None):
 
     Parameters
     ----------
-    intensity_vector : numpy.ndarray or crisPy2.crisp.CRISP or crisPy2.crisp.CRISPNonU
+    intensity_vector : numpy.ndarray or crispy2.crisp.CRISP or crispy2.crisp.CRISPNonU
         The vector of spectral line intensities.
     wavelengths : numpy.ndarray
         The wavelengths to integrate over.
     bar_l : float or None, optional
-        The intensity-averaged line core of the spectral line. Default is None will call ``crisPy2.spectral.bar_lambda`` function on the ``intensity_vector`` and ``wavelengths`` argument to calculate.
+        The intensity-averaged line core of the spectral line. Default is None will call ``crispy2.spectral.bar_lambda`` function on the ``intensity_vector`` and ``wavelengths`` argument to calculate.
     """
 
     if type(intensity_vector) != np.ndarray:
@@ -120,14 +120,14 @@ def wing_idxs(intensity_vector, wavelengths, var=None, bar_l=None):
 
     Parameters
     ----------
-    intensity_vector : numpy.ndarray or crisPy2.crisp.CRISP or crisPy2.crisp.CRISPNonU
+    intensity_vector : numpy.ndarray or crispy2.crisp.CRISP or crispy2.crisp.CRISPNonU
         The vector of spectral line intensities.
     wavelengths : numpy.ndarray
         The wavelengths to integrate over.
     var : float or None, optional
-        The variance of the spectral line. Default is None will call ``crisPy2.spectral.variance`` function on the ``intensity_vector`` and ``wavelengths`` argument to calculate.
+        The variance of the spectral line. Default is None will call ``crispy2.spectral.variance`` function on the ``intensity_vector`` and ``wavelengths`` argument to calculate.
     bar_l : float or None, optional
-        The intensity-averaged line core of the spectral line. Default is None will call ``crisPy2.spectral.bar_lambda`` function on the ``intensity_vector`` and ``wavelengths`` argument to calculate.
+        The intensity-averaged line core of the spectral line. Default is None will call ``crispy2.spectral.bar_lambda`` function on the ``intensity_vector`` and ``wavelengths`` argument to calculate.
     """
 
     if type(intensity_vector) != np.ndarray:
@@ -185,7 +185,7 @@ def lambda_0_wing(wing_idxs, wavelengths, d_lambda=None):
     wavelengths : numpy.ndarray
         The wavelengths to integrate over.
     d_lambda : float, optional
-        The half-width of the wing of the spectral line. Default is None will call ``crisPy2.spectral.delta_lambda`` function on the ``wing_idxs`` and ``wavelengths`` arguments to calculate.
+        The half-width of the wing of the spectral line. Default is None will call ``crispy2.spectral.delta_lambda`` function on the ``wing_idxs`` and ``wavelengths`` arguments to calculate.
     """
 
     if d_lambda == None:

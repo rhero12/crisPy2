@@ -9,7 +9,7 @@ Neural networks are composed of non-linear *layers* made up of a linear operatio
 
 The most commonly used type of neural network is known as a convolutional neural network (CNN). CNNs have layers as described above and so will utilise the ``ConvBlock`` object to build the layers.
 
-.. autoclass:: crisPy2.neural_network.ConvBlock
+.. autoclass:: crispy.neural_network.ConvBlock
 
 Another popular type of neural network is known as a Residual Network. Residual networks differ from CNNs because rather than each layer learning some function :math:`f`, residual layers learn the residual to that function :math:`H` such that
 
@@ -26,10 +26,10 @@ The inner structure of residual layers is also different from a normal convoluti
 
    A schematic diagram of a residual layer.
 
-.. autoclass:: crisPy2.neural_network.ResBlock
+.. autoclass:: crispy.neural_network.ResBlock
 
 In popular network architectures such as Autoencoders (AEs) or Variational Autoencoders (VAEs), the data is often downsampled to a latent representation of the data to be upsampled to the desired result. There are typically two approaches to this upsampling.
  1. Using a fixed interpolation by the desired scale factor which can be achieved by setting ``upsample=True`` in ``ConvBlock``/``ResBlock``
  2. Using *transpose* convolution which is a kind of learned upsampling. (For a better explanation of transpose convolution than I could provide see `here <https://medium.com/apache-mxnet/transposed-convolutions-explained-with-ms-excel-52d13030c7e8>`_). Transpose convolution is an interpolation using a sparse convolutional kernel where the non-zero numbers in that kernel are learnable parameters. This means that in training a network, the model should learn to do the optimal upsampling for the reconstruction of the data.
 
- .. autoclass:: crisPy2.neural_network.ConvTransBlock
+ .. autoclass:: crispy.neural_network.ConvTransBlock

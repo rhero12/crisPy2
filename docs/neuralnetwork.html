@@ -1,18 +1,15 @@
 
-
-
 <!DOCTYPE html>
 
 <html>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Neural Network Building Blocks &#8212; crisPy2 1.0.0 documentation</title>
-    <link rel="stylesheet" href="_static/greenblue.css" type="text/css" />
+    <title>Neural Network Building Blocks &#8212; crispy2 1.0.0 documentation</title>
+    <link rel="stylesheet" href="_static/pd.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/jupyter-sphinx.css" />
     <link rel="stylesheet" type="text/css" href="_static/thebelab.css" />
-    <link rel="stylesheet" href="_static/local_fonts.css" type="text/css" />
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
@@ -22,35 +19,25 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script src="_static/jquery.cookie.js"></script>
-    <script src="_static/p_sphinx_theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="I/O" href="io.html" />
-    <link rel="prev" title="Visualisers" href="visualisation.html" /> 
-            <meta name="viewport" content="width=device-width, initial-scale=1">
-  </head><body>
-      <div class="relbar-top">
-            
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="io.html" title="I/O"
-             accesskey="N">next</a> &nbsp; &nbsp;</li>
-        <li class="right" >
-          <a href="visualisation.html" title="Visualisers"
-             accesskey="P">previous</a> &nbsp; &nbsp;</li>
-      <li><a href="index.html">crisPy2 1.0.0 documentation</a> &#187;</li>
+    <link rel="prev" title="Visualisers" href="visualisation.html" />
+    <script type="text/javascript" src="_static/pd.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-          <li class="nav-item nav-item-1"><a href="API.html" accesskey="U">API</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Neural Network Building Blocks</a></li> 
-      </ul>
+  </head><body>
+    <div id="header">
+        <h1>crispy2 1.0.0 documentation</h1>
     </div>
-      </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+        <ul>
+            <li class="nav-item nav-item-0"><a href="index.html">crispy2 1.0.0 documentation</a> &#187;
+            </li>
+                <li class="nav-item nav-item-1"><a href="API.html"
+                        accesskey="U">API</a> &#187;</li>
+        </ul>
+    </div>
   
 
     <div class="document">
@@ -58,7 +45,7 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="neural-network-building-blocks">
+<div class="section" id="neural-network-building-blocks">
 <h1>Neural Network Building Blocks<a class="headerlink" href="#neural-network-building-blocks" title="Permalink to this headline">¶</a></h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -68,8 +55,8 @@
 <p>Neural networks are composed of non-linear <em>layers</em> made up of a linear operation, a normalisation technique and an non-linear (known as activation) operation. Like Lego, neural network frameworks typically give each of these pieces individually and a mix and match process can ensue. The approach we take however is that these layers will always follow the linear -&gt; normalisation -&gt; non-linear path and therefore we combine these key building blocks together with the interchangeability being encapsulated by keyword arguments.</p>
 <p>The most commonly used type of neural network is known as a convolutional neural network (CNN). CNNs have layers as described above and so will utilise the <code class="docutils literal notranslate"><span class="pre">ConvBlock</span></code> object to build the layers.</p>
 <dl class="py class">
-<dt id="crisPy2.neural_network.ConvBlock">
-<em class="property">class </em><code class="sig-prename descclassname">crisPy2.neural_network.</code><code class="sig-name descname">ConvBlock</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">in_channels</span></em>, <em class="sig-param"><span class="n">out_channels</span></em>, <em class="sig-param"><span class="n">kernel</span><span class="o">=</span><span class="default_value">3</span></em>, <em class="sig-param"><span class="n">stride</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">pad</span><span class="o">=</span><span class="default_value">'reflect'</span></em>, <em class="sig-param"><span class="n">bias</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">normal</span><span class="o">=</span><span class="default_value">'batch'</span></em>, <em class="sig-param"><span class="n">activation</span><span class="o">=</span><span class="default_value">'relu'</span></em>, <em class="sig-param"><span class="n">upsample</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crisPy2/blob/master/crisPy2/neural_network.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crisPy2.neural_network.ConvBlock" title="Permalink to this definition">¶</a></dt>
+<dt id="crispy.neural_network.ConvBlock">
+<em class="property">class </em><code class="sig-prename descclassname">crispy.neural_network.</code><code class="sig-name descname">ConvBlock</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">in_channels</span></em>, <em class="sig-param"><span class="n">out_channels</span></em>, <em class="sig-param"><span class="n">kernel</span><span class="o">=</span><span class="default_value">3</span></em>, <em class="sig-param"><span class="n">stride</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">pad</span><span class="o">=</span><span class="default_value">'reflect'</span></em>, <em class="sig-param"><span class="n">bias</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">normal</span><span class="o">=</span><span class="default_value">'batch'</span></em>, <em class="sig-param"><span class="n">activation</span><span class="o">=</span><span class="default_value">'relu'</span></em>, <em class="sig-param"><span class="n">upsample</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crispy2/blob/master/crispy/neural_network.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crispy.neural_network.ConvBlock" title="Permalink to this definition">¶</a></dt>
 <dd><p>A modifiable convolutional layer for deep networks.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -98,8 +85,8 @@
 <p class="caption"><span class="caption-text">A schematic diagram of a residual layer.</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
 </div>
 <dl class="py class">
-<dt id="crisPy2.neural_network.ResBlock">
-<em class="property">class </em><code class="sig-prename descclassname">crisPy2.neural_network.</code><code class="sig-name descname">ResBlock</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">in_channels</span></em>, <em class="sig-param"><span class="n">out_channels</span></em>, <em class="sig-param"><span class="n">kernel</span><span class="o">=</span><span class="default_value">3</span></em>, <em class="sig-param"><span class="n">stride</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">pad</span><span class="o">=</span><span class="default_value">'reflect'</span></em>, <em class="sig-param"><span class="n">bias</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">normal</span><span class="o">=</span><span class="default_value">'batch'</span></em>, <em class="sig-param"><span class="n">activation</span><span class="o">=</span><span class="default_value">'relu'</span></em>, <em class="sig-param"><span class="n">upsample</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">use_dropout</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crisPy2/blob/master/crisPy2/neural_network.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crisPy2.neural_network.ResBlock" title="Permalink to this definition">¶</a></dt>
+<dt id="crispy.neural_network.ResBlock">
+<em class="property">class </em><code class="sig-prename descclassname">crispy.neural_network.</code><code class="sig-name descname">ResBlock</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">in_channels</span></em>, <em class="sig-param"><span class="n">out_channels</span></em>, <em class="sig-param"><span class="n">kernel</span><span class="o">=</span><span class="default_value">3</span></em>, <em class="sig-param"><span class="n">stride</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">pad</span><span class="o">=</span><span class="default_value">'reflect'</span></em>, <em class="sig-param"><span class="n">bias</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">normal</span><span class="o">=</span><span class="default_value">'batch'</span></em>, <em class="sig-param"><span class="n">activation</span><span class="o">=</span><span class="default_value">'relu'</span></em>, <em class="sig-param"><span class="n">upsample</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">use_dropout</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crispy2/blob/master/crispy/neural_network.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crispy.neural_network.ResBlock" title="Permalink to this definition">¶</a></dt>
 <dd><p>A modifiable residual block for deep neural networks.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -124,8 +111,8 @@
 <li><p>Using <em>transpose</em> convolution which is a kind of learned upsampling. (For a better explanation of transpose convolution than I could provide see <a class="reference external" href="https://medium.com/apache-mxnet/transposed-convolutions-explained-with-ms-excel-52d13030c7e8">here</a>). Transpose convolution is an interpolation using a sparse convolutional kernel where the non-zero numbers in that kernel are learnable parameters. This means that in training a network, the model should learn to do the optimal upsampling for the reconstruction of the data.</p></li>
 </ol>
 <dl class="py class">
-<dt id="crisPy2.neural_network.ConvTransBlock">
-<em class="property">class </em><code class="sig-prename descclassname">crisPy2.neural_network.</code><code class="sig-name descname">ConvTransBlock</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">in_channels</span></em>, <em class="sig-param"><span class="n">out_channels</span></em>, <em class="sig-param"><span class="n">kernel</span><span class="o">=</span><span class="default_value">3</span></em>, <em class="sig-param"><span class="n">stride</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">bias</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">pad</span><span class="o">=</span><span class="default_value">'reflect'</span></em>, <em class="sig-param"><span class="n">normal</span><span class="o">=</span><span class="default_value">'batch'</span></em>, <em class="sig-param"><span class="n">activation</span><span class="o">=</span><span class="default_value">'relu'</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crisPy2/blob/master/crisPy2/neural_network.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crisPy2.neural_network.ConvTransBlock" title="Permalink to this definition">¶</a></dt>
+<dt id="crispy.neural_network.ConvTransBlock">
+<em class="property">class </em><code class="sig-prename descclassname">crispy.neural_network.</code><code class="sig-name descname">ConvTransBlock</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">in_channels</span></em>, <em class="sig-param"><span class="n">out_channels</span></em>, <em class="sig-param"><span class="n">kernel</span><span class="o">=</span><span class="default_value">3</span></em>, <em class="sig-param"><span class="n">stride</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">bias</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">pad</span><span class="o">=</span><span class="default_value">'reflect'</span></em>, <em class="sig-param"><span class="n">normal</span><span class="o">=</span><span class="default_value">'batch'</span></em>, <em class="sig-param"><span class="n">activation</span><span class="o">=</span><span class="default_value">'relu'</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crispy2/blob/master/crispy/neural_network.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crispy.neural_network.ConvTransBlock" title="Permalink to this definition">¶</a></dt>
 <dd><p>A modifiable transpose conovlutional layer.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -154,8 +141,12 @@
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-
-
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="visualisation.html"
+                        title="previous chapter">Visualisers</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="io.html"
+                        title="next chapter">I/O</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -177,32 +168,9 @@
       </div>
       <div class="clearer"></div>
     </div>
-      <div class="relbar-bottom">
-            
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="io.html" title="I/O"
-             >next</a> &nbsp; &nbsp;</li>
-        <li class="right" >
-          <a href="visualisation.html" title="Visualisers"
-             >previous</a> &nbsp; &nbsp;</li>
-      <li><a href="index.html">crisPy2 1.0.0 documentation</a> &#187;</li>
-
-          <li class="nav-item nav-item-1"><a href="API.html" >API</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Neural Network Building Blocks</a></li> 
-      </ul>
-    </div>
-      </div>
-
     <div class="footer" role="contentinfo">
         &#169; Copyright 2020, John A. Armstrong.
       Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
     </div>
-      <!-- PSphinxTheme -->
   </body>
 </html>

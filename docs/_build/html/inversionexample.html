@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Example of Inversion Data in crisPy &#8212; crisPy2 1.0.0 documentation</title>
+    <title>Example of Inversion Data in crispy &#8212; crispy2 1.0.0 documentation</title>
     <link rel="stylesheet" href="_static/greenblue.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/jupyter-sphinx.css" />
@@ -44,10 +44,10 @@
         <li class="right" >
           <a href="sequenceexamples.html" title="Examples of the Sequence Classes"
              accesskey="P">previous</a> &nbsp; &nbsp;</li>
-      <li><a href="index.html">crisPy2 1.0.0 documentation</a> &#187;</li>
+      <li><a href="index.html">crispy2 1.0.0 documentation</a> &#187;</li>
 
-          <li class="nav-item nav-item-1"><a href="Examples.html" accesskey="U">Examples of crisPy in Use</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Example of Inversion Data in crisPy</a></li> 
+          <li class="nav-item nav-item-1"><a href="Examples.html" accesskey="U">Examples of crispy in Use</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Example of Inversion Data in crispy</a></li> 
       </ul>
     </div>
       </div>
@@ -59,17 +59,17 @@
           <div class="body" role="main">
             
   <div class="section" id="example-of-inversion-data-in-crispy">
-<h1>Example of Inversion Data in crisPy<a class="headerlink" href="#example-of-inversion-data-in-crispy" title="Permalink to this headline">¶</a></h1>
-<p>The data structure for inversion data in <code class="docutils literal notranslate"><span class="pre">crisPy</span></code> is built to work with inversions from the <a class="reference external" href="https://iopscience.iop.org/article/10.3847/1538-4357/ab07b4">RADYNVERSION</a> code, specificaly whole image inversions (WII). The code can be easily inherited to work for a variety of inversion codes, however. The main things we need is the inversion itself, the corresponding observation, and the height grid that the inversions are calculated on which is stored in the <code class="docutils literal notranslate"><span class="pre">crisPy2.Radynversion</span></code> submodule.</p>
+<h1>Example of Inversion Data in crispy<a class="headerlink" href="#example-of-inversion-data-in-crispy" title="Permalink to this headline">¶</a></h1>
+<p>The data structure for inversion data in <code class="docutils literal notranslate"><span class="pre">crispy</span></code> is built to work with inversions from the <a class="reference external" href="https://iopscience.iop.org/article/10.3847/1538-4357/ab07b4">RADYNVERSION</a> code, specificaly whole image inversions (WII). The code can be easily inherited to work for a variety of inversion codes, however. The main things we need is the inversion itself, the corresponding observation, and the height grid that the inversions are calculated on which is stored in the <code class="docutils literal notranslate"><span class="pre">crispy2.Radynversion</span></code> submodule.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">Inversion</span></code> objects can also be indexed in a similar manner to the other data structures to making plotting easier and working with the data simpler.</p>
 </div>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">crisPy.inversions</span> <span class="kn">import</span> <span class="n">Inversion</span>
-<span class="kn">from</span> <span class="nn">crisPy.Radynversion.utils</span> <span class="kn">import</span> <span class="n">z</span>
-<span class="kn">from</span> <span class="nn">crisPy.crisp</span> <span class="kn">import</span> <span class="n">CRISP</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">crispy.inversions</span> <span class="kn">import</span> <span class="n">Inversion</span>
+<span class="kn">from</span> <span class="nn">crispy.Radynversion.utils</span> <span class="kn">import</span> <span class="n">z</span>
+<span class="kn">from</span> <span class="nn">crispy.crisp</span> <span class="kn">import</span> <span class="n">CRISP</span>
 
 <span class="n">crisp</span> <span class="o">=</span> <span class="n">CRISP</span><span class="p">(</span><span class="s2">&quot;../examples/2014/crisp_l2_20140906_152724_8542_r00447.fits&quot;</span><span class="p">)</span>
 <span class="n">inversion</span> <span class="o">=</span> <span class="n">Inversion</span><span class="p">(</span><span class="s2">&quot;../examples/inversions/Inversion_0447.hdf5&quot;</span><span class="p">,</span> <span class="n">z</span><span class="o">=</span><span class="n">z</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="n">crisp</span><span class="o">.</span><span class="n">file</span><span class="o">.</span><span class="n">header</span><span class="p">)</span>
@@ -171,10 +171,10 @@
         <li class="right" >
           <a href="sequenceexamples.html" title="Examples of the Sequence Classes"
              >previous</a> &nbsp; &nbsp;</li>
-      <li><a href="index.html">crisPy2 1.0.0 documentation</a> &#187;</li>
+      <li><a href="index.html">crispy2 1.0.0 documentation</a> &#187;</li>
 
-          <li class="nav-item nav-item-1"><a href="Examples.html" >Examples of crisPy in Use</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Example of Inversion Data in crisPy</a></li> 
+          <li class="nav-item nav-item-1"><a href="Examples.html" >Examples of crispy in Use</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Example of Inversion Data in crispy</a></li> 
       </ul>
     </div>
       </div>

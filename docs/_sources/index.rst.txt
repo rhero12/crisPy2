@@ -1,9 +1,9 @@
-.. crisPy2 documentation master file, created by
+.. crispy2 documentation master file, created by
    sphinx-quickstart on Thu Jul  2 13:19:06 2020.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-crisPy2 documentation
+crispy2 documentation
 =====================
 
 This is a Python package for working with imaging spectroscopic/spectropolarimetric solar physics data.

@@ -1,18 +1,15 @@
 
-
-
 <!DOCTYPE html>
 
 <html>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Inversion Wrapper &#8212; crisPy2 1.0.0 documentation</title>
-    <link rel="stylesheet" href="_static/greenblue.css" type="text/css" />
+    <title>Inversion Wrapper &#8212; crispy2 1.0.0 documentation</title>
+    <link rel="stylesheet" href="_static/pd.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/jupyter-sphinx.css" />
     <link rel="stylesheet" type="text/css" href="_static/thebelab.css" />
-    <link rel="stylesheet" href="_static/local_fonts.css" type="text/css" />
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
@@ -22,35 +19,25 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script src="_static/jquery.cookie.js"></script>
-    <script src="_static/p_sphinx_theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Visualisers" href="visualisation.html" />
-    <link rel="prev" title="Data Structures" href="datastructs.html" /> 
-            <meta name="viewport" content="width=device-width, initial-scale=1">
-  </head><body>
-      <div class="relbar-top">
-            
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="visualisation.html" title="Visualisers"
-             accesskey="N">next</a> &nbsp; &nbsp;</li>
-        <li class="right" >
-          <a href="datastructs.html" title="Data Structures"
-             accesskey="P">previous</a> &nbsp; &nbsp;</li>
-      <li><a href="index.html">crisPy2 1.0.0 documentation</a> &#187;</li>
+    <link rel="prev" title="Data Structures" href="datastructs.html" />
+    <script type="text/javascript" src="_static/pd.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-          <li class="nav-item nav-item-1"><a href="API.html" accesskey="U">API</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Inversion Wrapper</a></li> 
-      </ul>
+  </head><body>
+    <div id="header">
+        <h1>crispy2 1.0.0 documentation</h1>
     </div>
-      </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+        <ul>
+            <li class="nav-item nav-item-0"><a href="index.html">crispy2 1.0.0 documentation</a> &#187;
+            </li>
+                <li class="nav-item nav-item-1"><a href="API.html"
+                        accesskey="U">API</a> &#187;</li>
+        </ul>
+    </div>
   
 
     <div class="document">
@@ -58,12 +45,12 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="inversion-wrapper">
+<div class="section" id="inversion-wrapper">
 <h1>Inversion Wrapper<a class="headerlink" href="#inversion-wrapper" title="Permalink to this headline">¶</a></h1>
 <p>The following code is useful for working with inversion data from <a class="reference external" href="https://iopscience.iop.org/article/10.3847/1538-4357/ab07b4">RADYNVERSION</a> (but could be adapted to work with other inversion codes fairly easily).</p>
 <dl class="py class">
-<dt id="crisPy2.inversions.Inversion">
-<em class="property">class </em><code class="sig-prename descclassname">crisPy2.inversions.</code><code class="sig-name descname">Inversion</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">filename</span></em>, <em class="sig-param"><span class="n">z</span></em>, <em class="sig-param"><span class="n">header</span></em>, <em class="sig-param"><span class="n">wcs</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crisPy2/blob/master/crisPy2/inversions.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crisPy2.inversions.Inversion" title="Permalink to this definition">¶</a></dt>
+<dt id="crispy.inversions.Inversion">
+<em class="property">class </em><code class="sig-prename descclassname">crispy.inversions.</code><code class="sig-name descname">Inversion</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">filename</span></em>, <em class="sig-param"><span class="n">z</span></em>, <em class="sig-param"><span class="n">header</span></em>, <em class="sig-param"><span class="n">wcs</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crispy2/blob/master/crispy/inversions.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crispy.inversions.Inversion" title="Permalink to this definition">¶</a></dt>
 <dd><p>Class for transporting and using the inversions obtained from RADYNVERSION.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -86,8 +73,8 @@
 </dd>
 </dl>
 <dl class="py method">
-<dt id="crisPy2.inversions.Inversion.plot_ne">
-<code class="sig-name descname">plot_ne</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">eb</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crisPy2/blob/master/crisPy2/inversions.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crisPy2.inversions.Inversion.plot_ne" title="Permalink to this definition">¶</a></dt>
+<dt id="crispy.inversions.Inversion.plot_ne">
+<code class="sig-name descname">plot_ne</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">eb</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crispy2/blob/master/crispy/inversions.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crispy.inversions.Inversion.plot_ne" title="Permalink to this definition">¶</a></dt>
 <dd><p>Class method to plot the electron number density for a given location within the field-of-view. This works by slicing the <code class="docutils literal notranslate"><span class="pre">Inversion</span></code> object.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -97,8 +84,8 @@
 </dd></dl>
 
 <dl class="py method">
-<dt id="crisPy2.inversions.Inversion.plot_temp">
-<code class="sig-name descname">plot_temp</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">eb</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crisPy2/blob/master/crisPy2/inversions.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crisPy2.inversions.Inversion.plot_temp" title="Permalink to this definition">¶</a></dt>
+<dt id="crispy.inversions.Inversion.plot_temp">
+<code class="sig-name descname">plot_temp</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">eb</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crispy2/blob/master/crispy/inversions.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crispy.inversions.Inversion.plot_temp" title="Permalink to this definition">¶</a></dt>
 <dd><p>Class method to plot the electron temperature for a given point in the field-of-view. This is done by slicing the <code class="docutils literal notranslate"><span class="pre">Inversion</span></code> object.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -108,8 +95,8 @@
 </dd></dl>
 
 <dl class="py method">
-<dt id="crisPy2.inversions.Inversion.plot_vel">
-<code class="sig-name descname">plot_vel</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">eb</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crisPy2/blob/master/crisPy2/inversions.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crisPy2.inversions.Inversion.plot_vel" title="Permalink to this definition">¶</a></dt>
+<dt id="crispy.inversions.Inversion.plot_vel">
+<code class="sig-name descname">plot_vel</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">eb</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crispy2/blob/master/crispy/inversions.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crispy.inversions.Inversion.plot_vel" title="Permalink to this definition">¶</a></dt>
 <dd><p>Class method to plot the bulk velocity for a certain point within the field-of-view. This is done using a slice of the <code class="docutils literal notranslate"><span class="pre">Inversion</span></code> instance.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -119,8 +106,8 @@
 </dd></dl>
 
 <dl class="py method">
-<dt id="crisPy2.inversions.Inversion.plot_params">
-<code class="sig-name descname">plot_params</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">eb</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crisPy2/blob/master/crisPy2/inversions.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crisPy2.inversions.Inversion.plot_params" title="Permalink to this definition">¶</a></dt>
+<dt id="crispy.inversions.Inversion.plot_params">
+<code class="sig-name descname">plot_params</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">eb</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crispy2/blob/master/crispy/inversions.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crispy.inversions.Inversion.plot_params" title="Permalink to this definition">¶</a></dt>
 <dd><p>Class method to plot the electron number density, electron temperature, and bulk velocity for a certain point within the field-of-view. This is done using a slice of the <code class="docutils literal notranslate"><span class="pre">Inversion</span></code> instance.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -130,8 +117,8 @@
 </dd></dl>
 
 <dl class="py method">
-<dt id="crisPy2.inversions.Inversion.ne_map">
-<code class="sig-name descname">ne_map</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">frame</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crisPy2/blob/master/crisPy2/inversions.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crisPy2.inversions.Inversion.ne_map" title="Permalink to this definition">¶</a></dt>
+<dt id="crispy.inversions.Inversion.ne_map">
+<code class="sig-name descname">ne_map</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">frame</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crispy2/blob/master/crispy/inversions.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crispy.inversions.Inversion.ne_map" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates an electron density map at a specified height denoted in the <code class="docutils literal notranslate"><span class="pre">Inversion</span></code> slice.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -141,8 +128,8 @@
 </dd></dl>
 
 <dl class="py method">
-<dt id="crisPy2.inversions.Inversion.temp_map">
-<code class="sig-name descname">temp_map</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">frame</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crisPy2/blob/master/crisPy2/inversions.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crisPy2.inversions.Inversion.temp_map" title="Permalink to this definition">¶</a></dt>
+<dt id="crispy.inversions.Inversion.temp_map">
+<code class="sig-name descname">temp_map</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">frame</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crispy2/blob/master/crispy/inversions.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crispy.inversions.Inversion.temp_map" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates an electron temperature map at a specified height denoted in the <code class="docutils literal notranslate"><span class="pre">Inversion</span></code> slice.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -152,8 +139,8 @@
 </dd></dl>
 
 <dl class="py method">
-<dt id="crisPy2.inversions.Inversion.vel_map">
-<code class="sig-name descname">vel_map</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">frame</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crisPy2/blob/master/crisPy2/inversions.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crisPy2.inversions.Inversion.vel_map" title="Permalink to this definition">¶</a></dt>
+<dt id="crispy.inversions.Inversion.vel_map">
+<code class="sig-name descname">vel_map</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">frame</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crispy2/blob/master/crispy/inversions.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crispy.inversions.Inversion.vel_map" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates a bulk velocity map at a specified height denoted in the <code class="docutils literal notranslate"><span class="pre">Inversion</span></code> slice.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -163,8 +150,8 @@
 </dd></dl>
 
 <dl class="py method">
-<dt id="crisPy2.inversions.Inversion.params_map">
-<code class="sig-name descname">params_map</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">frame</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crisPy2/blob/master/crisPy2/inversions.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crisPy2.inversions.Inversion.params_map" title="Permalink to this definition">¶</a></dt>
+<dt id="crispy.inversions.Inversion.params_map">
+<code class="sig-name descname">params_map</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">frame</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crispy2/blob/master/crispy/inversions.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crispy.inversions.Inversion.params_map" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates maps of electron number density, electron temperature, and bulk velocity at a specified height denoted in the <code class="docutils literal notranslate"><span class="pre">Inversion</span></code> slice.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -174,8 +161,8 @@
 </dd></dl>
 
 <dl class="py method">
-<dt id="crisPy2.inversions.Inversion.to_lonlat">
-<code class="sig-name descname">to_lonlat</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">y</span></em>, <em class="sig-param"><span class="n">x</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crisPy2/blob/master/crisPy2/inversions.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crisPy2.inversions.Inversion.to_lonlat" title="Permalink to this definition">¶</a></dt>
+<dt id="crispy.inversions.Inversion.to_lonlat">
+<code class="sig-name descname">to_lonlat</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">y</span></em>, <em class="sig-param"><span class="n">x</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crispy2/blob/master/crispy/inversions.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crispy.inversions.Inversion.to_lonlat" title="Permalink to this definition">¶</a></dt>
 <dd><p>This function will take a y, x coordinate in pixel space and map it to Helioprojective Longitude, Helioprojective Latitude according to the transform in the WCS. This will return the Helioprojective coordinates in units of arcseconds. Note this function takes arguments in the order of numpy indexing (y,x) but returns a pair longitude/latitude which is Solar-X, Solar-Y.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -188,8 +175,8 @@
 </dd></dl>
 
 <dl class="py method">
-<dt id="crisPy2.inversions.Inversion.from_lonlat">
-<code class="sig-name descname">from_lonlat</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">lon</span></em>, <em class="sig-param"><span class="n">lat</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crisPy2/blob/master/crisPy2/inversions.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crisPy2.inversions.Inversion.from_lonlat" title="Permalink to this definition">¶</a></dt>
+<dt id="crispy.inversions.Inversion.from_lonlat">
+<code class="sig-name descname">from_lonlat</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">lon</span></em>, <em class="sig-param"><span class="n">lat</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crispy2/blob/master/crispy/inversions.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crispy.inversions.Inversion.from_lonlat" title="Permalink to this definition">¶</a></dt>
 <dd><p>This function takes a Helioprojective Longitude, Helioprojective Latitude pair and converts them to the y, x indices to index the object correctly. The function takes its arguments in the order Helioprojective Longitude, Helioprojective Latitude but returns the indices in the (y,x) format so that the output of this function can be used to directly index the object.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -212,8 +199,12 @@
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-
-
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="datastructs.html"
+                        title="previous chapter">Data Structures</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="visualisation.html"
+                        title="next chapter">Visualisers</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -235,32 +226,9 @@
       </div>
       <div class="clearer"></div>
     </div>
-      <div class="relbar-bottom">
-            
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="visualisation.html" title="Visualisers"
-             >next</a> &nbsp; &nbsp;</li>
-        <li class="right" >
-          <a href="datastructs.html" title="Data Structures"
-             >previous</a> &nbsp; &nbsp;</li>
-      <li><a href="index.html">crisPy2 1.0.0 documentation</a> &#187;</li>
-
-          <li class="nav-item nav-item-1"><a href="API.html" >API</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Inversion Wrapper</a></li> 
-      </ul>
-    </div>
-      </div>
-
     <div class="footer" role="contentinfo">
         &#169; Copyright 2020, John A. Armstrong.
       Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
     </div>
-      <!-- PSphinxTheme -->
   </body>
 </html>

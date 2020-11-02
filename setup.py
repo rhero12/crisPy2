@@ -21,14 +21,14 @@ def find_version(*file_paths):
     raise RuntimeError("Unable to find version string.")
 
 setuptools.setup(
-    name="crisPy2",
-    version=find_version("crisPy/__init__.py"),
+    name="crispy2",
+    version=find_version("crispy/__init__.py"),
     author="John Armstrong",
     author_email="j.armstrong.2@research.gla.ac.uk",
     description="A Python package for using data from the Swedish 1 m Solar Telescope's CRisp Imaging SpectroPolarimeter instrument.",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/rhero12/crisPy2",
+    url="https://github.com/rhero12/crispy2",
     packages=setuptools.find_packages(),
     install_requires = [
         "torch",
@@ -52,8 +52,8 @@ setuptools.setup(
     cmdclass=cmdclass,
     command_options={
         "build_sphinx" : {
-            "project" : ("setup.py", "crisPy"),
-            "version" : ("setup.py", find_version("crisPy/__init__.py")),
+            "project" : ("setup.py", "crispy"),
+            "version" : ("setup.py", find_version("crispy/__init__.py")),
             "source_dir" : ("setup.py", "docs")
         }
     }
