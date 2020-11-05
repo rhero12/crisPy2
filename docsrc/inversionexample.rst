@@ -20,7 +20,7 @@ Now that the object exists we can use the built-in plotting methods to first sho
 .. jupyter-execute::
    
 
-   inversion[15].vel_map()
+   inversion[:,:,15].vel_map()
 
 .. figure:: ../docs/images/InversionVel.png
    :align: center
@@ -36,7 +36,7 @@ Next we look at the line-of-sight velocity for a specific point on the eastern f
 .. jupyter-execute::
    
 
-   inversion[:,408,298].plot_vel()
+   inversion[408,298].plot_vel()
 
 .. figure:: ../docs/images/InversionVel_Height.png
    :align: center
