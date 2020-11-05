@@ -30,7 +30,7 @@ release = '1.0.0'
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = ["sphinx.ext.napoleon", "sphinx.ext.autodoc", "sphinx.ext.intersphinx", "sphinx.ext.linkcode", "jupyter_sphinx.execute"
+extensions = ["sphinx.ext.napoleon", "sphinx.ext.autodoc", "sphinx.ext.intersphinx", "sphinx.ext.linkcode", "sphinx.ext.githubpages", "jupyter_sphinx.execute"
 ]
 autodoc_member_order = "bysource"
 
@@ -48,10 +48,14 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = 'p-greenblue'
-from PSphinxTheme import utils
-p, html_theme, needs_sphinx = utils.set_psphinxtheme(html_theme)
-html_theme_path = p
+# html_theme = 'p-greenblue'
+# from PSphinxTheme import utils
+# p, html_theme, needs_sphinx = utils.set_psphinxtheme(html_theme)
+# html_theme_path = p
+# html_theme = 'sphinx_theme_pd'
+# import sphinx_theme_pd
+# html_theme_path = [sphinx_theme_pd.get_html_theme_path()]
+html_theme = "greencloud"
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,

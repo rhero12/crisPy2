@@ -1,0 +1,405 @@
+
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Utilities &#8212; crispy2 1.0.0 documentation</title>
+    <link rel="stylesheet" href="_static/greenblue.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/jupyter-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="_static/thebelab.css" />
+    <link rel="stylesheet" href="_static/local_fonts.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/thebelab-helper.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="_static/jquery.cookie.js"></script>
+    <script src="_static/p_sphinx_theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Fast Solar Image Classification Using Convolutional Neural Networks and Its Importance for Automation in Solar Physics" href="Slic.html" />
+    <link rel="prev" title="Spectrum Properties" href="spectral.html" /> 
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head><body>
+      <div class="relbar-top">
+            
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="Slic.html" title="Fast Solar Image Classification Using Convolutional Neural Networks and Its Importance for Automation in Solar Physics"
+             accesskey="N">next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="spectral.html" title="Spectrum Properties"
+             accesskey="P">previous</a> &nbsp; &nbsp;</li>
+      <li><a href="index.html">crispy2 1.0.0 documentation</a> &#187;</li>
+
+          <li class="nav-item nav-item-1"><a href="API.html" accesskey="U">API</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Utilities</a></li> 
+      </ul>
+    </div>
+      </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="utilities">
+<h1>Utilities<a class="headerlink" href="#utilities" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="sequence-construction">
+<h2>Sequence Construction<a class="headerlink" href="#sequence-construction" title="Permalink to this headline">¶</a></h2>
+<p>The way the input for the sequence data classes works is not the most opaque thing in the world. So we provide a function to generate a list of dictionaries to consturct the sequence data class.</p>
+<dl class="py function">
+<dt id="crispy.utils.CRISP_sequence_constructor">
+<code class="sig-prename descclassname">crispy.utils.</code><code class="sig-name descname">CRISP_sequence_constructor</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">files</span></em>, <em class="sig-param"><span class="n">wcs</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">uncertainty</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">mask</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">nonu</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crispy2/blob/master/crispy/utils.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crispy.utils.CRISP_sequence_constructor" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is a helper function for constructing the kind of dictionary needed to make a CRISPSequence or CRISPWidebandSequence or CRISPNonUSequence object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>files</strong> (<em>list</em>) – A list of paths to the files.</p></li>
+<li><p><strong>wcs</strong> (<em>list</em><em> [</em><em>astropy.wcs.WCS</em><em>] or </em><em>None</em><em>, </em><em>optional</em>) – A list of WCS of each of the files. Default is None, the data classes will work out the WCS for the observations.</p></li>
+<li><p><strong>uncertainty</strong> (<em>list</em><em> [</em><em>float</em><em>] or </em><em>None</em><em>, </em><em>optional</em>) – A list of the uncertainty associated with each observation. Default is None.</p></li>
+<li><p><strong>mask</strong> (<em>list</em><em> [</em><em>numpy.ndarray</em><em>] or </em><em>None</em><em>, </em><em>optional</em>) – A list of the mask to use for each observation. Default is None.</p></li>
+<li><p><strong>nonu</strong> (<em>bool</em><em>, </em><em>optional</em>) – Whether or not the spectral axis is sampled non-uniformly. Default is False.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="image-utilities">
+<h2>Image Utilities<a class="headerlink" href="#image-utilities" title="Permalink to this headline">¶</a></h2>
+<p>Oftentimes, the CRISP images need to be augmented in some way for their intended purpose. This could be rotating the images in the image plane to get rid of the background or chopping up the image into segments for work on smaller pieces of the field-of-view. Below is a list of functions to help do these things.</p>
+<dl class="py function">
+<dt id="crispy.utils.scanline_search_corners">
+<code class="sig-prename descclassname">crispy.utils.</code><code class="sig-name descname">scanline_search_corners</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">im</span></em>, <em class="sig-param"><span class="n">size</span><span class="o">=</span><span class="default_value">10</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crispy2/blob/master/crispy/utils.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crispy.utils.scanline_search_corners" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finds the corners of the embedded image by scanning through lines
+(rows/columns) and looking for a run of pixels different to each other
+and the background.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>im</strong> (<em>numpy.ndarray</em>) – 2D array in which to find the sub-image corners. Best results usually
+obtained from line-core observations.</p></li>
+<li><p><strong>size</strong> (<em>int</em><em>, </em><em>optional</em>) – The number of consecutive pixels in a “run” for the sub-image to be
+detected (default: 10).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>corners</strong> – 2D array containing the (x,y) coordinates of the corners in order
+[top, left, right, bottom].</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="crispy.utils.refine_corners">
+<code class="sig-prename descclassname">crispy.utils.</code><code class="sig-name descname">refine_corners</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">corners</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crispy2/blob/master/crispy/utils.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crispy.utils.refine_corners" title="Permalink to this definition">¶</a></dt>
+<dd><p>Refine the corners found by the scanline algorithm so that the edges of
+the quadrilateral defined are perpendicular and guaranteed to remain
+within the image region.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>corners</strong> (<em>List</em><em>[</em><em>Tuple</em><em>[</em><em>int</em><em>]</em><em>]</em>) – The corners found by the scanline algorithm.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>refinedCorners</strong> – The locations of the refined floating point corners (order: top,
+left, right, bottom)</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>List[numpy.ndarray]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="crispy.utils.unify_boxes">
+<code class="sig-prename descclassname">crispy.utils.</code><code class="sig-name descname">unify_boxes</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">cornerLists</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crispy2/blob/master/crispy/utils.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crispy.utils.unify_boxes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unify a set of boxes, defined by their corners so that the box with the
+smallest area is modified (if necessary) to be fully contained within the
+others.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>*cornerLists</strong> (<em>List</em><em>[</em><em>numpy.ndarray</em><em>]</em>) – Lists of corners returned from refine_corners to unify.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>unifiedCorners</strong> – List of unified corners found.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>List[numpy.ndarray]</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – Raised if no valid set of corners could be found.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="crispy.utils.find_unified_bb">
+<code class="sig-prename descclassname">crispy.utils.</code><code class="sig-name descname">find_unified_bb</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">imA</span></em>, <em class="sig-param"><span class="n">imB</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crispy2/blob/master/crispy/utils.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crispy.utils.find_unified_bb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Scans the provided images to find the corners of the rotated data and
+returns a unified bounding box that fits within the data on both frames.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>imA</strong> (<em>numpy.ndarray</em>) – 2D array of image data (float) containing the first image.</p></li>
+<li><p><strong>imB</strong> (<em>numpy.ndarray</em>) – 2D array of image data (float) containing the second image.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>finalCorners</strong> – Corners which are within the data region of both images.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>List[numpy.ndarray]</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – This is propagated from unify_boxes if there is no valid corner
+    solution for which the smaller box maintains its centroid and all
+    corners are within the larger box.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="crispy.utils.rotate_crop_data">
+<code class="sig-prename descclassname">crispy.utils.</code><code class="sig-name descname">rotate_crop_data</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">im</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crispy2/blob/master/crispy/utils.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crispy.utils.rotate_crop_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rotate and crop the data from a rotated image.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>im</strong> (<em>numpy.ndarray</em>) – 3 or 4D array containing the image cube.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>crop</strong> (<em>numpy.ndarray</em>) – 3 or 4D array containing the rotated and cropped data from the image.</p></li>
+<li><p><strong>cropData</strong> (<em>dict</em>) – Dictionary containing the metadata necessary to reconstruct these
+cropped images into their full-frame input using
+reconstruct_full_frame (excluding the border lost to the crop).</p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><strong>ValueError</strong> – If array is of incorrect dimensionality.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="crispy.utils.rotate_crop_aligned_data">
+<code class="sig-prename descclassname">crispy.utils.</code><code class="sig-name descname">rotate_crop_aligned_data</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">imA</span></em>, <em class="sig-param"><span class="n">imB</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crispy2/blob/master/crispy/utils.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crispy.utils.rotate_crop_aligned_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rotate and crop a unified section of data from images in two different
+wavebands.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>imA</strong> (<em>numpy.ndarray</em>) – 3 or 4D array containing the first image cube.</p></li>
+<li><p><strong>imB</strong> (<em>numpy.ndarray</em>) – 3 or 4D array containing the first second cube.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>aCrop</strong> (<em>numpy.ndarray</em>) – 3 or 4D array containing the rotated and cropped data from the first
+image.</p></li>
+<li><p><strong>bCrop</strong> (<em>numpy.ndarray</em>) – 3 or 4D array containing the rotated and cropped data from the second
+image.</p></li>
+<li><p><strong>cropData</strong> (<em>dict</em>) – Dictionary containing the metadata necessary to reconstruct these
+cropped images into their full-frame input using
+reconstruct_full_frame (excluding the border lost to the crop).</p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><strong>ValueError</strong> – <ul class="simple">
+<li><p>Can be propagated from unify_boxes if no valid unified corner solution is found.
+    - If the arrays are of incompatible dimension.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="crispy.utils.reconstruct_full_frame">
+<code class="sig-prename descclassname">crispy.utils.</code><code class="sig-name descname">reconstruct_full_frame</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cropData</span></em>, <em class="sig-param"><span class="n">im</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crispy2/blob/master/crispy/utils.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crispy.utils.reconstruct_full_frame" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reconstruct the full-frame derotated data for a rotated and cropped image
+cube using the metadata.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cropData</strong> (<em>dict</em>) – The crop metadata returned from rotate_crop_data.</p></li>
+<li><p><strong>im</strong> (<em>numpy.ndarray</em>) – The datacube to be restored to full frame</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>rotatedIm</strong> – A derotated, full-frame, copy of the input image cube.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="crispy.utils.segmentation">
+<code class="sig-prename descclassname">crispy.utils.</code><code class="sig-name descname">segmentation</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">img</span></em>, <em class="sig-param"><span class="n">n</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crispy2/blob/master/crispy/utils.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crispy.utils.segmentation" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is a preprocessing function that will segment the images into segments with dimensions n x n.
+:param img: The image to be segmented.
+:type img: numpy.ndarray
+:param n: The dimension of the segments.
+:type n: int</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>segments</strong> – A numpy array of the segments of the image.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="crispy.utils.segment_cube">
+<code class="sig-prename descclassname">crispy.utils.</code><code class="sig-name descname">segment_cube</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">img_cube</span></em>, <em class="sig-param"><span class="n">n</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crispy2/blob/master/crispy/utils.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crispy.utils.segment_cube" title="Permalink to this definition">¶</a></dt>
+<dd><p>A function to segment a three-dimensional datacube.
+:param img_cube: The image cube to be segmented.
+:type img_cube: numpy.ndarray
+:param n: The dimension of the segments.
+:type n: int</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>segments</strong> – A numpy array of the segments of the image cube.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="crispy.utils.mosaic">
+<code class="sig-prename descclassname">crispy.utils.</code><code class="sig-name descname">mosaic</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">segments</span></em>, <em class="sig-param"><span class="n">img_shape</span></em>, <em class="sig-param"><span class="n">n</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crispy2/blob/master/crispy/utils.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crispy.utils.mosaic" title="Permalink to this definition">¶</a></dt>
+<dd><p>A processing function to mosaic the segments back together.
+:param segments: A numpy array of the segments of the image.
+:type segments: numpy.ndarray
+:param img_shape: The shape of the original image.
+:type img_shape: tuple
+:param n: The dimension of the segments.
+:type n: int</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>mosaic_img</strong> – The reconstructed image.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="crispy.utils.mosaic_cube">
+<code class="sig-prename descclassname">crispy.utils.</code><code class="sig-name descname">mosaic_cube</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">segments</span></em>, <em class="sig-param"><span class="n">img_shape</span></em>, <em class="sig-param"><span class="n">n</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crispy2/blob/master/crispy/utils.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crispy.utils.mosaic_cube" title="Permalink to this definition">¶</a></dt>
+<dd><p>A function to mosaic a segment list into an image cube.
+:param segments: The segments to be mosaiced back into images.
+:type segments: numpy.ndarray
+:param img_shape: The dimensions of the images.
+:type img_shape: tuple
+:param n: The dimensions of the segments. Default is 64 e.g. 64 x 64.
+:type n: int</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>m_cube</strong> – The cube of mosaiced images.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="sphinxlocaltoc">
+    <h3><a href="index.html">Page contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Utilities</a><ul>
+<li><a class="reference internal" href="#sequence-construction">Sequence Construction</a></li>
+<li><a class="reference internal" href="#image-utilities">Image Utilities</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/utils.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+      <div class="relbar-bottom">
+            
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="Slic.html" title="Fast Solar Image Classification Using Convolutional Neural Networks and Its Importance for Automation in Solar Physics"
+             >next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="spectral.html" title="Spectrum Properties"
+             >previous</a> &nbsp; &nbsp;</li>
+      <li><a href="index.html">crispy2 1.0.0 documentation</a> &#187;</li>
+
+          <li class="nav-item nav-item-1"><a href="API.html" >API</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Utilities</a></li> 
+      </ul>
+    </div>
+      </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020, John A. Armstrong.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
+    </div>
+      <!-- PSphinxTheme -->
+  </body>
+</html>

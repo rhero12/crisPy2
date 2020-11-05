@@ -1,15 +1,19 @@
 
+
+
 <!DOCTYPE html>
 
 <html>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Examples Using the Main Data Wrappers from crispy &#8212; crispy2 1.0.0 documentation</title>
-    <link rel="stylesheet" href="_static/pd.css" type="text/css" />
+    <title>Examples Using the Main Data Wrappers from crispy &#8212; crisPy2 1.0.0 documentation</title>
+    <link rel="stylesheet" href="_static/cloud.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/jupyter-sphinx.css" />
     <link rel="stylesheet" type="text/css" href="_static/thebelab.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noticia+Text:400,i,b,bi|Open+Sans:400,i,b,bi|Roboto+Mono:400,i,b,bi&amp;display=swap" type="text/css" />
+    
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
@@ -19,24 +23,49 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+    
+     
+        <script src="_static/jquery.cookie.js"></script>
+    
+
+    
+     
+        <script src="_static/cloud.base.js"></script>
+    
+
+    
+     
+        <script src="_static/cloud.js"></script>
+    
+
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Examples of the Sequence Classes" href="sequenceexamples.html" />
-    <link rel="prev" title="Examples of crispy in Use" href="Examples.html" />
-    <script type="text/javascript" src="_static/pd.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-
+    <link rel="prev" title="Examples of crispy in Use" href="Examples.html" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
   </head><body>
-    <div id="header">
-        <h1>crispy2 1.0.0 documentation</h1>
-    </div>
+    <div class="relbar-top">
+        
     <div class="related" role="navigation" aria-label="related navigation">
-        <ul>
-            <li class="nav-item nav-item-0"><a href="index.html">crispy2 1.0.0 documentation</a> &#187;
-            </li>
-                <li class="nav-item nav-item-1"><a href="Examples.html"
-                        accesskey="U">Examples of crispy in Use</a> &#187;</li>
-        </ul>
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="sequenceexamples.html" title="Examples of the Sequence Classes"
+             accesskey="N">next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="Examples.html" title="Examples of crispy in Use"
+             accesskey="P">previous</a> &nbsp; &nbsp;</li>
+    <li><a href="index.html">crisPy2 1.0.0 documentation</a> &#187;</li>
+
+          <li class="nav-item nav-item-1"><a href="Examples.html" accesskey="U">Examples of crispy in Use</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Examples Using the Main Data Wrappers from crispy</a></li> 
+      </ul>
+    </div>
     </div>
   
 
@@ -45,7 +74,7 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-<div class="section" id="examples-using-the-main-data-wrappers-from-crispy">
+  <div class="section" id="examples-using-the-main-data-wrappers-from-crispy">
 <h1>Examples Using the Main Data Wrappers from crispy<a class="headerlink" href="#examples-using-the-main-data-wrappers-from-crispy" title="Permalink to this headline">¶</a></h1>
 <p>Here, we provide a brief introduction on how to use the main data structures defined in crispy.crisp. Specifically, these examples will cover the CRISP, CRISPNonU, and CRISPWideband structures.</p>
 <div class="jupyter_cell jupyter_container docutils container">
@@ -113,7 +142,7 @@
 </div>
 </div>
 <div class="align-center figure">
-<img alt="_images/CRISP.png" src="_images/CRISP.png" />
+<a class="reference internal image-reference" href="_images/CRISP.png"><img alt="_images/CRISP.png" src="_images/CRISP.png" style="width: 100%;" /></a>
 </div>
 <p>We can than use slicing and the <code class="docutils literal notranslate"><span class="pre">plot_spectrum</span></code> class method to plot the spectrum at a certain point. Firstly though to identify the slice we need we use the <code class="docutils literal notranslate"><span class="pre">from_lonlat</span></code> class method, in this example we take the point (-720, -310) in the Helioprojective plane:</p>
 <div class="jupyter_cell jupyter_container docutils container">
@@ -138,7 +167,7 @@
 </div>
 </div>
 <div class="align-center figure">
-<img alt="_images/CRISP_Spectrum.png" src="_images/CRISP_Spectrum.png" />
+<a class="reference internal image-reference" href="_images/CRISP_Spectrum.png"><img alt="_images/CRISP_Spectrum.png" src="_images/CRISP_Spectrum.png" style="width: 100%;" /></a>
 </div>
 </div>
 <div class="section" id="crispnonu">
@@ -146,10 +175,11 @@
 <p>For the CRISPNonU class, we choose an imaging spectropolarimetric Ca II 8542 observation of the X2.2 solar flare SOL20170906T09:10.</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">crispnonu</span> <span class="o">=</span> <span class="n">CRISPNonU</span><span class="p">(</span><span class="s2">&quot;../examples/2017/ca8542/00000.h5&quot;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">crispnonu</span> <span class="o">=</span> <span class="n">CRISPNonU</span><span class="p">(</span><span class="s2">&quot;../examples/2017/ca8542/00000.h5&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">crispnonu</span><span class="p">)</span>
 </pre></div>
-</div>
+</td></tr></table></div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>CRISP Observation
@@ -178,7 +208,7 @@
 </div>
 </div>
 <div class="align-center figure">
-<img alt="_images/CRISPNonU.png" src="_images/CRISPNonU.png" />
+<a class="reference internal image-reference" href="_images/CRISPNonU.png"><img alt="_images/CRISPNonU.png" src="_images/CRISPNonU.png" style="width: 100%;" /></a>
 </div>
 <p>We can then identify a point to view the Stokes profiles for using the <code class="docutils literal notranslate"><span class="pre">from_lonlat</span></code> as before and plot the Stokes profiles using the <code class="docutils literal notranslate"><span class="pre">plot_stokes</span></code> class method:</p>
 <div class="jupyter_cell jupyter_container docutils container">
@@ -191,7 +221,7 @@
 </div>
 </div>
 <div class="align-center figure">
-<img alt="_images/CRISPNonU_Spectrum.png" src="_images/CRISPNonU_Spectrum.png" />
+<a class="reference internal image-reference" href="_images/CRISPNonU_Spectrum.png"><img alt="_images/CRISPNonU_Spectrum.png" src="_images/CRISPNonU_Spectrum.png" style="width: 100%;" /></a>
 </div>
 </div>
 <div class="section" id="crispwideband">
@@ -227,7 +257,7 @@
 </div>
 </div>
 <div class="align-center figure">
-<img alt="_images/CRISPWideband.png" src="_images/CRISPWideband.png" />
+<a class="reference internal image-reference" href="_images/CRISPWideband.png"><img alt="_images/CRISPWideband.png" src="_images/CRISPWideband.png" style="width: 100%;" /></a>
 </div>
 </div>
 </div>
@@ -238,9 +268,9 @@
         </div>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-  <h3><a href="index.html">Table of Contents</a></h3>
-  <ul>
+        <div class="sphinxsidebarwrapper"><div class="sphinx-toc sphinxlocaltoc">
+    <h3><a href="index.html">Page contents</a></h3>
+    <ul>
 <li><a class="reference internal" href="#">Examples Using the Main Data Wrappers from crispy</a><ul>
 <li><a class="reference internal" href="#crisp">CRISP</a></li>
 <li><a class="reference internal" href="#crispnonu">CRISPNonU</a></li>
@@ -249,12 +279,17 @@
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="Examples.html"
-                        title="previous chapter">Examples of crispy in Use</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="sequenceexamples.html"
-                        title="next chapter">Examples of the Sequence Classes</a></p>
+  </div>
+  <div class="sphinxprev">
+    <h4>Previous page</h4>
+    <p class="topless"><a href="Examples.html"
+                          title="Previous page">&larr; Examples of crispy in Use</a></p>
+  </div>
+  <div class="sphinxnext">
+    <h4>Next page</h4>
+    <p class="topless"><a href="sequenceexamples.html"
+                          title="Next page">&rarr; Examples of the Sequence Classes</a></p>
+  </div>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -274,11 +309,51 @@
 <script>$('#searchbox').show(0);</script>
         </div>
       </div>
+    
+    
+        <div class="sidebar-toggle-group no-js">
+            
+            <button class="sidebar-toggle" id="sidebar-hide" title="Hide the sidebar menu">
+                 «
+                <span class="show-for-small">hide menu</span>
+                
+            </button>
+            <button class="sidebar-toggle" id="sidebar-show" title="Show the sidebar menu">
+                
+                <span class="show-for-small">menu</span>
+                <span class="hide-for-small">sidebar</span>
+                 »
+            </button>
+        </div>
+    
       <div class="clearer"></div>
     </div>
+    <div class="relbar-bottom">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="sequenceexamples.html" title="Examples of the Sequence Classes"
+             >next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="Examples.html" title="Examples of crispy in Use"
+             >previous</a> &nbsp; &nbsp;</li>
+    <li><a href="index.html">crisPy2 1.0.0 documentation</a> &#187;</li>
+
+          <li class="nav-item nav-item-1"><a href="Examples.html" >Examples of crispy in Use</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Examples Using the Main Data Wrappers from crispy</a></li> 
+      </ul>
+    </div>
+    </div>
+
     <div class="footer" role="contentinfo">
         &#169; Copyright 2020, John A. Armstrong.
       Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
     </div>
+    <!-- cloud_sptheme 1.4 -->
   </body>
 </html>

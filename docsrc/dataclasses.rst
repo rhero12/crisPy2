@@ -30,9 +30,10 @@ This is also the easiest way to use the plotting methods. For this observation, 
 
    crisp[7].intensity_map()
 
-.. figure:: images/CRISP.png
+.. figure:: ../docs/images/CRISP.png
    :align: center
    :figclass: align-center
+   :width: 100%
 
 We can than use slicing and the ``plot_spectrum`` class method to plot the spectrum at a certain point. Firstly though to identify the slice we need we use the ``from_lonlat`` class method, in this example we take the point (-720, -310) in the Helioprojective plane:
 
@@ -45,9 +46,10 @@ We can than use slicing and the ``plot_spectrum`` class method to plot the spect
 
    crisp[:,759,912].plot_spectrum()
 
-.. figure:: images/CRISP_Spectrum.png
+.. figure:: ../docs/images/CRISP_Spectrum.png
    :align: center
    :figclass: align-center
+   :width: 100%
 
 CRISPNonU
 ---------
@@ -55,6 +57,7 @@ CRISPNonU
 For the CRISPNonU class, we choose an imaging spectropolarimetric Ca II 8542 observation of the X2.2 solar flare SOL20170906T09:10.
 
 .. jupyter-execute::
+   :linenos:
 
    crispnonu = CRISPNonU("../examples/2017/ca8542/00000.h5")
    print(crispnonu)
@@ -66,9 +69,10 @@ The ``intensity_map`` and ``plot_spectrum`` methods will also work here with the
 
    crispnonu[:,5].stokes_map(stokes="all")
 
-.. figure:: images/CRISPNonU.png
+.. figure:: ../docs/images/CRISPNonU.png
    :align: center
    :figclass: align-center
+   :width: 100%
 
 We can then identify a point to view the Stokes profiles for using the ``from_lonlat`` as before and plot the Stokes profiles using the ``plot_stokes`` class method:
 
@@ -77,9 +81,10 @@ We can then identify a point to view the Stokes profiles for using the ``from_lo
 
    crispnonu[:,:,38,257].plot_stokes(stokes="all")
 
-.. figure:: images/CRISPNonU_Spectrum.png
+.. figure:: ../docs/images/CRISPNonU_Spectrum.png
    :align: center
    :figclass: align-center
+   :width: 100%
 
 CRISPWideband
 -------------
@@ -98,6 +103,7 @@ The CRISPWideband has one useful class method, that is ``intensity_map``:
 
    crispwideband.intensity_map()
 
-.. figure:: images/CRISPWideband.png
+.. figure:: ../docs/images/CRISPWideband.png
    :align: center
    :figclass: align-center
+   :width: 100%

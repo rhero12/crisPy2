@@ -20,9 +20,10 @@ where :math:`x` is the input to the layer. Residual networks are typically used 
 
 The inner structure of residual layers is also different from a normal convolutional layer as they contain two convolutions, two normalisations and two activations as shown in the figure below. The input to the layer is added after the second normalisation and before the second activation as shown by the arrow in the figure below.
 
-.. figure:: images/resblock.png
+.. figure:: ../docs/images/resblock.png
    :align: center
    :figclass: align-center
+   :width: 100%
 
    A schematic diagram of a residual layer.
 

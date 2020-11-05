@@ -8,13 +8,15 @@ The following contains examples of how to use the interactive data visualiser pa
 Image Viewer
 ------------
 
-.. figure:: images/imageviewer.png
+.. figure:: ../docs/images/imageviewer.png
    :align: center
    :figclass: align-center
+   :width: 100%
 
 Spectral Viewer
 ---------------
 
-.. figure:: images/spectralviewer.png
+.. figure:: ../docs/images/spectralviewer.png
    :align: center
    :figclass: align-center
+   :width: 100%

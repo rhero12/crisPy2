@@ -26,7 +26,7 @@ The data structures use slicing derived from astropy's `NDData <https://docs.ast
 This is also the easiest way to use the plotting methods. For this observation, to view an image at a specific wavelength we would use the ``intensity_map`` class method as shown below for the line core of the H :math:`\alpha` observation
 
 .. jupyter-execute::
-   :hide-output:
+   
 
    crisp[7].intensity_map()
 
@@ -41,7 +41,7 @@ We can than use slicing and the ``plot_spectrum`` class method to plot the spect
     crisp.from_lonlat(-720, -310)
 
 .. jupyter-execute::
-   :hide-output:
+   
 
    crisp[:,759,912].plot_spectrum()
 
@@ -62,7 +62,7 @@ For the CRISPNonU class, we choose an imaging spectropolarimetric Ca II 8542 obs
 The ``intensity_map`` and ``plot_spectrum`` methods will also work here with the correct slicing. The main difference from the CRISPNonU class can be seen in the wavelengths sampled section: the wavelengths are sampled non-uniformly but the class deals with this for us. Here, we will show the polarimetric class methods. Firstly is ``stokes_map`` for the line core:
 
 .. jupyter-execute::
-   :hide-output:
+   
 
    crispnonu[:,5].stokes_map(stokes="all")
 
@@ -73,7 +73,7 @@ The ``intensity_map`` and ``plot_spectrum`` methods will also work here with the
 We can then identify a point to view the Stokes profiles for using the ``from_lonlat`` as before and plot the Stokes profiles using the ``plot_stokes`` class method:
 
 .. jupyter-execute::
-   :hide-output:
+   
 
    crispnonu[:,:,38,257].plot_stokes(stokes="all")
 
@@ -94,7 +94,7 @@ For the CRISPWideband class, we use the complimentary wideband Ca II 8542 for th
 The CRISPWideband has one useful class method, that is ``intensity_map``:
 
 .. jupyter-execute::
-   :hide-output:
+   
 
    crispwideband.intensity_map()
 

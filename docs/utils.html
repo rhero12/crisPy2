@@ -1,15 +1,19 @@
 
+
+
 <!DOCTYPE html>
 
 <html>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Utilities &#8212; crispy2 1.0.0 documentation</title>
-    <link rel="stylesheet" href="_static/pd.css" type="text/css" />
+    <title>Utilities &#8212; crisPy2 1.0.0 documentation</title>
+    <link rel="stylesheet" href="_static/cloud.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/jupyter-sphinx.css" />
     <link rel="stylesheet" type="text/css" href="_static/thebelab.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noticia+Text:400,i,b,bi|Open+Sans:400,i,b,bi|Roboto+Mono:400,i,b,bi&amp;display=swap" type="text/css" />
+    
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
@@ -19,24 +23,49 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+    
+     
+        <script src="_static/jquery.cookie.js"></script>
+    
+
+    
+     
+        <script src="_static/cloud.base.js"></script>
+    
+
+    
+     
+        <script src="_static/cloud.js"></script>
+    
+
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Fast Solar Image Classification Using Convolutional Neural Networks and Its Importance for Automation in Solar Physics" href="Slic.html" />
-    <link rel="prev" title="Spectrum Properties" href="spectral.html" />
-    <script type="text/javascript" src="_static/pd.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-
+    <link rel="prev" title="Spectrum Properties" href="spectral.html" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
   </head><body>
-    <div id="header">
-        <h1>crispy2 1.0.0 documentation</h1>
-    </div>
+    <div class="relbar-top">
+        
     <div class="related" role="navigation" aria-label="related navigation">
-        <ul>
-            <li class="nav-item nav-item-0"><a href="index.html">crispy2 1.0.0 documentation</a> &#187;
-            </li>
-                <li class="nav-item nav-item-1"><a href="API.html"
-                        accesskey="U">API</a> &#187;</li>
-        </ul>
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="Slic.html" title="Fast Solar Image Classification Using Convolutional Neural Networks and Its Importance for Automation in Solar Physics"
+             accesskey="N">next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="spectral.html" title="Spectrum Properties"
+             accesskey="P">previous</a> &nbsp; &nbsp;</li>
+    <li><a href="index.html">crisPy2 1.0.0 documentation</a> &#187;</li>
+
+          <li class="nav-item nav-item-1"><a href="API.html" accesskey="U">API</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Utilities</a></li> 
+      </ul>
+    </div>
     </div>
   
 
@@ -45,14 +74,14 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-<div class="section" id="utilities">
+  <div class="section" id="utilities">
 <h1>Utilities<a class="headerlink" href="#utilities" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="sequence-construction">
 <h2>Sequence Construction<a class="headerlink" href="#sequence-construction" title="Permalink to this headline">¶</a></h2>
 <p>The way the input for the sequence data classes works is not the most opaque thing in the world. So we provide a function to generate a list of dictionaries to consturct the sequence data class.</p>
 <dl class="py function">
 <dt id="crispy.utils.CRISP_sequence_constructor">
-<code class="sig-prename descclassname">crispy.utils.</code><code class="sig-name descname">CRISP_sequence_constructor</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">files</span></em>, <em class="sig-param"><span class="n">wcs</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">uncertainty</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">mask</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">nonu</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crispy2/blob/master/crispy/utils.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crispy.utils.CRISP_sequence_constructor" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">crispy.utils.</code><code class="sig-name descname">CRISP_sequence_constructor</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">files</span></em>, <em class="sig-param"><span class="n">wcs</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">uncertainty</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">mask</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">nonu</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crisPy2/blob/master/crispy/utils.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crispy.utils.CRISP_sequence_constructor" title="Permalink to this definition">¶</a></dt>
 <dd><p>This is a helper function for constructing the kind of dictionary needed to make a CRISPSequence or CRISPWidebandSequence or CRISPNonUSequence object.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -73,7 +102,7 @@
 <p>Oftentimes, the CRISP images need to be augmented in some way for their intended purpose. This could be rotating the images in the image plane to get rid of the background or chopping up the image into segments for work on smaller pieces of the field-of-view. Below is a list of functions to help do these things.</p>
 <dl class="py function">
 <dt id="crispy.utils.scanline_search_corners">
-<code class="sig-prename descclassname">crispy.utils.</code><code class="sig-name descname">scanline_search_corners</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">im</span></em>, <em class="sig-param"><span class="n">size</span><span class="o">=</span><span class="default_value">10</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crispy2/blob/master/crispy/utils.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crispy.utils.scanline_search_corners" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">crispy.utils.</code><code class="sig-name descname">scanline_search_corners</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">im</span></em>, <em class="sig-param"><span class="n">size</span><span class="o">=</span><span class="default_value">10</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crisPy2/blob/master/crispy/utils.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crispy.utils.scanline_search_corners" title="Permalink to this definition">¶</a></dt>
 <dd><p>Finds the corners of the embedded image by scanning through lines
 (rows/columns) and looking for a run of pixels different to each other
 and the background.</p>
@@ -98,7 +127,7 @@ detected (default: 10).</p></li>
 
 <dl class="py function">
 <dt id="crispy.utils.refine_corners">
-<code class="sig-prename descclassname">crispy.utils.</code><code class="sig-name descname">refine_corners</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">corners</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crispy2/blob/master/crispy/utils.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crispy.utils.refine_corners" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">crispy.utils.</code><code class="sig-name descname">refine_corners</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">corners</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crisPy2/blob/master/crispy/utils.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crispy.utils.refine_corners" title="Permalink to this definition">¶</a></dt>
 <dd><p>Refine the corners found by the scanline algorithm so that the edges of
 the quadrilateral defined are perpendicular and guaranteed to remain
 within the image region.</p>
@@ -118,7 +147,7 @@ left, right, bottom)</p>
 
 <dl class="py function">
 <dt id="crispy.utils.unify_boxes">
-<code class="sig-prename descclassname">crispy.utils.</code><code class="sig-name descname">unify_boxes</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">cornerLists</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crispy2/blob/master/crispy/utils.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crispy.utils.unify_boxes" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">crispy.utils.</code><code class="sig-name descname">unify_boxes</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">cornerLists</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crisPy2/blob/master/crispy/utils.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crispy.utils.unify_boxes" title="Permalink to this definition">¶</a></dt>
 <dd><p>Unify a set of boxes, defined by their corners so that the box with the
 smallest area is modified (if necessary) to be fully contained within the
 others.</p>
@@ -140,7 +169,7 @@ others.</p>
 
 <dl class="py function">
 <dt id="crispy.utils.find_unified_bb">
-<code class="sig-prename descclassname">crispy.utils.</code><code class="sig-name descname">find_unified_bb</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">imA</span></em>, <em class="sig-param"><span class="n">imB</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crispy2/blob/master/crispy/utils.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crispy.utils.find_unified_bb" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">crispy.utils.</code><code class="sig-name descname">find_unified_bb</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">imA</span></em>, <em class="sig-param"><span class="n">imB</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crisPy2/blob/master/crispy/utils.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crispy.utils.find_unified_bb" title="Permalink to this definition">¶</a></dt>
 <dd><p>Scans the provided images to find the corners of the rotated data and
 returns a unified bounding box that fits within the data on both frames.</p>
 <dl class="field-list simple">
@@ -166,7 +195,7 @@ returns a unified bounding box that fits within the data on both frames.</p>
 
 <dl class="py function">
 <dt id="crispy.utils.rotate_crop_data">
-<code class="sig-prename descclassname">crispy.utils.</code><code class="sig-name descname">rotate_crop_data</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">im</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crispy2/blob/master/crispy/utils.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crispy.utils.rotate_crop_data" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">crispy.utils.</code><code class="sig-name descname">rotate_crop_data</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">im</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crisPy2/blob/master/crispy/utils.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crispy.utils.rotate_crop_data" title="Permalink to this definition">¶</a></dt>
 <dd><p>Rotate and crop the data from a rotated image.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -189,7 +218,7 @@ reconstruct_full_frame (excluding the border lost to the crop).</p></li>
 
 <dl class="py function">
 <dt id="crispy.utils.rotate_crop_aligned_data">
-<code class="sig-prename descclassname">crispy.utils.</code><code class="sig-name descname">rotate_crop_aligned_data</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">imA</span></em>, <em class="sig-param"><span class="n">imB</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crispy2/blob/master/crispy/utils.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crispy.utils.rotate_crop_aligned_data" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">crispy.utils.</code><code class="sig-name descname">rotate_crop_aligned_data</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">imA</span></em>, <em class="sig-param"><span class="n">imB</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crisPy2/blob/master/crispy/utils.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crispy.utils.rotate_crop_aligned_data" title="Permalink to this definition">¶</a></dt>
 <dd><p>Rotate and crop a unified section of data from images in two different
 wavebands.</p>
 <dl class="field-list simple">
@@ -223,7 +252,7 @@ reconstruct_full_frame (excluding the border lost to the crop).</p></li>
 
 <dl class="py function">
 <dt id="crispy.utils.reconstruct_full_frame">
-<code class="sig-prename descclassname">crispy.utils.</code><code class="sig-name descname">reconstruct_full_frame</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cropData</span></em>, <em class="sig-param"><span class="n">im</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crispy2/blob/master/crispy/utils.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crispy.utils.reconstruct_full_frame" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">crispy.utils.</code><code class="sig-name descname">reconstruct_full_frame</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cropData</span></em>, <em class="sig-param"><span class="n">im</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crisPy2/blob/master/crispy/utils.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crispy.utils.reconstruct_full_frame" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reconstruct the full-frame derotated data for a rotated and cropped image
 cube using the metadata.</p>
 <dl class="field-list simple">
@@ -244,7 +273,7 @@ cube using the metadata.</p>
 
 <dl class="py function">
 <dt id="crispy.utils.segmentation">
-<code class="sig-prename descclassname">crispy.utils.</code><code class="sig-name descname">segmentation</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">img</span></em>, <em class="sig-param"><span class="n">n</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crispy2/blob/master/crispy/utils.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crispy.utils.segmentation" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">crispy.utils.</code><code class="sig-name descname">segmentation</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">img</span></em>, <em class="sig-param"><span class="n">n</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crisPy2/blob/master/crispy/utils.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crispy.utils.segmentation" title="Permalink to this definition">¶</a></dt>
 <dd><p>This is a preprocessing function that will segment the images into segments with dimensions n x n.
 :param img: The image to be segmented.
 :type img: numpy.ndarray
@@ -262,7 +291,7 @@ cube using the metadata.</p>
 
 <dl class="py function">
 <dt id="crispy.utils.segment_cube">
-<code class="sig-prename descclassname">crispy.utils.</code><code class="sig-name descname">segment_cube</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">img_cube</span></em>, <em class="sig-param"><span class="n">n</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crispy2/blob/master/crispy/utils.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crispy.utils.segment_cube" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">crispy.utils.</code><code class="sig-name descname">segment_cube</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">img_cube</span></em>, <em class="sig-param"><span class="n">n</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crisPy2/blob/master/crispy/utils.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crispy.utils.segment_cube" title="Permalink to this definition">¶</a></dt>
 <dd><p>A function to segment a three-dimensional datacube.
 :param img_cube: The image cube to be segmented.
 :type img_cube: numpy.ndarray
@@ -280,7 +309,7 @@ cube using the metadata.</p>
 
 <dl class="py function">
 <dt id="crispy.utils.mosaic">
-<code class="sig-prename descclassname">crispy.utils.</code><code class="sig-name descname">mosaic</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">segments</span></em>, <em class="sig-param"><span class="n">img_shape</span></em>, <em class="sig-param"><span class="n">n</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crispy2/blob/master/crispy/utils.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crispy.utils.mosaic" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">crispy.utils.</code><code class="sig-name descname">mosaic</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">segments</span></em>, <em class="sig-param"><span class="n">img_shape</span></em>, <em class="sig-param"><span class="n">n</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crisPy2/blob/master/crispy/utils.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crispy.utils.mosaic" title="Permalink to this definition">¶</a></dt>
 <dd><p>A processing function to mosaic the segments back together.
 :param segments: A numpy array of the segments of the image.
 :type segments: numpy.ndarray
@@ -300,7 +329,7 @@ cube using the metadata.</p>
 
 <dl class="py function">
 <dt id="crispy.utils.mosaic_cube">
-<code class="sig-prename descclassname">crispy.utils.</code><code class="sig-name descname">mosaic_cube</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">segments</span></em>, <em class="sig-param"><span class="n">img_shape</span></em>, <em class="sig-param"><span class="n">n</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crispy2/blob/master/crispy/utils.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crispy.utils.mosaic_cube" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">crispy.utils.</code><code class="sig-name descname">mosaic_cube</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">segments</span></em>, <em class="sig-param"><span class="n">img_shape</span></em>, <em class="sig-param"><span class="n">n</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crisPy2/blob/master/crispy/utils.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crispy.utils.mosaic_cube" title="Permalink to this definition">¶</a></dt>
 <dd><p>A function to mosaic a segment list into an image cube.
 :param segments: The segments to be mosaiced back into images.
 :type segments: numpy.ndarray
@@ -327,9 +356,9 @@ cube using the metadata.</p>
         </div>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-  <h3><a href="index.html">Table of Contents</a></h3>
-  <ul>
+        <div class="sphinxsidebarwrapper"><div class="sphinx-toc sphinxlocaltoc">
+    <h3><a href="index.html">Page contents</a></h3>
+    <ul>
 <li><a class="reference internal" href="#">Utilities</a><ul>
 <li><a class="reference internal" href="#sequence-construction">Sequence Construction</a></li>
 <li><a class="reference internal" href="#image-utilities">Image Utilities</a></li>
@@ -337,12 +366,17 @@ cube using the metadata.</p>
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="spectral.html"
-                        title="previous chapter">Spectrum Properties</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="Slic.html"
-                        title="next chapter">Fast Solar Image Classification Using Convolutional Neural Networks and Its Importance for Automation in Solar Physics</a></p>
+  </div>
+  <div class="sphinxprev">
+    <h4>Previous page</h4>
+    <p class="topless"><a href="spectral.html"
+                          title="Previous page">&larr; Spectrum Properties</a></p>
+  </div>
+  <div class="sphinxnext">
+    <h4>Next page</h4>
+    <p class="topless"><a href="Slic.html"
+                          title="Next page">&rarr; Fast Solar Image Classification Using Convolutional Neural Networks and Its Importance for Automation in Solar Physics</a></p>
+  </div>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -362,11 +396,51 @@ cube using the metadata.</p>
 <script>$('#searchbox').show(0);</script>
         </div>
       </div>
+    
+    
+        <div class="sidebar-toggle-group no-js">
+            
+            <button class="sidebar-toggle" id="sidebar-hide" title="Hide the sidebar menu">
+                 «
+                <span class="show-for-small">hide menu</span>
+                
+            </button>
+            <button class="sidebar-toggle" id="sidebar-show" title="Show the sidebar menu">
+                
+                <span class="show-for-small">menu</span>
+                <span class="hide-for-small">sidebar</span>
+                 »
+            </button>
+        </div>
+    
       <div class="clearer"></div>
     </div>
+    <div class="relbar-bottom">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="Slic.html" title="Fast Solar Image Classification Using Convolutional Neural Networks and Its Importance for Automation in Solar Physics"
+             >next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="spectral.html" title="Spectrum Properties"
+             >previous</a> &nbsp; &nbsp;</li>
+    <li><a href="index.html">crisPy2 1.0.0 documentation</a> &#187;</li>
+
+          <li class="nav-item nav-item-1"><a href="API.html" >API</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Utilities</a></li> 
+      </ul>
+    </div>
+    </div>
+
     <div class="footer" role="contentinfo">
         &#169; Copyright 2020, John A. Armstrong.
       Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
     </div>
+    <!-- cloud_sptheme 1.4 -->
   </body>
 </html>
