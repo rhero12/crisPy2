@@ -1,0 +1,217 @@
+
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>I/O &#8212; crisPy2 1.0.0 documentation</title>
+    <link rel="stylesheet" href="_static/cloud.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/jupyter-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="_static/thebelab.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noticia+Text:400,i,b,bi|Open+Sans:400,i,b,bi|Roboto+Mono:400,i,b,bi&amp;display=swap" type="text/css" />
+    
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/thebelab-helper.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+    
+     
+        <script src="_static/jquery.cookie.js"></script>
+    
+
+    
+     
+        <script src="_static/cloud.base.js"></script>
+    
+
+    
+     
+        <script src="_static/cloud.js"></script>
+    
+
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Spectrum Properties" href="spectral.html" />
+    <link rel="prev" title="Neural Network Building Blocks" href="neuralnetwork.html" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head><body>
+    <div class="relbar-top">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="spectral.html" title="Spectrum Properties"
+             accesskey="N">next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="neuralnetwork.html" title="Neural Network Building Blocks"
+             accesskey="P">previous</a> &nbsp; &nbsp;</li>
+    <li><a href="index.html">crisPy2 1.0.0 documentation</a> &#187;</li>
+
+          <li class="nav-item nav-item-1"><a href="API.html" accesskey="U">API</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">I/O</a></li> 
+      </ul>
+    </div>
+    </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="i-o">
+<h1>I/O<a class="headerlink" href="#i-o" title="Permalink to this headline">¶</a></h1>
+<p>The following is the documentation for the input/output (I/O) functions for making use of various different types of CRISP data in Python.</p>
+<p>CRISP observations are normally shipped in the legacy La Palma data cube format which is not always the most helpful for data analysis and does not have a Python interface. As a result, we have developed a function to memory map these cubes and a secondary function to be able to save these cubes as <a class="reference external" href="https://www.hdfgroup.org/">hdf5</a> files similar to fits files format you might find the data in.</p>
+<dl class="py function">
+<dt id="crispy.io.memmap_crisp_cube">
+<code class="sig-prename descclassname">crispy.io.</code><code class="sig-name descname">memmap_crisp_cube</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">path</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crisPy2/blob/master/crispy/io.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crispy.io.memmap_crisp_cube" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function memory maps a legacy La Palma data cube pulling metainformation from appropriate files. The function first looks for an <code class="docutils literal notranslate"><span class="pre">assoc.pro</span></code> file which contains important information about the first dimension. If this does not exist then the user will have to untangle the first dimension themselves. The first dimension is a multiplicative combination of time and wavelength (and Stokes) with the <code class="docutils literal notranslate"><span class="pre">assoc.pro</span></code> providing the necessary information to split these into distinct axes. When unable to access this information, the first dimension will be the multiplicative combination of time and wavelength (and Stokes) with the ordering of one time for all wavelengths sampled. N.B. when Stokes is present, the first axis takes the form of one time for wavelengths sampled of Stokes I, wavelengths sampled of Stokes Q etc.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>path</strong> (<em>str</em>) – The path to the legacy La Palma cube.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="crispy.io.la_palma_cube_to_hdf5">
+<code class="sig-prename descclassname">crispy.io.</code><code class="sig-name descname">la_palma_cube_to_hdf5</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cube_path</span></em>, <em class="sig-param"><span class="n">tseries_path</span></em>, <em class="sig-param"><span class="n">spectfile</span></em>, <em class="sig-param"><span class="n">date_obs</span></em>, <em class="sig-param"><span class="n">telescope</span></em>, <em class="sig-param"><span class="n">instrument</span></em>, <em class="sig-param"><span class="n">pixel_scale</span></em>, <em class="sig-param"><span class="n">cadence</span></em>, <em class="sig-param"><span class="n">element</span></em>, <em class="sig-param"><span class="n">pointing</span></em>, <em class="sig-param"><span class="n">mu</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">start_idx</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">save_dir</span><span class="o">=</span><span class="default_value">'./'</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crisPy2/blob/master/crispy/io.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crispy.io.la_palma_cube_to_hdf5" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is a function to save a La Palma legacy cube as hdf5 files.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cube_path</strong> (<em>str</em>) – The path to the legacy La Palma data cube.</p></li>
+<li><p><strong>tseries_path</strong> (<em>str</em>) – The path to the <code class="docutils literal notranslate"><span class="pre">tseries</span></code> file containing the information on the times of the observations.</p></li>
+<li><p><strong>spectfile</strong> (<em>str</em>) – The path to the file containing the spectral positions sampled.</p></li>
+<li><p><strong>data_obs</strong> (<em>str</em>) – The observation date.</p></li>
+<li><p><strong>telescope</strong> (<em>str</em>) – The telescope used.</p></li>
+<li><p><strong>instrument</strong> (<em>str</em>) – The instrument used.</p></li>
+<li><p><strong>pixel_scale</strong> (<em>float</em>) – The size of a detector pixel in arcseconds.</p></li>
+<li><p><strong>cadence</strong> (<em>float</em>) – The time sampling of the observations.</p></li>
+<li><p><strong>element</strong> (<em>str</em>) – The transition observed.</p></li>
+<li><p><strong>pointing</strong> (<em>tuple</em><em>[</em><em>float</em><em>]</em>) – The pointing of the centre of the images in the Helioprojective plane.</p></li>
+<li><p><strong>mu</strong> (<em>float</em><em> or </em><em>None</em><em>, </em><em>optional</em>) – The direction cosine of the observations. Default is None.</p></li>
+<li><p><strong>start_idx</strong> (<em>int</em><em>, </em><em>optional</em>) – The time index to start making files from. Default is 0.</p></li>
+<li><p><strong>save_dir</strong> (<em>str</em><em>, </em><em>optional</em>) – The directory to save the hdf5 files in. Default is the current directory.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<p>The last function in the I/O section is mandatory for using the produced hdf5 files with the <code class="docutils literal notranslate"><span class="pre">crispy2.crisp</span></code> data classes. This function converts the header information from the hdf5 files into a WCS object usable by these data classes.</p>
+<dl class="py function">
+<dt id="crispy.io.hdf5_header_to_wcs">
+<code class="sig-prename descclassname">crispy.io.</code><code class="sig-name descname">hdf5_header_to_wcs</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">hdf5_header</span></em>, <em class="sig-param"><span class="n">nonu</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crisPy2/blob/master/crispy/io.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crispy.io.hdf5_header_to_wcs" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function takes the hdf5 header information and converts it to a wcs object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>hdf5_header</strong> (<em>dict</em><em> or </em><em>yaml</em>) – The header information from the hdf5 observation file.</p></li>
+<li><p><strong>nonu</strong> (<em>bool</em><em>, </em><em>optional</em>) – Whether or not the spectral points are sampled non-uniformly. Default is False.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div class="sphinxprev">
+    <h4>Previous page</h4>
+    <p class="topless"><a href="neuralnetwork.html"
+                          title="Previous page">&larr; Neural Network Building Blocks</a></p>
+  </div>
+  <div class="sphinxnext">
+    <h4>Next page</h4>
+    <p class="topless"><a href="spectral.html"
+                          title="Next page">&rarr; Spectrum Properties</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/io.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+    
+    
+        <div class="sidebar-toggle-group no-js">
+            
+            <button class="sidebar-toggle" id="sidebar-hide" title="Hide the sidebar menu">
+                 «
+                <span class="show-for-small">hide menu</span>
+                
+            </button>
+            <button class="sidebar-toggle" id="sidebar-show" title="Show the sidebar menu">
+                
+                <span class="show-for-small">menu</span>
+                <span class="hide-for-small">sidebar</span>
+                 »
+            </button>
+        </div>
+    
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="spectral.html" title="Spectrum Properties"
+             >next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="neuralnetwork.html" title="Neural Network Building Blocks"
+             >previous</a> &nbsp; &nbsp;</li>
+    <li><a href="index.html">crisPy2 1.0.0 documentation</a> &#187;</li>
+
+          <li class="nav-item nav-item-1"><a href="API.html" >API</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">I/O</a></li> 
+      </ul>
+    </div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020, John A. Armstrong.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
+    </div>
+    <!-- cloud_sptheme 1.4 -->
+  </body>
+</html>

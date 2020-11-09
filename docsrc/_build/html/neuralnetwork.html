@@ -1,0 +1,249 @@
+
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Neural Network Building Blocks &#8212; crisPy2 1.0.0 documentation</title>
+    <link rel="stylesheet" href="_static/cloud.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/jupyter-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="_static/thebelab.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noticia+Text:400,i,b,bi|Open+Sans:400,i,b,bi|Roboto+Mono:400,i,b,bi&amp;display=swap" type="text/css" />
+    
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/thebelab-helper.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+    
+     
+        <script src="_static/jquery.cookie.js"></script>
+    
+
+    
+     
+        <script src="_static/cloud.base.js"></script>
+    
+
+    
+     
+        <script src="_static/cloud.js"></script>
+    
+
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="I/O" href="io.html" />
+    <link rel="prev" title="Visualisers" href="visualisation.html" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head><body>
+    <div class="relbar-top">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="io.html" title="I/O"
+             accesskey="N">next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="visualisation.html" title="Visualisers"
+             accesskey="P">previous</a> &nbsp; &nbsp;</li>
+    <li><a href="index.html">crisPy2 1.0.0 documentation</a> &#187;</li>
+
+          <li class="nav-item nav-item-1"><a href="API.html" accesskey="U">API</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Neural Network Building Blocks</a></li> 
+      </ul>
+    </div>
+    </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="neural-network-building-blocks">
+<h1>Neural Network Building Blocks<a class="headerlink" href="#neural-network-building-blocks" title="Permalink to this headline">¶</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>These neural network layers are built using the <a class="reference external" href="https://pytorch.org/">PyTorch</a> framework and are only compatible with v1.1.0+.</p>
+</div>
+<p>Neural networks have seen a rise in popularity in solar physics (see <a class="reference external" href="https://link.springer.com/article/10.1007/s11207-019-1473-z">Armstrong &amp; Fletcher, 2019</a> and <a class="reference external" href="https://doi.org/10.1093/astrogeo/ataa044">Armstrong et al., 2020</a> for an overview), however, the application of such models can be a tricky subject to get into. As a result, the following class should aid anyone wanting to build a deep neural network by taking away a lot of the complexity involved (such as structuring).</p>
+<p>Neural networks are composed of non-linear <em>layers</em> made up of a linear operation, a normalisation technique and an non-linear (known as activation) operation. Like Lego, neural network frameworks typically give each of these pieces individually and a mix and match process can ensue. The approach we take however is that these layers will always follow the linear -&gt; normalisation -&gt; non-linear path and therefore we combine these key building blocks together with the interchangeability being encapsulated by keyword arguments.</p>
+<p>The most commonly used type of neural network is known as a convolutional neural network (CNN). CNNs have layers as described above and so will utilise the <code class="docutils literal notranslate"><span class="pre">ConvBlock</span></code> object to build the layers.</p>
+<dl class="py class">
+<dt id="crispy.neural_network.ConvBlock">
+<em class="property">class </em><code class="sig-prename descclassname">crispy.neural_network.</code><code class="sig-name descname">ConvBlock</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">in_channels</span></em>, <em class="sig-param"><span class="n">out_channels</span></em>, <em class="sig-param"><span class="n">kernel</span><span class="o">=</span><span class="default_value">3</span></em>, <em class="sig-param"><span class="n">stride</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">pad</span><span class="o">=</span><span class="default_value">'reflect'</span></em>, <em class="sig-param"><span class="n">bias</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">normal</span><span class="o">=</span><span class="default_value">'batch'</span></em>, <em class="sig-param"><span class="n">activation</span><span class="o">=</span><span class="default_value">'relu'</span></em>, <em class="sig-param"><span class="n">upsample</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crisPy2/blob/master/crispy/neural_network.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crispy.neural_network.ConvBlock" title="Permalink to this definition">¶</a></dt>
+<dd><p>A modifiable convolutional layer for deep networks.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>in_channels</strong> (<em>int</em>) – The number of channels fed into the convolutional layer.</p></li>
+<li><p><strong>out_channels</strong> (<em>int</em>) – The number of channels fed out of the convolutional layer.</p></li>
+<li><p><strong>kernel</strong> (<em>int</em><em>, </em><em>optional</em>) – The size of the convolutional kernel. Default is 3 e.g. 3x3 convolutional kernel.</p></li>
+<li><p><strong>stride</strong> (<em>int</em><em>, </em><em>optional</em>) – The stride of the convolution. Default is 1.</p></li>
+<li><p><strong>pad</strong> (<em>str</em><em>, </em><em>optional</em>) – The type of padding to use when calculating the convolution. Default is “reflect”.</p></li>
+<li><p><strong>bias</strong> (<em>bool</em><em>, </em><em>optional</em>) – Whether or not to include a bias in the linear transformation. Default is False.</p></li>
+<li><p><strong>normal</strong> (<em>str</em><em>, </em><em>optional</em>) – The type of normalisation layer to use. Default is “batch”.</p></li>
+<li><p><strong>activation</strong> (<em>str</em><em>, </em><em>optional</em>) – The activation function to use. Default is “relu” to use the Rectified Linear Unit (ReLU) activation function.</p></li>
+<li><p><strong>upsample</strong> (<em>bool</em><em>, </em><em>optional</em>) – Whether or not to upsample the input to the layer. This is useful in decoder layers in autoencoders. Upsampling is done via a factor of 2 interpolation (it is only currently implemented assuming the size of the input is to be doubled, will be retconned to work for me if there is demand). Default is False.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<p>Another popular type of neural network is known as a Residual Network. Residual networks differ from CNNs because rather than each layer learning some function <span class="math notranslate nohighlight">\(f\)</span>, residual layers learn the residual to that function <span class="math notranslate nohighlight">\(H\)</span> such that</p>
+<div class="math notranslate nohighlight">
+\[H(x) = f(x) - x\]</div>
+<p>where <span class="math notranslate nohighlight">\(x\)</span> is the input to the layer. Residual networks are typically used when the problem requires are very deep network to learn or if a model encounters the vanishing gradient problem (for more on residual layers check out <a class="reference external" href="https://arxiv.org/abs/1512.03385">He et al., 2015</a>).</p>
+<p>The inner structure of residual layers is also different from a normal convolutional layer as they contain two convolutions, two normalisations and two activations as shown in the figure below. The input to the layer is added after the second normalisation and before the second activation as shown by the arrow in the figure below.</p>
+<div class="align-center figure" id="id1">
+<a class="reference internal image-reference" href="_images/resblock.png"><img alt="_images/resblock.png" src="_images/resblock.png" style="width: 100%;" /></a>
+<p class="caption"><span class="caption-text">A schematic diagram of a residual layer.</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+<dl class="py class">
+<dt id="crispy.neural_network.ResBlock">
+<em class="property">class </em><code class="sig-prename descclassname">crispy.neural_network.</code><code class="sig-name descname">ResBlock</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">in_channels</span></em>, <em class="sig-param"><span class="n">out_channels</span></em>, <em class="sig-param"><span class="n">kernel</span><span class="o">=</span><span class="default_value">3</span></em>, <em class="sig-param"><span class="n">stride</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">pad</span><span class="o">=</span><span class="default_value">'reflect'</span></em>, <em class="sig-param"><span class="n">bias</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">normal</span><span class="o">=</span><span class="default_value">'batch'</span></em>, <em class="sig-param"><span class="n">activation</span><span class="o">=</span><span class="default_value">'relu'</span></em>, <em class="sig-param"><span class="n">upsample</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">use_dropout</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crisPy2/blob/master/crispy/neural_network.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crispy.neural_network.ResBlock" title="Permalink to this definition">¶</a></dt>
+<dd><p>A modifiable residual block for deep neural networks.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>in_channels</strong> (<em>int</em>) – The number of channels fed into the residual layer.</p></li>
+<li><p><strong>out_channels</strong> (<em>int</em>) – The number of channels fed out of the residual layer.</p></li>
+<li><p><strong>kernel</strong> (<em>int</em><em>, </em><em>optional</em>) – The size of the convolutional kernel. Default is 3 e.g. 3x3 convolutional kernel.</p></li>
+<li><p><strong>stride</strong> (<em>int</em><em>, </em><em>optional</em>) – The stride of the convolution. Default is 1.</p></li>
+<li><p><strong>pad</strong> (<em>str</em><em>, </em><em>optional</em>) – The type of padding to use when calculating the convolution. Default is “reflect”.</p></li>
+<li><p><strong>bias</strong> (<em>bool</em><em>, </em><em>optional</em>) – Whether or not to include a bias in the linear transformation. Defulat is False.</p></li>
+<li><p><strong>normal</strong> (<em>str</em><em>, </em><em>optional</em>) – The type of normalisation layer to use. Default is “batch”.</p></li>
+<li><p><strong>activation</strong> (<em>str</em><em>, </em><em>optional</em>) – The activation function to use. Default is “relu” to use the Rectified Linear Unit (ReLU) activation function.</p></li>
+<li><p><strong>upsample</strong> (<em>bool</em><em>, </em><em>optional</em>) – Whether or not to upsample the input to the layer. This is useful in decoder layers in autoencoders. Upsampling is done via a factor of 2 interpolation (it is only currently implemented assuming the size of the input is to be doubled, will be retconned to work for me if there is demand). Default is False.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl>
+<dt>In popular network architectures such as Autoencoders (AEs) or Variational Autoencoders (VAEs), the data is often downsampled to a latent representation of the data to be upsampled to the desired result. There are typically two approaches to this upsampling.</dt><dd><ol class="arabic simple">
+<li><p>Using a fixed interpolation by the desired scale factor which can be achieved by setting <code class="docutils literal notranslate"><span class="pre">upsample=True</span></code> in <code class="docutils literal notranslate"><span class="pre">ConvBlock</span></code>/<code class="docutils literal notranslate"><span class="pre">ResBlock</span></code></p></li>
+<li><p>Using <em>transpose</em> convolution which is a kind of learned upsampling. (For a better explanation of transpose convolution than I could provide see <a class="reference external" href="https://medium.com/apache-mxnet/transposed-convolutions-explained-with-ms-excel-52d13030c7e8">here</a>). Transpose convolution is an interpolation using a sparse convolutional kernel where the non-zero numbers in that kernel are learnable parameters. This means that in training a network, the model should learn to do the optimal upsampling for the reconstruction of the data.</p></li>
+</ol>
+<dl class="py class">
+<dt id="crispy.neural_network.ConvTransBlock">
+<em class="property">class </em><code class="sig-prename descclassname">crispy.neural_network.</code><code class="sig-name descname">ConvTransBlock</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">in_channels</span></em>, <em class="sig-param"><span class="n">out_channels</span></em>, <em class="sig-param"><span class="n">kernel</span><span class="o">=</span><span class="default_value">3</span></em>, <em class="sig-param"><span class="n">stride</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">bias</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">pad</span><span class="o">=</span><span class="default_value">'reflect'</span></em>, <em class="sig-param"><span class="n">normal</span><span class="o">=</span><span class="default_value">'batch'</span></em>, <em class="sig-param"><span class="n">activation</span><span class="o">=</span><span class="default_value">'relu'</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crisPy2/blob/master/crispy/neural_network.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crispy.neural_network.ConvTransBlock" title="Permalink to this definition">¶</a></dt>
+<dd><p>A modifiable transpose conovlutional layer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>in_channels</strong> (<em>int</em>) – The number of channels fed into the convolutional layer.</p></li>
+<li><p><strong>out_channels</strong> (<em>int</em>) – The number of channels fed out of the convolutional layer.</p></li>
+<li><p><strong>kernel</strong> (<em>int</em><em>, </em><em>optional</em>) – The size of the convolutional kernel. Default is 3 e.g. 3x3 convolutional kernel.</p></li>
+<li><p><strong>stride</strong> (<em>int</em><em>, </em><em>optional</em>) – The stride of the convolution. Default is 1.</p></li>
+<li><p><strong>pad</strong> (<em>str</em><em>, </em><em>optional</em>) – The type of padding to use when calculating the convolution. Default is “reflect”.</p></li>
+<li><p><strong>bias</strong> (<em>bool</em><em>, </em><em>optional</em>) – Whether or not to include a bias in the linear transformation. Default is False.</p></li>
+<li><p><strong>normal</strong> (<em>str</em><em>, </em><em>optional</em>) – The type of normalisation layer to use. Default is “batch”.</p></li>
+<li><p><strong>activation</strong> (<em>str</em><em>, </em><em>optional</em>) – The activation function to use. Default is “relu” to use the Rectified Linear Unit (ReLU) activation function.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd>
+</dl>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div class="sphinxprev">
+    <h4>Previous page</h4>
+    <p class="topless"><a href="visualisation.html"
+                          title="Previous page">&larr; Visualisers</a></p>
+  </div>
+  <div class="sphinxnext">
+    <h4>Next page</h4>
+    <p class="topless"><a href="io.html"
+                          title="Next page">&rarr; I/O</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/neuralnetwork.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+    
+    
+        <div class="sidebar-toggle-group no-js">
+            
+            <button class="sidebar-toggle" id="sidebar-hide" title="Hide the sidebar menu">
+                 «
+                <span class="show-for-small">hide menu</span>
+                
+            </button>
+            <button class="sidebar-toggle" id="sidebar-show" title="Show the sidebar menu">
+                
+                <span class="show-for-small">menu</span>
+                <span class="hide-for-small">sidebar</span>
+                 »
+            </button>
+        </div>
+    
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="io.html" title="I/O"
+             >next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="visualisation.html" title="Visualisers"
+             >previous</a> &nbsp; &nbsp;</li>
+    <li><a href="index.html">crisPy2 1.0.0 documentation</a> &#187;</li>
+
+          <li class="nav-item nav-item-1"><a href="API.html" >API</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Neural Network Building Blocks</a></li> 
+      </ul>
+    </div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020, John A. Armstrong.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
+    </div>
+    <!-- cloud_sptheme 1.4 -->
+  </body>
+</html>

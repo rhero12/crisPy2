@@ -1,0 +1,295 @@
+
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Examples of the Sequence Classes &#8212; crisPy2 1.0.0 documentation</title>
+    <link rel="stylesheet" href="_static/cloud.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/jupyter-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="_static/thebelab.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noticia+Text:400,i,b,bi|Open+Sans:400,i,b,bi|Roboto+Mono:400,i,b,bi&amp;display=swap" type="text/css" />
+    
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/thebelab-helper.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+    
+     
+        <script src="_static/jquery.cookie.js"></script>
+    
+
+    
+     
+        <script src="_static/cloud.base.js"></script>
+    
+
+    
+     
+        <script src="_static/cloud.js"></script>
+    
+
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Example of Inversion Data in crispy" href="inversionexample.html" />
+    <link rel="prev" title="Examples Using the Main Data Wrappers from crispy" href="dataclasses.html" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head><body>
+    <div class="relbar-top">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="inversionexample.html" title="Example of Inversion Data in crispy"
+             accesskey="N">next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="dataclasses.html" title="Examples Using the Main Data Wrappers from crispy"
+             accesskey="P">previous</a> &nbsp; &nbsp;</li>
+    <li><a href="index.html">crisPy2 1.0.0 documentation</a> &#187;</li>
+
+          <li class="nav-item nav-item-1"><a href="Examples.html" accesskey="U">Examples of crispy in Use</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Examples of the Sequence Classes</a></li> 
+      </ul>
+    </div>
+    </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="examples-of-the-sequence-classes">
+<h1>Examples of the Sequence Classes<a class="headerlink" href="#examples-of-the-sequence-classes" title="Permalink to this headline">¶</a></h1>
+<p>Along with the data structures for single CRISP observations we also introduce sequence data structures that allow us to use one object for many CRISP observations. This is very simply done by the structure essentially being a fancy list of the normal objects, depending which structure is used.</p>
+<p>There are three sequence classes: <code class="docutils literal notranslate"><span class="pre">CRISPSequence</span></code>, <code class="docutils literal notranslate"><span class="pre">CRISPNonUSequence</span></code>, and <code class="docutils literal notranslate"><span class="pre">CRISPWidebandSequence</span></code> to be used depending on the observations you have. The motivation behind these structures is that you will often find there is more than one spectral line observation for a given time e.g. H <span class="math notranslate nohighlight">\(\alpha\)</span> and Ca II 8542, or we may want to group chronological observations together into one structure. Both can be accomplished using the sequences as shown below.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To construct the sequence object, we need a list of the keyword arguments for the underlying data structures as the argument. To avoid confusion and messy code, we provide the <code class="docutils literal notranslate"><span class="pre">crispy2.utils.CRISP_sequence_constructor</span></code> function to create this for the user.</p>
+</div>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">crispy.crisp</span> <span class="kn">import</span> <span class="n">CRISPSequence</span><span class="p">,</span> <span class="n">CRISPNonUSequence</span><span class="p">,</span> <span class="n">CRISPWidebandSequence</span>
+<span class="kn">from</span> <span class="nn">crispy.utils</span> <span class="kn">import</span> <span class="n">CRISP_sequence_constructor</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<div class="section" id="crispsequence">
+<h2>CRISPSequence<a class="headerlink" href="#crispsequence" title="Permalink to this headline">¶</a></h2>
+<p>Again, for the <code class="docutils literal notranslate"><span class="pre">CRISPSequence</span></code>, we use an example from the <a class="reference external" href="https://star.pst.qub.ac.uk/wiki/doku.php/public/solarflares/start">F-CHROMA database</a> of the M1.1 solar flare SOL20140906T17:09 to demonstrate its functionality.</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">crisps</span> <span class="o">=</span> <span class="n">CRISPSequence</span><span class="p">(</span><span class="n">CRISP_sequence_constructor</span><span class="p">([</span><span class="s2">&quot;../examples/2014/crisp_l2_20140906_152724_8542_r00447.fits&quot;</span><span class="p">,</span><span class="s2">&quot;../examples/2014/crisp_l2_20140906_152724_6563_r00447.fits&quot;</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">crisps</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>CRISP Observation
+        ------------------
+        2014-09-06 16:53:44.179
+
+        Observed: [&#39;Ca II 8542&#39;, &#39;H I 6563&#39;]
+        Centre wavelength: [&#39;8544.44&#39;, &#39;6564.58&#39;]
+        Wavelengths sampled: [25, 15]
+        Pointing: (-730.025, -313.399)
+        Shape: [&#39;[25, 1398, 1473]&#39;, &#39;[15, 1398, 1473]&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Each observation can be accessed through the <code class="docutils literal notranslate"><span class="pre">.list</span></code> class attribute e.g.</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">crisps</span><span class="o">.</span><span class="n">list</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>CRISP Observation
+        ------------------
+        2014-09-06 16:53:44.179
+
+        Observed: Ca II 8542
+        Centre wavelength: 8544.44
+        Wavelengths sampled: 25
+        Pointing: (-730.025, -313.399)
+        Shape: [25, 1398, 1473]
+</pre></div>
+</div>
+</div>
+</div>
+<p>The plotting methods from before also exist for the sequence methods which will just loop of the <code class="docutils literal notranslate"><span class="pre">.list</span></code> attribute and call the native class methods for each. For combined plots of the data please see the examples and API documentation for the viewers.</p>
+</div>
+<div class="section" id="crispnonusequence">
+<h2>CRISPNonUSequence<a class="headerlink" href="#crispnonusequence" title="Permalink to this headline">¶</a></h2>
+<p>Similarly, for the <code class="docutils literal notranslate"><span class="pre">CRISPNonUSequence</span></code> we use the example from the X2.2 solar flare SOL20170906T09:10:</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When using <code class="docutils literal notranslate"><span class="pre">CRISP_sequence_constructor</span></code> for the non-uniformly sampled spectra set the keyword argument <code class="docutils literal notranslate"><span class="pre">nonu</span> <span class="pre">=</span> <span class="pre">True</span></code> in the function.</p>
+</div>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">crispsnonu</span> <span class="o">=</span> <span class="n">CRISPNonUSequence</span><span class="p">(</span><span class="n">CRISP_sequence_constructor</span><span class="p">([</span><span class="s2">&quot;../examples/2017/ca8542/00000.h5&quot;</span><span class="p">,</span> <span class="s2">&quot;../examples/2017/Halpha/00000.h5&quot;</span><span class="p">],</span> <span class="n">nonu</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">crispsnonu</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>CRISP Observation
+        ------------------
+        2017-09-06 09:04:30.628
+
+        Observed: [&#39;Ca II 8542&#39;, &#39;H alpha&#39;]
+        Centre wavelength: [&#39;8544.44&#39;, &#39;6565.0&#39;]
+        Wavelengths sampled: [&#39;11&#39;, &#39;13&#39;]
+        Pointing: (523.598, -233.293)
+        Shape: [&#39;(4, 11, 977, 985)&#39;, &#39;(13, 979, 985)&#39;]
+        Sampled wavlengths: [array([8541.3, 8541.5, 8541.7, 8541.8, 8541.9, 8542. , 8542.1, 8542.2,
+       8542.3, 8542.5, 8542.7]), array([6561.49999988, 6562.        , 6562.19999999, 6562.39999998,
+       6562.69999999, 6562.84999999, 6563.        , 6563.15000001,
+       6563.30000001, 6563.60000002, 6563.80000001, 6564.        ,
+       6564.50000012])]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="crispwidebandsequence">
+<h2>CRISPWidebandSequence<a class="headerlink" href="#crispwidebandsequence" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">CRISPWidebandSequence</span></code> is good for grouping together a time sequence of wideband context images. We again use the wideband context images from the X2.2 solar flare SOL20170906T09:10</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">crispswideband</span> <span class="o">=</span> <span class="n">CRISPWidebandSequence</span><span class="p">(</span><span class="n">CRISP_sequence_constructor</span><span class="p">([</span><span class="s2">&quot;../examples/2017/ca8542/wideband/00000.h5&quot;</span><span class="p">,</span> <span class="s2">&quot;../examples/2017/ca8542/wideband/00002.h5&quot;</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">crispswideband</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>CRISP Wideband Context Image
+        ------------------
+        2017-09-06 [&#39;09:04:30.628&#39;, &#39;09:05:00.553&#39;]
+
+        Observed: [&#39;Ca II 8542&#39;, &#39;Ca II 8542&#39;]
+        Pointing: (523.598, -233.293)
+        Shape: [&#39;(977, 985)&#39;, &#39;(977, 985)&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="sphinx-toc sphinxlocaltoc">
+    <h3><a href="index.html">Page contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Examples of the Sequence Classes</a><ul>
+<li><a class="reference internal" href="#crispsequence">CRISPSequence</a></li>
+<li><a class="reference internal" href="#crispnonusequence">CRISPNonUSequence</a></li>
+<li><a class="reference internal" href="#crispwidebandsequence">CRISPWidebandSequence</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div class="sphinxprev">
+    <h4>Previous page</h4>
+    <p class="topless"><a href="dataclasses.html"
+                          title="Previous page">&larr; Examples Using the Main Data Wrappers from crispy</a></p>
+  </div>
+  <div class="sphinxnext">
+    <h4>Next page</h4>
+    <p class="topless"><a href="inversionexample.html"
+                          title="Next page">&rarr; Example of Inversion Data in crispy</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/sequenceexamples.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+    
+    
+        <div class="sidebar-toggle-group no-js">
+            
+            <button class="sidebar-toggle" id="sidebar-hide" title="Hide the sidebar menu">
+                 «
+                <span class="show-for-small">hide menu</span>
+                
+            </button>
+            <button class="sidebar-toggle" id="sidebar-show" title="Show the sidebar menu">
+                
+                <span class="show-for-small">menu</span>
+                <span class="hide-for-small">sidebar</span>
+                 »
+            </button>
+        </div>
+    
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="inversionexample.html" title="Example of Inversion Data in crispy"
+             >next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="dataclasses.html" title="Examples Using the Main Data Wrappers from crispy"
+             >previous</a> &nbsp; &nbsp;</li>
+    <li><a href="index.html">crisPy2 1.0.0 documentation</a> &#187;</li>
+
+          <li class="nav-item nav-item-1"><a href="Examples.html" >Examples of crispy in Use</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Examples of the Sequence Classes</a></li> 
+      </ul>
+    </div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020, John A. Armstrong.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
+    </div>
+    <!-- cloud_sptheme 1.4 -->
+  </body>
+</html>

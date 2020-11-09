@@ -1,0 +1,344 @@
+
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spectrum Properties &#8212; crisPy2 1.0.0 documentation</title>
+    <link rel="stylesheet" href="_static/cloud.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/jupyter-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="_static/thebelab.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noticia+Text:400,i,b,bi|Open+Sans:400,i,b,bi|Roboto+Mono:400,i,b,bi&amp;display=swap" type="text/css" />
+    
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/thebelab-helper.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+    
+     
+        <script src="_static/jquery.cookie.js"></script>
+    
+
+    
+     
+        <script src="_static/cloud.base.js"></script>
+    
+
+    
+     
+        <script src="_static/cloud.js"></script>
+    
+
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Utilities" href="utils.html" />
+    <link rel="prev" title="I/O" href="io.html" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head><body>
+    <div class="relbar-top">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="utils.html" title="Utilities"
+             accesskey="N">next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="io.html" title="I/O"
+             accesskey="P">previous</a> &nbsp; &nbsp;</li>
+    <li><a href="index.html">crisPy2 1.0.0 documentation</a> &#187;</li>
+
+          <li class="nav-item nav-item-1"><a href="API.html" accesskey="U">API</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Spectrum Properties</a></li> 
+      </ul>
+    </div>
+    </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="spectrum-properties">
+<h1>Spectrum Properties<a class="headerlink" href="#spectrum-properties" title="Permalink to this headline">¶</a></h1>
+<p>The following is a collection of functions to estimate simple statistics for the spectral lines.</p>
+<div class="section" id="moments-of-a-spectral-line">
+<h2>Moments of a Spectral Line<a class="headerlink" href="#moments-of-a-spectral-line" title="Permalink to this headline">¶</a></h2>
+<p>We provide functions to calculate the 0th, 1st and 2nd moments of a spectral line. This can be useful for looking at asymmetries in spectral lines and getting a rough idea of line-of-sight Doppler shifts.</p>
+<dl class="py function">
+<dt id="crispy.spectral.integrated_intensity">
+<code class="sig-prename descclassname">crispy.spectral.</code><code class="sig-name descname">integrated_intensity</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">intensity_vector</span></em>, <em class="sig-param"><span class="n">wavelengths</span></em>, <em class="sig-param"><span class="n">idx_range</span><span class="o">=</span><span class="default_value">'all'</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crisPy2/blob/master/crispy/spectral.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crispy.spectral.integrated_intensity" title="Permalink to this definition">¶</a></dt>
+<dd><p>A function to find the integrated intensity over a wavelength range of a spectral line.</p>
+<div class="math notranslate nohighlight">
+\[I = \int_{\Delta \lambda} I_{\lambda} ~d\lambda\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>intensity_vector</strong> (<em>numpy.ndarray</em><em> or </em><em>crispy2.crisp.CRISP</em><em> or </em><em>crispy2.crisp.CRISPNonU</em>) – The vector of spectral line intensities.</p></li>
+<li><p><strong>wavelengths</strong> (<em>numpy.ndarray</em>) – The wavelengths to integrate over.</p></li>
+<li><p><strong>idx_range</strong> (<em>range</em><em>, </em><em>optional</em>) – The range of indices to integrate over. Default is “all”, integrates over the whole range.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="crispy.spectral.bar_lambda">
+<code class="sig-prename descclassname">crispy.spectral.</code><code class="sig-name descname">bar_lambda</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">intensity_vector</span></em>, <em class="sig-param"><span class="n">wavelengths</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crisPy2/blob/master/crispy/spectral.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crispy.spectral.bar_lambda" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the intensity-averaged line core.</p>
+<div class="math notranslate nohighlight">
+\[\bar{\lambda} = \frac{\int I(\lambda) ~\lambda ~d\lambda}{\int I (\lambda) ~ d\lambda}\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>intensity_vector</strong> (<em>numpy.ndarray</em><em> or </em><em>crispy2.crisp.CRISP</em><em> or </em><em>crispy2.crisp.CRISPNonU</em>) – The vector of spectral line intensities.</p></li>
+<li><p><strong>wavelengths</strong> (<em>numpy.ndarray</em>) – The wavelengths to integrate over.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="crispy.spectral.variance">
+<code class="sig-prename descclassname">crispy.spectral.</code><code class="sig-name descname">variance</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">intensity_vector</span></em>, <em class="sig-param"><span class="n">wavelengths</span></em>, <em class="sig-param"><span class="n">bar_l</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crisPy2/blob/master/crispy/spectral.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crispy.spectral.variance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the variance of the spectral line around the intensity-averaged line core.</p>
+<div class="math notranslate nohighlight">
+\[\sigma^{2} = \frac{\int I (\lambda) ~ (\lambda - \bar{\lambda})^{2} ~ d\lambda}{\int I (\lambda) ~ d\lambda}\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>intensity_vector</strong> (<em>numpy.ndarray</em><em> or </em><em>crispy2.crisp.CRISP</em><em> or </em><em>crispy2.crisp.CRISPNonU</em>) – The vector of spectral line intensities.</p></li>
+<li><p><strong>wavelengths</strong> (<em>numpy.ndarray</em>) – The wavelengths to integrate over.</p></li>
+<li><p><strong>bar_l</strong> (<em>float</em><em> or </em><em>None</em><em>, </em><em>optional</em>) – The intensity-averaged line core of the spectral line. Default is None will call <code class="docutils literal notranslate"><span class="pre">crispy2.spectral.bar_lambda</span></code> function on the <code class="docutils literal notranslate"><span class="pre">intensity_vector</span></code> and <code class="docutils literal notranslate"><span class="pre">wavelengths</span></code> argument to calculate.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="line-asymmetries">
+<h2>Line Asymmetries<a class="headerlink" href="#line-asymmetries" title="Permalink to this headline">¶</a></h2>
+<p>It is often important to look at the asymmetry being the wings of spectral lines as this can help interpret the motion of the plasma that produces these lines. We provide useful functions here for working with line wing.</p>
+<dl class="py function">
+<dt id="crispy.spectral.wing_idxs">
+<code class="sig-prename descclassname">crispy.spectral.</code><code class="sig-name descname">wing_idxs</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">intensity_vector</span></em>, <em class="sig-param"><span class="n">wavelengths</span></em>, <em class="sig-param"><span class="n">var</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">bar_l</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crisPy2/blob/master/crispy/spectral.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crispy.spectral.wing_idxs" title="Permalink to this definition">¶</a></dt>
+<dd><p>A function to work out the index range for the wings of the spectral line. This is working on the definition of wings that says the wings are defined as being one standard deviation away from the intensity-averaged line core.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>intensity_vector</strong> (<em>numpy.ndarray</em><em> or </em><em>crispy2.crisp.CRISP</em><em> or </em><em>crispy2.crisp.CRISPNonU</em>) – The vector of spectral line intensities.</p></li>
+<li><p><strong>wavelengths</strong> (<em>numpy.ndarray</em>) – The wavelengths to integrate over.</p></li>
+<li><p><strong>var</strong> (<em>float</em><em> or </em><em>None</em><em>, </em><em>optional</em>) – The variance of the spectral line. Default is None will call <code class="docutils literal notranslate"><span class="pre">crispy2.spectral.variance</span></code> function on the <code class="docutils literal notranslate"><span class="pre">intensity_vector</span></code> and <code class="docutils literal notranslate"><span class="pre">wavelengths</span></code> argument to calculate.</p></li>
+<li><p><strong>bar_l</strong> (<em>float</em><em> or </em><em>None</em><em>, </em><em>optional</em>) – The intensity-averaged line core of the spectral line. Default is None will call <code class="docutils literal notranslate"><span class="pre">crispy2.spectral.bar_lambda</span></code> function on the <code class="docutils literal notranslate"><span class="pre">intensity_vector</span></code> and <code class="docutils literal notranslate"><span class="pre">wavelengths</span></code> argument to calculate.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="crispy.spectral.delta_lambda">
+<code class="sig-prename descclassname">crispy.spectral.</code><code class="sig-name descname">delta_lambda</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">wing_idxs</span></em>, <em class="sig-param"><span class="n">wavelengths</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crisPy2/blob/master/crispy/spectral.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crispy.spectral.delta_lambda" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the half-width in an intensity range i.e. there are N indices spanning a wing then the half-width is half of those indices multiplied by the change in wavelength between two entries. N.B. this is only the case when the space in the spectral axis is uniform.</p>
+<div class="math notranslate nohighlight">
+\[\delta \lambda = \frac{N}{2} \times (\Delta \lambda)\]</div>
+<p>where <span class="math notranslate nohighlight">\(\Delta \lambda\)</span> is the difference in wavelength of two spectral points.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>wing_idxs</strong> (<em>range</em>) – The indices of the spectral line corresponding to the wing of interest.</p></li>
+<li><p><strong>wavelengths</strong> (<em>numpy.ndarray</em>) – The wavelengths to integrate over.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="crispy.spectral.lambda_0_wing">
+<code class="sig-prename descclassname">crispy.spectral.</code><code class="sig-name descname">lambda_0_wing</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">wing_idxs</span></em>, <em class="sig-param"><span class="n">wavelengths</span></em>, <em class="sig-param"><span class="n">d_lambda</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crisPy2/blob/master/crispy/spectral.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crispy.spectral.lambda_0_wing" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the centre wavelength of an intensity range.</p>
+<div class="math notranslate nohighlight">
+\[\lambda_{0, w} = \lambda_{\text{end}, w} - \delta \lambda\]</div>
+<p>where <span class="math notranslate nohighlight">\(\lambda_{\text{end},w}\)</span> is the wavelength of the end of the wing.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>wing_idxs</strong> (<em>range</em>) – The indices of the spectral line corresponding to the wing of interest.</p></li>
+<li><p><strong>wavelengths</strong> (<em>numpy.ndarray</em>) – The wavelengths to integrate over.</p></li>
+<li><p><strong>d_lambda</strong> (<em>float</em><em>, </em><em>optional</em>) – The half-width of the wing of the spectral line. Default is None will call <code class="docutils literal notranslate"><span class="pre">crispy2.spectral.delta_lambda</span></code> function on the <code class="docutils literal notranslate"><span class="pre">wing_idxs</span></code> and <code class="docutils literal notranslate"><span class="pre">wavelengths</span></code> arguments to calculate.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="crispy.spectral.intensity_ratio">
+<code class="sig-prename descclassname">crispy.spectral.</code><code class="sig-name descname">intensity_ratio</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">I_1</span></em>, <em class="sig-param"><span class="n">I_2</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crisPy2/blob/master/crispy/spectral.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crispy.spectral.intensity_ratio" title="Permalink to this definition">¶</a></dt>
+<dd><p>A function that calculates the intensity ratio of two previously integrated intensities.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>I_1</strong> (<em>float</em>) – The integrated intensity to be on the numerator of the ratio.</p></li>
+<li><p><strong>I_2</strong> (<em>float</em>) – The integrated intensity to be on the denominator of the ratio.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="miscellaneous">
+<h2>Miscellaneous<a class="headerlink" href="#miscellaneous" title="Permalink to this headline">¶</a></h2>
+<p>Here we present some other useful functions when working with spectral lines. Namely, a function to interpolate the line onto a finer (even uniform) grid for more accurate calculations of moments and wings; a function to calculate the line-of-sight Doppler velocity for the intensity-averaged wavelength; and a function to find the azimuthally-averaged power spectrum across an image.</p>
+<dl class="py function">
+<dt id="crispy.spectral.interp_fine">
+<code class="sig-prename descclassname">crispy.spectral.</code><code class="sig-name descname">interp_fine</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">spec_line</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crisPy2/blob/master/crispy/spectral.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crispy.spectral.interp_fine" title="Permalink to this definition">¶</a></dt>
+<dd><p>Interpolates the spectral line onto a finer grid for more accurate calculations for the wing properties.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>spec_line</strong> (<em>tuple</em><em> [</em><em>numpy.ndarray</em><em>]</em>) – The spectral line to be interpolated onto a finer grid. This is a tuple of the intensities and the wavelengths in the order (wavelengths, intensities).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="crispy.spectral.doppler_vel">
+<code class="sig-prename descclassname">crispy.spectral.</code><code class="sig-name descname">doppler_vel</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">l</span></em>, <em class="sig-param"><span class="n">del_l</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crisPy2/blob/master/crispy/spectral.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crispy.spectral.doppler_vel" title="Permalink to this definition">¶</a></dt>
+<dd><p>A function to calculate the Doppler shift of a line core in km/s.</p>
+<div class="math notranslate nohighlight">
+\[v = \frac{\Delta \lambda}{\lambda_{0}} c\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>l</strong> (<em>float</em>) – The rest wavelength of the transition.</p></li>
+<li><p><strong>del_l</strong> (<em>float</em><em>, </em><em>optional</em>) – The difference between the observed wavelength and the rest wavelength of the transition.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="crispy.spectral.power_spectrum">
+<code class="sig-prename descclassname">crispy.spectral.</code><code class="sig-name descname">power_spectrum</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">image</span></em>, <em class="sig-param"><span class="n">plot</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crisPy2/blob/master/crispy/spectral.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crispy.spectral.power_spectrum" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function calculates the azimuthally-average power spectrum for an image.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>image</strong> (<em>numpy.ndarray</em>) – The image to calculate the power spectrum for.</p></li>
+<li><p><strong>plot</strong> (<em>bool</em><em>, </em><em>optional</em>) – Whether or not to plot the the power spectrum. Default is True.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="sphinx-toc sphinxlocaltoc">
+    <h3><a href="index.html">Page contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Spectrum Properties</a><ul>
+<li><a class="reference internal" href="#moments-of-a-spectral-line">Moments of a Spectral Line</a></li>
+<li><a class="reference internal" href="#line-asymmetries">Line Asymmetries</a></li>
+<li><a class="reference internal" href="#miscellaneous">Miscellaneous</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div class="sphinxprev">
+    <h4>Previous page</h4>
+    <p class="topless"><a href="io.html"
+                          title="Previous page">&larr; I/O</a></p>
+  </div>
+  <div class="sphinxnext">
+    <h4>Next page</h4>
+    <p class="topless"><a href="utils.html"
+                          title="Next page">&rarr; Utilities</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/spectral.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+    
+    
+        <div class="sidebar-toggle-group no-js">
+            
+            <button class="sidebar-toggle" id="sidebar-hide" title="Hide the sidebar menu">
+                 «
+                <span class="show-for-small">hide menu</span>
+                
+            </button>
+            <button class="sidebar-toggle" id="sidebar-show" title="Show the sidebar menu">
+                
+                <span class="show-for-small">menu</span>
+                <span class="hide-for-small">sidebar</span>
+                 »
+            </button>
+        </div>
+    
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="utils.html" title="Utilities"
+             >next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="io.html" title="I/O"
+             >previous</a> &nbsp; &nbsp;</li>
+    <li><a href="index.html">crisPy2 1.0.0 documentation</a> &#187;</li>
+
+          <li class="nav-item nav-item-1"><a href="API.html" >API</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Spectrum Properties</a></li> 
+      </ul>
+    </div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020, John A. Armstrong.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
+    </div>
+    <!-- cloud_sptheme 1.4 -->
+  </body>
+</html>

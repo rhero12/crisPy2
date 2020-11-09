@@ -1,0 +1,359 @@
+
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Examples Using the Main Data Wrappers from crispy &#8212; crisPy2 1.0.0 documentation</title>
+    <link rel="stylesheet" href="_static/cloud.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/jupyter-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="_static/thebelab.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noticia+Text:400,i,b,bi|Open+Sans:400,i,b,bi|Roboto+Mono:400,i,b,bi&amp;display=swap" type="text/css" />
+    
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/thebelab-helper.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+    
+     
+        <script src="_static/jquery.cookie.js"></script>
+    
+
+    
+     
+        <script src="_static/cloud.base.js"></script>
+    
+
+    
+     
+        <script src="_static/cloud.js"></script>
+    
+
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Examples of the Sequence Classes" href="sequenceexamples.html" />
+    <link rel="prev" title="Examples of crispy in Use" href="Examples.html" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head><body>
+    <div class="relbar-top">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="sequenceexamples.html" title="Examples of the Sequence Classes"
+             accesskey="N">next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="Examples.html" title="Examples of crispy in Use"
+             accesskey="P">previous</a> &nbsp; &nbsp;</li>
+    <li><a href="index.html">crisPy2 1.0.0 documentation</a> &#187;</li>
+
+          <li class="nav-item nav-item-1"><a href="Examples.html" accesskey="U">Examples of crispy in Use</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Examples Using the Main Data Wrappers from crispy</a></li> 
+      </ul>
+    </div>
+    </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="examples-using-the-main-data-wrappers-from-crispy">
+<h1>Examples Using the Main Data Wrappers from crispy<a class="headerlink" href="#examples-using-the-main-data-wrappers-from-crispy" title="Permalink to this headline">¶</a></h1>
+<p>Here, we provide a brief introduction on how to use the main data structures defined in crispy.crisp. Specifically, these examples will cover the CRISP, CRISPNonU, and CRISPWideband structures.</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">crispy.crisp</span> <span class="kn">import</span> <span class="n">CRISP</span><span class="p">,</span> <span class="n">CRISPWideband</span><span class="p">,</span> <span class="n">CRISPNonU</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<div class="section" id="crisp">
+<h2>CRISP<a class="headerlink" href="#crisp" title="Permalink to this headline">¶</a></h2>
+<p>To demonstrate the CRISP class we use an example from the M1.1 solar flare SOL20140906T17:09 observed by SST/CRISP in H <span class="math notranslate nohighlight">\(\alpha\)</span> and Ca II 8542. The data is publicly available through the F-CHROMA project <a class="reference external" href="https://star.pst.qub.ac.uk/wiki/doku.php/public/solarflares/start">here</a>. Below we show the data for H <span class="math notranslate nohighlight">\(\alpha\)</span>.</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">crisp</span> <span class="o">=</span> <span class="n">CRISP</span><span class="p">(</span><span class="s2">&quot;../examples/2014/crisp_l2_20140906_152724_6563_r00447.fits&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">crisp</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>CRISP Observation
+        ------------------
+        2014-09-06 16:53:39.174
+
+        Observed: H I 6563
+        Centre wavelength: 6564.58
+        Wavelengths sampled: 15
+        Pointing: (-730.032, -313.398)
+        Shape: [15, 1398, 1473]
+</pre></div>
+</div>
+</div>
+</div>
+<p>The data structures use slicing derived from astropy’s <a class="reference external" href="https://docs.astropy.org/en/stable/nddata/">NDData</a> meaning the objects can be directly sliced to produce new objects of just the slice e.g. for only looking at the far blue wing data in our observation</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">crisp</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>CRISP Observation
+        ------------------
+        2014-09-06 16:53:39.174
+
+        Observed: H I 6563
+        Centre wavelength: 6564.58
+        Wavelengths sampled: 15
+        Pointing: (-730.032, -313.398)
+        Shape: [1398, 1473]
+</pre></div>
+</div>
+</div>
+</div>
+<p>This is also the easiest way to use the plotting methods. For this observation, to view an image at a specific wavelength we would use the <code class="docutils literal notranslate"><span class="pre">intensity_map</span></code> class method as shown below for the line core of the H <span class="math notranslate nohighlight">\(\alpha\)</span> observation</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">crisp</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span><span class="o">.</span><span class="n">intensity_map</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<div class="align-center figure">
+<a class="reference internal image-reference" href="_images/CRISP.png"><img alt="_images/CRISP.png" src="_images/CRISP.png" style="width: 100%;" /></a>
+</div>
+<p>We can than use slicing and the <code class="docutils literal notranslate"><span class="pre">plot_spectrum</span></code> class method to plot the spectrum at a certain point. Firstly though to identify the slice we need we use the <code class="docutils literal notranslate"><span class="pre">from_lonlat</span></code> class method, in this example we take the point (-720, -310) in the Helioprojective plane:</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">crisp</span><span class="o">.</span><span class="n">from_lonlat</span><span class="p">(</span><span class="o">-</span><span class="mi">720</span><span class="p">,</span> <span class="o">-</span><span class="mi">310</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>(759, 912)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">crisp</span><span class="p">[:,</span><span class="mi">759</span><span class="p">,</span><span class="mi">912</span><span class="p">]</span><span class="o">.</span><span class="n">plot_spectrum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<div class="align-center figure">
+<a class="reference internal image-reference" href="_images/CRISP_Spectrum.png"><img alt="_images/CRISP_Spectrum.png" src="_images/CRISP_Spectrum.png" style="width: 100%;" /></a>
+</div>
+</div>
+<div class="section" id="crispnonu">
+<h2>CRISPNonU<a class="headerlink" href="#crispnonu" title="Permalink to this headline">¶</a></h2>
+<p>For the CRISPNonU class, we choose an imaging spectropolarimetric Ca II 8542 observation of the X2.2 solar flare SOL20170906T09:10.</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">crispnonu</span> <span class="o">=</span> <span class="n">CRISPNonU</span><span class="p">(</span><span class="s2">&quot;../examples/2017/ca8542/00000.h5&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">crispnonu</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>CRISP Observation
+        ------------------
+        2017-09-06 09:04:30.628
+
+        Observed: Ca II 8542
+        Centre wavelength: 8544.44
+        Wavelengths sampled: 11
+        Pointing: (523.598, -233.293)
+        Shape: (4, 11, 977, 985)
+        Wavelengths sampled: [8541.3 8541.5 8541.7 8541.8 8541.9 8542.  8542.1 8542.2 8542.3 8542.5
+ 8542.7]
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">intensity_map</span></code> and <code class="docutils literal notranslate"><span class="pre">plot_spectrum</span></code> methods will also work here with the correct slicing. The main difference from the CRISPNonU class can be seen in the wavelengths sampled section: the wavelengths are sampled non-uniformly but the class deals with this for us. Here, we will show the polarimetric class methods. Firstly is <code class="docutils literal notranslate"><span class="pre">stokes_map</span></code> for the line core:</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">crispnonu</span><span class="p">[:,</span><span class="mi">5</span><span class="p">]</span><span class="o">.</span><span class="n">stokes_map</span><span class="p">(</span><span class="n">stokes</span><span class="o">=</span><span class="s2">&quot;all&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<div class="align-center figure">
+<a class="reference internal image-reference" href="_images/CRISPNonU.png"><img alt="_images/CRISPNonU.png" src="_images/CRISPNonU.png" style="width: 100%;" /></a>
+</div>
+<p>We can then identify a point to view the Stokes profiles for using the <code class="docutils literal notranslate"><span class="pre">from_lonlat</span></code> as before and plot the Stokes profiles using the <code class="docutils literal notranslate"><span class="pre">plot_stokes</span></code> class method:</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">crispnonu</span><span class="p">[:,:,</span><span class="mi">38</span><span class="p">,</span><span class="mi">257</span><span class="p">]</span><span class="o">.</span><span class="n">plot_stokes</span><span class="p">(</span><span class="n">stokes</span><span class="o">=</span><span class="s2">&quot;all&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<div class="align-center figure">
+<a class="reference internal image-reference" href="_images/CRISPNonU_Spectrum.png"><img alt="_images/CRISPNonU_Spectrum.png" src="_images/CRISPNonU_Spectrum.png" style="width: 100%;" /></a>
+</div>
+</div>
+<div class="section" id="crispwideband">
+<h2>CRISPWideband<a class="headerlink" href="#crispwideband" title="Permalink to this headline">¶</a></h2>
+<p>For the CRISPWideband class, we use the complimentary wideband Ca II 8542 for the observation shown as an example for the CRISPNonU class, above.</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">crispwideband</span> <span class="o">=</span> <span class="n">CRISPWideband</span><span class="p">(</span><span class="s2">&quot;../examples/2017/ca8542/wideband/00000.h5&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">crispwideband</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>CRISP Wideband Context Image
+        ------------------
+        2017-09-06 09:04:30.628
+
+        Observed: Ca II 8542
+        Pointing: (523.598, -233.293)
+        Shape: (977, 985)
+</pre></div>
+</div>
+</div>
+</div>
+<p>The CRISPWideband has one useful class method, that is <code class="docutils literal notranslate"><span class="pre">intensity_map</span></code>:</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">crispwideband</span><span class="o">.</span><span class="n">intensity_map</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<div class="align-center figure">
+<a class="reference internal image-reference" href="_images/CRISPWideband.png"><img alt="_images/CRISPWideband.png" src="_images/CRISPWideband.png" style="width: 100%;" /></a>
+</div>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="sphinx-toc sphinxlocaltoc">
+    <h3><a href="index.html">Page contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Examples Using the Main Data Wrappers from crispy</a><ul>
+<li><a class="reference internal" href="#crisp">CRISP</a></li>
+<li><a class="reference internal" href="#crispnonu">CRISPNonU</a></li>
+<li><a class="reference internal" href="#crispwideband">CRISPWideband</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div class="sphinxprev">
+    <h4>Previous page</h4>
+    <p class="topless"><a href="Examples.html"
+                          title="Previous page">&larr; Examples of crispy in Use</a></p>
+  </div>
+  <div class="sphinxnext">
+    <h4>Next page</h4>
+    <p class="topless"><a href="sequenceexamples.html"
+                          title="Next page">&rarr; Examples of the Sequence Classes</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/dataclasses.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+    
+    
+        <div class="sidebar-toggle-group no-js">
+            
+            <button class="sidebar-toggle" id="sidebar-hide" title="Hide the sidebar menu">
+                 «
+                <span class="show-for-small">hide menu</span>
+                
+            </button>
+            <button class="sidebar-toggle" id="sidebar-show" title="Show the sidebar menu">
+                
+                <span class="show-for-small">menu</span>
+                <span class="hide-for-small">sidebar</span>
+                 »
+            </button>
+        </div>
+    
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="sequenceexamples.html" title="Examples of the Sequence Classes"
+             >next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="Examples.html" title="Examples of crispy in Use"
+             >previous</a> &nbsp; &nbsp;</li>
+    <li><a href="index.html">crisPy2 1.0.0 documentation</a> &#187;</li>
+
+          <li class="nav-item nav-item-1"><a href="Examples.html" >Examples of crispy in Use</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Examples Using the Main Data Wrappers from crispy</a></li> 
+      </ul>
+    </div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020, John A. Armstrong.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
+    </div>
+    <!-- cloud_sptheme 1.4 -->
+  </body>
+</html>
