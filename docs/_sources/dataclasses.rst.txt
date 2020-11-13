@@ -57,7 +57,6 @@ CRISPNonU
 For the CRISPNonU class, we choose an imaging spectropolarimetric Ca II 8542 observation of the X2.2 solar flare SOL20170906T09:10.
 
 .. jupyter-execute::
-   :linenos:
 
    crispnonu = CRISPNonU("../examples/2017/ca8542/00000.h5")
    print(crispnonu)

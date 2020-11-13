@@ -8,14 +8,14 @@ import astropy.units as u
 from astropy.io.fits.header import Header
 from specutils.utils.wcs_utils import vac_to_air
 from .mixin import CRISPSlicingMixin, CRISPSequenceSlicingMixin
-from .utils import ObjDict, pt_bright, rotate_crop_data
+from .utils import ObjDict, pt_bright, rotate_crop_data, rotate_crop_aligned_data
 from .io import hdf5_header_to_wcs
 
 class CRISP(CRISPSlicingMixin):
     """
     Class for a single narrowband CRISP observation. This object is intended to be for narrowband observations of a single spectral line. This can be sliced directly by virtue of inheriting from `astropy`'s `N-dimensional data slicing <https://docs.astropy.org/en/stable/nddata/>`_.
 
-    :param filename: The file to be represented by the class. This can be in the form of a fits file or hdf5 file or an ObjDict object (see ``crispy2.utils`` for more information on ObjDicts). For fits files, the imaging spectroscopy/spectropolarimetry is assumed to be in the PrimaryHDU of the fits file. For hdf5 it is assumed to have a hdf5 dataset called "data".
+    :param filename: The file to be represented by the class. This can be in the form of a fits file or hdf5 file or an ObjDict object (see ``crispy.utils`` for more information on ObjDicts). For fits files, the imaging spectroscopy/spectropolarimetry is assumed to be in the PrimaryHDU of the fits file. For hdf5 it is assumed to have a hdf5 dataset called "data".
     :type filename: str or ObjDict
     :param wcs: Defines the World Coordinate System (WCS) of the observation. If None, the WCS is constructed from the header information in the file. If a WCS is provided then it will be used by the class instead.
     :type wcs: astropy.wcs.WCS or None, optional
@@ -26,7 +26,9 @@ class CRISP(CRISPSlicingMixin):
     :param nonu: Whether or not the :math:`\\Delta \\lambda` on the wavelength axis is uniform. This is helpful when constructing the WCS but if True, then the ``CRISPNonU`` class should be used. Default is False.
     :type nonu:  bool, optional
 
-    :cvar file: This is where the data and header are stored as attributes to this attribute. e.g. ``file.data`` returns the data and ``file.header`` returns the header
+    :cvar data: This is the data from the file.
+    :cvar header: This is the header data from the file.
+    :cvar wvls: This is the sampled wavelengths.
     :cvar wcs: This stores the WCS.
     :cvar nonu: This is either True or False depending what is passed to the nonu kwarg.
     :cvar uncertainty: This is the uncertainty array.
@@ -104,6 +106,10 @@ class CRISP(CRISPSlicingMixin):
     @property
     def shape(self):
         return self.data.shape
+
+    @property
+    def wvls(self):
+        return self.wave(np.arange(self.shape[-3]))
 
     def rotate_crop(self):
         """
@@ -1270,7 +1276,7 @@ class CRISPSequence(CRISPSequenceSlicingMixin):
     """
     Class for multiple narrowband CRISP observations.
 
-    :param files: A list of dictionaries containing the parameters for individual ``CRISP`` instances. The function ``crispy2.utils.CRISP_sequence_generator`` can be used to generate this list.
+    :param files: A list of dictionaries containing the parameters for individual ``CRISP`` instances. The function ``crispy.utils.CRISP_sequence_generator`` can be used to generate this list.
     :type files: list[dict]
 
     :cvar list: A list of ``CRISP`` instances.
@@ -1307,6 +1313,21 @@ class CRISPSequence(CRISPSequenceSlicingMixin):
         Wavelengths sampled: {wwidth}
         Pointing: ({pointing_x}, {pointing_y})
         Shape: {shape}"""
+
+    @property
+    def data(self):
+        return [f.data for f in self.list]
+
+    @property
+    def header(self):
+        return [f.header for f in self.list]
+
+    @property
+    def wvls(self):
+        return [self.wave(np.arange(f.shape[-3])) for f in self.list]
+
+    def rotate_crop(self):
+        return rotate_crop_aligned_data(self.list[0].data, self.list[1].data)
 
     def plot_spectrum(self, idx, unit=None, air=False, d=False):
         """
@@ -1394,7 +1415,7 @@ class CRISPWideband(CRISP):
     """
     Class for wideband or single wavelength CRISP images. This class expects the data to be two-dimensional.
 
-    :param filename: The file to be represented by the class. This can be in the form of a fits file or hdf5 file or an ObjDict object (see ``crispy2.utils`` for more information on ObjDicts). For fits files, the imaging spectroscopy/spectropolarimetry is assumed to be in the PrimaryHDU of the fits file. For hdf5 it is assumed to have a hdf5 dataset called "data".
+    :param filename: The file to be represented by the class. This can be in the form of a fits file or hdf5 file or an ObjDict object (see ``crispy.utils`` for more information on ObjDicts). For fits files, the imaging spectroscopy/spectropolarimetry is assumed to be in the PrimaryHDU of the fits file. For hdf5 it is assumed to have a hdf5 dataset called "data".
     :type filename: str or ObjDict
     :param wcs: Defines the World Coordinate System (WCS) of the observation. If None, the WCS is constructed from the header information in the file. If a WCS is provided then it will be used by the class instead.
     :type wcs: astropy.wcs.WCS or None, optional
@@ -1405,7 +1426,8 @@ class CRISPWideband(CRISP):
     :param nonu: Whether or not the :math:`\\Delta \\lambda` on the wavelength axis is uniform. This is helpful when constructing the WCS but if True, then the ``CRISPNonU`` class should be used. Default is False.
     :type nonu:  bool, optional
 
-    :cvar file: This is where the data and header are stored as attributes to this attribute. e.g. ``file.data`` returns the data and ``file.header`` returns the header
+    :cvar data: This is the data from the file.
+    :cvar header: This is the header data from the file.
     :cvar wcs: This stores the WCS.
     :cvar nonu: This is either True or False depending what is passed to the nonu kwarg.
     :cvar uncertainty: This is the uncertainty array.
@@ -1442,7 +1464,7 @@ class CRISPWideband(CRISP):
 
     def intensity_map(self, frame=None, norm=None):
         """
-        This function plots the image in the same manner as the ``crispy2.crisp.CRISP.intensity_map`` method.
+        This function plots the image in the same manner as the ``crispy.crisp.CRISP.intensity_map`` method.
 
         Parameters
         ----------
@@ -1486,7 +1508,7 @@ class CRISPWidebandSequence(CRISPSequence):
     """
     This class is for having a sequence of wideband or single wavelength images (preferrably chronologically but no limit is placed on this so y'know be careful).
 
-    :param files: A list of dictionaries containing the parameters for individual ``CRISPWideband`` instances. The function ``crispy2.utils.CRISP_sequence_generator`` can be used to generate this list.
+    :param files: A list of dictionaries containing the parameters for individual ``CRISPWideband`` instances. The function ``crispy.utils.CRISP_sequence_generator`` can be used to generate this list.
     :type files: list[dict]
 
     :cvar list: A list of ``CRISP`` instances.
@@ -1522,7 +1544,7 @@ class CRISPNonU(CRISP):
     """
     This is a class for narrowband CRISP observations whose wavelength axis is sampled non-uniformly. What this means is that each pair of sampled wavelengths is not necessarily separated by the same :math:`\\Delta \\lambda` and thus the ``CDELT3`` fits keyword becomes meaningless as this can only comprehend constant changes in the third axis. This also means that the WCS does not work for the wavelength axis but is still constructed as it holds true in the y,x spatial plane. This class assumes that if the sampling is non-uniform then the true wavelengths that are sampled are stored in the first non-PrimaryHDU in the fits file.
 
-    :param filename: The file to be represented by the class. This can be in the form of a fits file or hdf5 file or an ObjDict object (see ``crispy2.utils`` for more information on ObjDicts). For fits files, the imaging spectroscopy/spectropolarimetry is assumed to be in the PrimaryHDU of the fits file. For hdf5 it is assumed to have a hdf5 dataset called "data".
+    :param filename: The file to be represented by the class. This can be in the form of a fits file or hdf5 file or an ObjDict object (see ``crispy.utils`` for more information on ObjDicts). For fits files, the imaging spectroscopy/spectropolarimetry is assumed to be in the PrimaryHDU of the fits file. For hdf5 it is assumed to have a hdf5 dataset called "data".
     :type filename: str or ObjDict
     :param wcs: Defines the World Coordinate System (WCS) of the observation. If None, the WCS is constructed from the header information in the file. If a WCS is provided then it will be used by the class instead.
     :type wcs: astropy.wcs.WCS or None, optional
@@ -1533,7 +1555,8 @@ class CRISPNonU(CRISP):
     :param nonu: Whether or not the :math:`\\Delta \\lambda` on the wavelength axis is uniform. This is helpful when constructing the WCS but if True, then the ``CRISPNonU`` class should be used. Default is False.
     :type nonu:  bool, optional
 
-    :cvar file: This is where the data and header are stored as attributes to this attribute. e.g. ``file.data`` returns the data and ``file.header`` returns the header
+    :cvar data: This is the data from the file.
+    :cvar header: This is the header data from the file.
     :cvar wvls: This is where the sampled wavelength points are read in to be used for plotting and ``wave`` methods.
     :cvar wcs: This stores the WCS.
     :cvar nonu: This is either True or False depending what is passed to the nonu kwarg.
@@ -2595,7 +2618,7 @@ class CRISPNonUSequence(CRISPSequence):
     """
     This is a class for a sequence of ``CRISPNonU`` objects and operates identically to ``CRISPSequence``.
 
-    :param files: A list of dictionaries containing the parameters for individual ``CRISPNonU`` instances. The function ``crispy2.utils.CRISP_sequence_generator`` can be used to generate this list.
+    :param files: A list of dictionaries containing the parameters for individual ``CRISPNonU`` instances. The function ``crispy.utils.CRISP_sequence_generator`` can be used to generate this list.
     :type files: list[dict]
 
     :cvar list: A list of ``CRISPNonU`` instances.

@@ -29,10 +29,6 @@ class Inversion(InversionSlicingMixin):
     def __init__(self, filename, z, header, wcs=None):
         if type(filename) == str:
             self.f = h5py.File(filename, "r")
-            self.ne = np.swapaxes(self.f["ne"][...], 0, 1).reshape((-1,840,840))
-            self.temp = np.swapaxes(self.f["temperature"][...],0,1).reshape((-1,840,840))
-            self.vel = np.swapaxes(self.f["vel"][...],0,1).reshape((-1,840,840))
-            self.err = np.swapaxes(self.f["mad"][...],0,-1).reshape((-1,3,840,840))
             if type(z) == str:
                 self.z = h5py.File(z, "r").get("z")
             else:
@@ -43,13 +39,52 @@ class Inversion(InversionSlicingMixin):
                 self.wcs = wcs
             self.header = header
         elif type(filename) == ObjDict:
-            self.ne = filename["ne"]
-            self.temp = filename["temperature"]
-            self.vel = filename["vel"]
-            self.err = filename["mad"]
+            self.f = filename
             self.wcs = wcs
             self.z = z
             self.header = header
+
+    @property
+    def ne(self):
+        if type(self.f) == ObjDict:
+            return self.f["ne"]
+        else:
+            return self.f["/atmos/ne"]
+
+    @property
+    def temp(self):
+        if type(self.f) == ObjDict:
+            return self.f["temperature"]
+        else:
+            return self.f["/atmos/temperature"]
+
+    @property
+    def vel(self):
+        if type(self.f) == ObjDict:
+            return self.f["vel"]
+        else:
+            return self.f["/atmos/vel"]
+
+    @property
+    def ne_err(self):
+        if type(self.f) == ObjDict:
+            return self.f["ne_err"]
+        else:
+            return self.f["/atmos/ne_err"]
+
+    @property
+    def temp_err(self):
+        if type(self.f) == ObjDict:
+            return self.f["temperature_err"]
+        else:
+            return self.f["/atmos/temperature_err"]
+
+    @property
+    def vel_err(self):
+        if type(self.f) == ObjDict:
+            return self.f["vel_err"]
+        else:
+            return self.f["/atmos/vel_err"]
 
     def __str__(self):
         try :       
