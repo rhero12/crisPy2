@@ -18,7 +18,7 @@ The data structure for inversion data in ``crispy`` is built to work with invers
 Now that the object exists we can use the built-in plotting methods to first show the line-of-sight fluid velocity at a height roughly corresponding to the formation height of the core of both H :math:`\alpha` and Ca II 8542
 
 .. jupyter-execute::
-   
+   :hide-output:
 
    inversion[15].vel_map()
 
@@ -30,11 +30,12 @@ Now that the object exists we can use the built-in plotting methods to first sho
 Next we look at the line-of-sight velocity for a specific point on the eastern flare ribbon at (-755,-330)
 
 .. jupyter-execute::
+   :hide-output:
 
    inversion.from_lonlat(-755,-330)
 
 .. jupyter-execute::
-   
+   :hide-output:
 
    inversion[:,408,298].plot_vel()
 
