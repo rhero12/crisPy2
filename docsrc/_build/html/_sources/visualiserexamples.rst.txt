@@ -43,6 +43,7 @@ In this example, we have chosen to look at observations of both Ca II 8542 and H
 Spectral Viewer
 ---------------
 
+
 .. figure:: ../docs/images/spectralviewer.png
    :align: center
    :figclass: align-center
