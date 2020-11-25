@@ -87,7 +87,7 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>filename</strong> (<em>str</em><em> or </em><em>ObjDict</em>) – The file to be represented by the class. This can be in the form of a fits file or hdf5 file or an ObjDict object (see <code class="docutils literal notranslate"><span class="pre">crispy2.utils</span></code> for more information on ObjDicts). For fits files, the imaging spectroscopy/spectropolarimetry is assumed to be in the PrimaryHDU of the fits file. For hdf5 it is assumed to have a hdf5 dataset called “data”.</p></li>
+<li><p><strong>filename</strong> (<em>str</em><em> or </em><em>ObjDict</em>) – The file to be represented by the class. This can be in the form of a fits file or hdf5 file or an ObjDict object (see <code class="docutils literal notranslate"><span class="pre">crispy.utils</span></code> for more information on ObjDicts). For fits files, the imaging spectroscopy/spectropolarimetry is assumed to be in the PrimaryHDU of the fits file. For hdf5 it is assumed to have a hdf5 dataset called “data”.</p></li>
 <li><p><strong>wcs</strong> (<em>astropy.wcs.WCS</em><em> or </em><em>None</em><em>, </em><em>optional</em>) – Defines the World Coordinate System (WCS) of the observation. If None, the WCS is constructed from the header information in the file. If a WCS is provided then it will be used by the class instead.</p></li>
 <li><p><strong>uncertainty</strong> (<em>numpy.ndarray</em><em> or </em><em>None</em><em>, </em><em>optional</em>) – The uncertainty in the observable. Default is None.</p></li>
 <li><p><strong>mask</strong> (<em>numpy.ndarray</em><em> or </em><em>None</em><em>, </em><em>optional</em>) – The mask to be applied to the data. Default is None.</p></li>
@@ -96,7 +96,9 @@
 </dd>
 <dt class="field-even">Variables</dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>file</strong> – This is where the data and header are stored as attributes to this attribute. e.g. <code class="docutils literal notranslate"><span class="pre">file.data</span></code> returns the data and <code class="docutils literal notranslate"><span class="pre">file.header</span></code> returns the header</p></li>
+<li><p><strong>data</strong> – This is the data from the file.</p></li>
+<li><p><strong>header</strong> – This is the header data from the file.</p></li>
+<li><p><strong>wvls</strong> – This is the sampled wavelengths.</p></li>
 <li><p><strong>wcs</strong> – This stores the WCS.</p></li>
 <li><p><strong>nonu</strong> – This is either True or False depending what is passed to the nonu kwarg.</p></li>
 <li><p><strong>uncertainty</strong> – This is the uncertainty array.</p></li>
@@ -237,7 +239,7 @@ crop).</p></li>
 <dd><p>Class for multiple narrowband CRISP observations.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>files</strong> (<em>list</em><em>[</em><em>dict</em><em>]</em>) – A list of dictionaries containing the parameters for individual <code class="docutils literal notranslate"><span class="pre">CRISP</span></code> instances. The function <code class="docutils literal notranslate"><span class="pre">crispy2.utils.CRISP_sequence_generator</span></code> can be used to generate this list.</p>
+<dd class="field-odd"><p><strong>files</strong> (<em>list</em><em>[</em><em>dict</em><em>]</em>) – A list of dictionaries containing the parameters for individual <code class="docutils literal notranslate"><span class="pre">CRISP</span></code> instances. The function <code class="docutils literal notranslate"><span class="pre">crispy.utils.CRISP_sequence_generator</span></code> can be used to generate this list.</p>
 </dd>
 <dt class="field-even">Variables</dt>
 <dd class="field-even"><p><strong>list</strong> – A list of <code class="docutils literal notranslate"><span class="pre">CRISP</span></code> instances.</p>
@@ -318,7 +320,7 @@ crop).</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>filename</strong> (<em>str</em><em> or </em><em>ObjDict</em>) – The file to be represented by the class. This can be in the form of a fits file or hdf5 file or an ObjDict object (see <code class="docutils literal notranslate"><span class="pre">crispy2.utils</span></code> for more information on ObjDicts). For fits files, the imaging spectroscopy/spectropolarimetry is assumed to be in the PrimaryHDU of the fits file. For hdf5 it is assumed to have a hdf5 dataset called “data”.</p></li>
+<li><p><strong>filename</strong> (<em>str</em><em> or </em><em>ObjDict</em>) – The file to be represented by the class. This can be in the form of a fits file or hdf5 file or an ObjDict object (see <code class="docutils literal notranslate"><span class="pre">crispy.utils</span></code> for more information on ObjDicts). For fits files, the imaging spectroscopy/spectropolarimetry is assumed to be in the PrimaryHDU of the fits file. For hdf5 it is assumed to have a hdf5 dataset called “data”.</p></li>
 <li><p><strong>wcs</strong> (<em>astropy.wcs.WCS</em><em> or </em><em>None</em><em>, </em><em>optional</em>) – Defines the World Coordinate System (WCS) of the observation. If None, the WCS is constructed from the header information in the file. If a WCS is provided then it will be used by the class instead.</p></li>
 <li><p><strong>uncertainty</strong> (<em>numpy.ndarray</em><em> or </em><em>None</em><em>, </em><em>optional</em>) – The uncertainty in the observable. Default is None.</p></li>
 <li><p><strong>mask</strong> (<em>numpy.ndarray</em><em> or </em><em>None</em><em>, </em><em>optional</em>) – The mask to be applied to the data. Default is None.</p></li>
@@ -327,7 +329,8 @@ crop).</p></li>
 </dd>
 <dt class="field-even">Variables</dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>file</strong> – This is where the data and header are stored as attributes to this attribute. e.g. <code class="docutils literal notranslate"><span class="pre">file.data</span></code> returns the data and <code class="docutils literal notranslate"><span class="pre">file.header</span></code> returns the header</p></li>
+<li><p><strong>data</strong> – This is the data from the file.</p></li>
+<li><p><strong>header</strong> – This is the header data from the file.</p></li>
 <li><p><strong>wvls</strong> – This is where the sampled wavelength points are read in to be used for plotting and <code class="docutils literal notranslate"><span class="pre">wave</span></code> methods.</p></li>
 <li><p><strong>wcs</strong> – This stores the WCS.</p></li>
 <li><p><strong>nonu</strong> – This is either True or False depending what is passed to the nonu kwarg.</p></li>
@@ -419,7 +422,7 @@ crop).</p></li>
 <dd><p>This is a class for a sequence of <code class="docutils literal notranslate"><span class="pre">CRISPNonU</span></code> objects and operates identically to <code class="docutils literal notranslate"><span class="pre">CRISPSequence</span></code>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>files</strong> (<em>list</em><em>[</em><em>dict</em><em>]</em>) – A list of dictionaries containing the parameters for individual <code class="docutils literal notranslate"><span class="pre">CRISPNonU</span></code> instances. The function <code class="docutils literal notranslate"><span class="pre">crispy2.utils.CRISP_sequence_generator</span></code> can be used to generate this list.</p>
+<dd class="field-odd"><p><strong>files</strong> (<em>list</em><em>[</em><em>dict</em><em>]</em>) – A list of dictionaries containing the parameters for individual <code class="docutils literal notranslate"><span class="pre">CRISPNonU</span></code> instances. The function <code class="docutils literal notranslate"><span class="pre">crispy.utils.CRISP_sequence_generator</span></code> can be used to generate this list.</p>
 </dd>
 <dt class="field-even">Variables</dt>
 <dd class="field-even"><p><strong>list</strong> – A list of <code class="docutils literal notranslate"><span class="pre">CRISPNonU</span></code> instances.</p>
@@ -438,7 +441,7 @@ crop).</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>filename</strong> (<em>str</em><em> or </em><em>ObjDict</em>) – The file to be represented by the class. This can be in the form of a fits file or hdf5 file or an ObjDict object (see <code class="docutils literal notranslate"><span class="pre">crispy2.utils</span></code> for more information on ObjDicts). For fits files, the imaging spectroscopy/spectropolarimetry is assumed to be in the PrimaryHDU of the fits file. For hdf5 it is assumed to have a hdf5 dataset called “data”.</p></li>
+<li><p><strong>filename</strong> (<em>str</em><em> or </em><em>ObjDict</em>) – The file to be represented by the class. This can be in the form of a fits file or hdf5 file or an ObjDict object (see <code class="docutils literal notranslate"><span class="pre">crispy.utils</span></code> for more information on ObjDicts). For fits files, the imaging spectroscopy/spectropolarimetry is assumed to be in the PrimaryHDU of the fits file. For hdf5 it is assumed to have a hdf5 dataset called “data”.</p></li>
 <li><p><strong>wcs</strong> (<em>astropy.wcs.WCS</em><em> or </em><em>None</em><em>, </em><em>optional</em>) – Defines the World Coordinate System (WCS) of the observation. If None, the WCS is constructed from the header information in the file. If a WCS is provided then it will be used by the class instead.</p></li>
 <li><p><strong>uncertainty</strong> (<em>numpy.ndarray</em><em> or </em><em>None</em><em>, </em><em>optional</em>) – The uncertainty in the observable. Default is None.</p></li>
 <li><p><strong>mask</strong> (<em>numpy.ndarray</em><em> or </em><em>None</em><em>, </em><em>optional</em>) – The mask to be applied to the data. Default is None.</p></li>
@@ -447,7 +450,8 @@ crop).</p></li>
 </dd>
 <dt class="field-even">Variables</dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>file</strong> – This is where the data and header are stored as attributes to this attribute. e.g. <code class="docutils literal notranslate"><span class="pre">file.data</span></code> returns the data and <code class="docutils literal notranslate"><span class="pre">file.header</span></code> returns the header</p></li>
+<li><p><strong>data</strong> – This is the data from the file.</p></li>
+<li><p><strong>header</strong> – This is the header data from the file.</p></li>
 <li><p><strong>wcs</strong> – This stores the WCS.</p></li>
 <li><p><strong>nonu</strong> – This is either True or False depending what is passed to the nonu kwarg.</p></li>
 <li><p><strong>uncertainty</strong> – This is the uncertainty array.</p></li>
@@ -463,7 +467,7 @@ crop).</p></li>
 <dl class="py method">
 <dt id="crispy.crisp.CRISPWideband.intensity_map">
 <code class="sig-name descname">intensity_map</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">frame</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">norm</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/rhero12/crisPy2/blob/master/crispy/crisp.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#crispy.crisp.CRISPWideband.intensity_map" title="Permalink to this definition">¶</a></dt>
-<dd><p>This function plots the image in the same manner as the <code class="docutils literal notranslate"><span class="pre">crispy2.crisp.CRISP.intensity_map</span></code> method.</p>
+<dd><p>This function plots the image in the same manner as the <code class="docutils literal notranslate"><span class="pre">crispy.crisp.CRISP.intensity_map</span></code> method.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -482,7 +486,7 @@ crop).</p></li>
 <dd><p>This class is for having a sequence of wideband or single wavelength images (preferrably chronologically but no limit is placed on this so y’know be careful).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>files</strong> (<em>list</em><em>[</em><em>dict</em><em>]</em>) – A list of dictionaries containing the parameters for individual <code class="docutils literal notranslate"><span class="pre">CRISPWideband</span></code> instances. The function <code class="docutils literal notranslate"><span class="pre">crispy2.utils.CRISP_sequence_generator</span></code> can be used to generate this list.</p>
+<dd class="field-odd"><p><strong>files</strong> (<em>list</em><em>[</em><em>dict</em><em>]</em>) – A list of dictionaries containing the parameters for individual <code class="docutils literal notranslate"><span class="pre">CRISPWideband</span></code> instances. The function <code class="docutils literal notranslate"><span class="pre">crispy.utils.CRISP_sequence_generator</span></code> can be used to generate this list.</p>
 </dd>
 <dt class="field-even">Variables</dt>
 <dd class="field-even"><p><strong>list</strong> – A list of <code class="docutils literal notranslate"><span class="pre">CRISP</span></code> instances.</p>

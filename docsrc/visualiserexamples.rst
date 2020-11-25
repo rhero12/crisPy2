@@ -43,6 +43,10 @@ In this example, we have chosen to look at observations of both Ca II 8542 and H
 Spectral Viewer
 ---------------
 
+.. jupyter-execute::
+   :hide-output:
+
+   sv = SpectralViewer(["../examples/2014/crisp_l2_20140906_152724_6563_r00447.fits", "../examples/2014/crisp_l2_20140906_152724_8542_r00447.fits"])
 
 .. figure:: ../docs/images/spectralviewer.png
    :align: center
